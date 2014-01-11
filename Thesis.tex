@@ -1,0 +1,225 @@
+%\documentclass[12pt]{article}
+%\documentclass[twoside,11pt,dvips]{Classes/CUEDthesisPSnPDF}
+\documentclass[oneside,11pt]{Classes/PhDthesisPSnPDF}
+ 	
+\usepackage[english]{babel}
+\usepackage{epsfig,amsmath,amssymb}
+\usepackage{color}
+%\usepackage[running]{lineno}
+
+\usepackage{etex}
+\reserveinserts{18}
+\usepackage{morefloats}
+
+
+\renewcommand{\chaptername}{Chapter} % uncomment to print only "1" not "Chapter 1"
+
+\newcommand{\dd}{\partial}
+
+\def\mygreen{\textcolor{green}}
+\def\myred{\textcolor{red}}
+\def\myblue{\textcolor{blue}}
+\def\Zee{\ensuremath{Z \rightarrow ee}}
+
+\newcommand{\disn}[2]{$$\displaylines{\refstepcounter{equation}%
+            \label{#1}\hskip 1em minus 1em #2\hfilneg}$$}
+\newcommand{\nom}{\hfil\hskip 1em minus 1em (\theequation)}
+\newcommand{\no}{\hfil \hskip 1em minus 1em\phantom{(\theequation)}%
+            \hfilneg\cr\hfilneg\hskip 1em minus 1em\hfil}
+\newcommand{\ns}{\hfill\cr\hfill}
+
+\makeatletter
+\makeatother
+
+\title{Measurement of the $Z$ boson production using \Zee decays with one of the electrons
+detected in the forward calorimeters of the ATLAS detector using  4.6 {pb}^{-1} of data
+collected at sqrt(s) = 7 TeV}
+
+% ----------------------------------------------------------------------
+% The section below defines www links/email for author and institutions
+% They will appear on the title page of the PDF and can be clicked
+\ifpdf
+  \author{\href{radist.morse@gmail.com}{Dipl.-Phys. George Sedov}}
+  \cityofbirth{geboren in Leningrad} % uncomment this if your university requires this
+%  % If city of birth is required, also uncomment 2 sections in PhDthesisPSnPDF
+%  % Just search for the "city" and you'll find them.
+  \collegeordept{Department f\"ur Experimentalphysik}
+  \university{Universit\"at Hamburg}
+
+  % The crest is a graphics file of the logo of your research institution.
+  % Place it in ./0_frontmatter/figures and specify the width
+  % \crest{\includegraphics[width=4cm]{{Frontmatter/unihh.eps}}
+  
+% If you are not creating a PDF then use the following. The default is PDF.
+\else
+  \author{George Sedov}
+  \cityofbirth{geboren in Leningrad}
+  \collegeordept{Department f\"ur Experimentalphysik}
+  \university{Universit\"at Hamburg}
+  % \crest{\includegraphics[width=4cm]{Frontmatter/unihh.eps}}
+\fi
+
+\renewcommand{\submittedtext}{Dissertation zur Erlangung des Grades}
+\degree{Doktor der Naturwissenschaften}
+\degreedate{Jule 2013}
+% ----------------------------------------------------------------------
+
+% turn of those nasty overfull and underfull hboxes
+\hbadness=10000
+\hfuzz=50pt
+
+\hyphenation{Brems-strah-lung}
+%: --------------------------------------------------------------
+%:                  FRONT MATTER: dedications, abstract,..
+% -------------------------------------------------------------
+\newcommand{\single}{0.45}
+\newcommand{\page}{0.55}
+\newcommand{\double}{0.385}
+
+\begin{document}
+%\linenumbers
+\hypersetup{linktocpage}
+%\input definitions
+
+% sets line spacing
+\renewcommand\baselinestretch{1.2}
+\baselineskip=16pt plus1pt
+
+%: ----------------------- generate cover page ------------------------
+%\maketitle  % command to print the title page with above variables
+
+\begin{titlepage}
+\vspace*{-1.6cm}
+{\raggedright \large \bf \MakeUppercase{Universit\"{a}t Hamburg}} \\
+{\large \bf \MakeUppercase{Department Physik} }\\
+  \rule{\textwidth}{0.5pt}
+    \vspace*{1.0cm}
+	\begin{center}
+
+	     {\huge\bf{Measurement of the $Z$ Boson production}\par}
+           \vspace*{0.2cm}
+	     {\huge\bf{using \Zee\ decays with one of the}\par}
+           \vspace*{0.2cm}
+	     {\huge\bf{electrons detected in the forward}\par}
+           \vspace*{0.2cm}
+	     {\huge\bf{calorimeters of the ATLAS detector using }\par}
+           \vspace*{0.2cm}
+	     {\huge\bf{4.6 pb$^{-1}$ of data collected at $\sqrt{s}$ = 7 TeV.}\par}
+
+	        \vspace*{2.6cm}
+        {\LARGE\bf Dissertation\par}
+	        \vspace*{0.1cm}
+	     {\LARGE\bf zur Erlangung des Doktorgrades\par }
+	        \vspace*{0.1cm}
+        {\LARGE\bf des Department Physik\par }
+           \vspace*{0.1cm}
+	     {\LARGE\bf der Universit\"{a}t Hamburg \par }
+	        \vspace*{2.2cm}
+        {\Large\bf vorgelegt von\par}
+	        \vspace*{0.1cm}
+        {\Large\bf George Sedov\par }
+           \vspace{0.1cm}
+	     {\Large\bf aus Leningrad \par }
+	        \vspace*{2.2cm}
+        {\Large\bf{Hamburg}\par}
+	        \vspace*{0.1cm}
+        {\Large\bf{2013}}
+\end{center}
+\end{titlepage}
+
+%: ----------------------- cover page back side ------------------------
+% Your research institution may require reviewer names, etc.
+% This cover back side is required by Dresden Med Fac; uncomment if needed.
+
+\newpage
+\thispagestyle{empty}
+\vspace{12mm}
+\begin{tabular}{ll}
+Gutachter der Dissertation: & PD.~Dr.~Alexandre Glazov \\
+                            & PD.~Dr.~Johannes Haller \\
+                           % & Prof.~Dr.~Stefan~S\"oldner-Rembold \\
+    \\
+Gutachter der Disputation:  & PD.~Dr.~Alexandre Glazov \\
+							& Prof.~Dr.~Johannes Haller \\
+                            
+    \\
+Datum der Disputation: & somewhere Jule 2013 \\
+\\
+Vorsitzender des Pr\"ufungsausschusses: & Prof.~Dr.~Someone1 \\
+Vorsitzender des Promotionsausschusses: & Prof.~Dr.~Someone2 \\
+    \\
+Leiterin des Departments Physik:        & Prof.~Dr.~Someone3 \\
+Dekan der MIN-Fakult\"at:               & Prof.~Dr.~Someone4
+\end{tabular}
+
+%: ----------------------- abstract ------------------------
+
+\begin{abstracts}
+ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in leo metus, ut commodo ipsum. Curabitur pharetra erat at arcu malesuada a porta leo posuere. Curabitur sit amet vulputate quam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam sed tortor sit amet mauris eleifend dapibus. Integer ac purus arcu, vitae scelerisque augue. Curabitur sit amet augue massa, ac eleifend sapien. Suspendisse potenti. Etiam varius molestie quam, at fermentum tellus eleifend quis. Ut in tellus eget est consectetur gravida ac vitae risus. Duis dictum pellentesque nibh, sit amet venenatis massa cursus id. Proin fringilla nulla a est porta fringilla a eget mi.
+
+Mauris ligula tortor, aliquam at fermentum sed, vehicula in erat. Vivamus aliquet ligula a elit suscipit sed tempus urna placerat. Donec iaculis mollis fermentum. Proin hendrerit augue quis nunc convallis laoreet. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent vulputate lacinia magna. Nulla dignissim pellentesque odio suscipit gravida. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ultricies accumsan augue sit amet iaculis. Donec non ligula consectetur nibh semper pellentesque nec condimentum sem. Nullam non arcu nisl. 
+\end{abstracts}	
+
+\cleardoublepage
+
+\begin{zusamm}
+ Nulla ligula lorem, consectetur id rhoncus sit amet, sollicitudin vel neque. Cras ipsum lacus, commodo ac pharetra at, commodo at dui. Phasellus venenatis purus eu dolor venenatis id bibendum quam fringilla. Vestibulum ligula dui, suscipit id facilisis ut, semper eget mi. Aenean porttitor dui mollis sapien pellentesque ut tempor massa sollicitudin. Vivamus orci est, porttitor ut consectetur at, faucibus eget lectus. Nulla in elit gravida magna tempus tempor sed eu justo. Sed dignissim odio nec velit commodo malesuada ornare purus mollis. Ut quis hendrerit mi.
+
+Sed fringilla dignissim purus in luctus. Aenean tincidunt mi ut dui porttitor commodo. Ut sed mi est, ac scelerisque dui. Proin sit amet lectus eu leo sagittis adipiscing fermentum a dui. Cras pretium odio pharetra est convallis sit amet tempus lectus varius. Maecenas fermentum, dui quis tristique pretium, nisl magna volutpat tellus, dictum molestie lectus arcu nec velit. Vivamus at massa sed ligula imperdiet mollis. Quisque purus urna, mollis scelerisque consequat a, varius vitae enim. Duis eget condimentum dolor. Ut ut ligula sit amet nulla porta ultrices. Vivamus malesuada facilisis ligula, viverra pharetra tellus auctor ut. Fusce mi urna, fermentum quis blandit in, venenatis vel nisl.
+
+\end{zusamm}
+
+%: ----------------------- contents ------------------------
+
+\setcounter{secnumdepth}{3} % organisational level that receives a numbers
+\setcounter{tocdepth}{3}    % print table of contents for level 3
+\tableofcontents            % print the table of contents
+%\listoffigures
+%\listoftables
+% levels are: 0 - chapter, 1 - section, 2 - subsection, 3 - subsection
+
+
+\newpage
+\mainmatter
+\newpage 
+
+
+\include{1_Overview}
+\include{2_Theory}
+\include{3_LHC}
+\include{4_ATLAS}
+\include{5_DataSamples}
+\include{6_MCSamples}
+\include{7_Reconstruction}
+\include{8_Selection}
+\include{9_ZeeCrossSec}
+\include{10_ZeeD}
+\include{11_Calibration}
+\include{12_Efficiency}
+\include{13_Bkg}
+\include{14_Results}
+\include{15_Summary}
+
+
+
+\bibliographystyle{atlasBibStyleWithTitle}
+%\nocite{*}
+\bibliography{Thesis}
+
+\newpage 
+\section*{Acknowledgements}
+
+During the years of my PhD I was surrounded by very nice and interesting people, which were always ready to help me. I would like to acknowledge:
+
+\begin{itemize}
+\item PD.~Dr.~Alexandre Glazov for guidance during the years of my PhD,
+\item PD.~Dr.~Thomas Sch\"orner-Sadenius f\"ur die \"Ubernahme des Zweitgutachtens der Dissertation,
+\item Prof.~Dr.~Johannes Haller f\"ur die \"Ubernahme des Zweitgutachtens der Disputation.
+\item My colleagues, who always answering my stupid questions and help me to check the spelling of this thesis (especially: Martin Goebel,  Karl-Johan Grahn, James Dassoulas, George Sedov, Pavel Starovoitov, Voica Radescu, Sebastian Schmitt, Ringaile Placakyte, Stanislav Shushkevich, Anastasia Grebenyuk, Alexey Petrukhin)
+\item Concerning electron identification and reconstruction as well as other question to the ATLAS I thank: Jan Kretzschmar and Mohamed Aharrouche,
+\item Finally I thank my wife and my parents, which always inspire me.
+\end{itemize}
+Many thanks! and Vielen Dank! 
+
+\end{document}
+

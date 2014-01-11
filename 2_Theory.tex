@@ -1,0 +1,79 @@
+\chapter{Theoretical introduction}
+\label{sec:Theory}
+
+In this section the theoretical basis for the measures will be exlained. First of all, the overview of the standard model, then the theoretical aspects of the $pp$ collisions, and in the end the inplications of the $Z$ boson.
+
+\section{The Standard Model}
+\label{sec:theory_SM}
+
+The standart model is a theoretical foundation of all of modern particle physics. It described all of the currently-known particles and three out of four currently-known types of interactions (being weak, strong, and electromagnetic, excluding gravity). It was developed during the last fifty years and made several predictions on the nature of particles and interactions, all which were confirmed by the present time. Among it's predictions were quarks (first confirmed in mid 1970s), vector bosons (confirmed in 1983), top-quark (confirmed in 1995), and $\tau$-neutrino (confirmed in 2000). The last to-date update to standard model was made in 2002 with the theoretical explanation of neutrino oscillations, which was confirmed to be true with the T2K experiment on july 2013. The last major prediction of the standard model was the existence of the Higgs boson, which was confirmed in january 2013.
+
+The main theses of the standard model are:
+\begin{itemize}
+\item There are 61 fundamental particles which can be devided into several groups:
+\begin{itemize}
+\item The quarks, which have electromagnetic weak and color charge, and thus participate in all three interactions. There are two types of quarks defined by their charges, three generations for each, and 3 possible color charges. Together with the anti-particle partner for every particle this makes 36 particles in total.
+\item The leptons, which do not have color charge, and thus do not participate in strong interactions. Again, there are two types of leptons, one having both electric and weak charges and one having only the weak, three generations for each and possible anti-particle partner, which makes the total of 12.
+\item The gauge bosons, the force carriers for all three fundamental interactions, which can be devded into three symmetry groups: the gluons, carriers of the strong interaction with 8 possible color charges, constituting the $SU(3)$ group; the $W^{\pm}$ and $Z$ bosons, carriers of the weak interaction, constituting the $SU(2)$ group; the photons, carriers of the electromagnetic interaction, constituting the $U(1)$ group. The total number of gauge bosons is thus 12.
+\item The Higgs boson, by interacting with which all other particles gain their masses.
+\end{itemize}
+\item The quarks and leptons, together known as fermions, are participating in the interactions. The strong and electromagnetic interactions only occure between the fermions in the same generation, while the weak interaction can mix the generations, which makes all of the fermions to constantly decay into the lightest.
+\item The standard model has several parameters which can not be theoretically predicted: the masses of all massive particles, the gauge couplings, the CKM mixing angles and the Weinberg angle (Tab.~\ref{tab:SM_parameters}).
+\end{itemize}
+
+\begin{table}[ht!]
+\centering
+\begin{tabular}{c|c|c} \hline\hline
+Parameter & Description & Value \\\hline
+
+$m_{u}$ & Up quark mass &  1.9 MeV \\
+$m_{d}$ & Down quark mass & 4.4 MeV \\
+$m_{s}$ & Strange quark mass & 87 MeV \\
+$m_{c}$ & Charm quark mass & 1.32 GeV \\
+$m_{b}$ & Bottom quark mass & 4.24 GeV \\
+$m_{t}$ & Top quark mass & 172.7 GeV \\
+\hline
+$m_{e}$ & Electron mass & 511 keV \\
+$m_{\mu}$ & Muon mass & 105.7 MeV \\
+$m_{\tau}$ & Tau mass & 1.78 GeV \\
+\hline
+$m_{Z}$ & Z boson mass & 91.18 GeV \\
+$m_{W}$ & W boson mass & 80.38 GeV \\
+$m_{H}$ & Higgs boson mass & 126 GeV \\
+\hline
+$\alpha$ & Fine-structure constant & $7.297 \cdot 10^{-3}$\\
+$\alpha_{s}$ & Strong coupling constant & \\
+$G_{F}$ & Weak coupling constant & \\
+\hline
+$sin^{2} \Theta_{W}$ & Weinberg angle & 0.2397 \\
+\hline
+$\Theta_{12}$ &\multirow{3}{*}{CKM mixing angles}& $13.1^{\circ}$ \\
+$\Theta_{13}$ && $0.2^{\circ}$ \\
+$\Theta_{23}$ && $2.4^{\circ}$ \\
+$\delta_{13}$ & CKM CP-violating Phase & 0.995 \\
+\hline\hline
+\end{tabular}
+\caption{The list of the parameters of the standard model, assuming the masses of neutrinos are zeros.}
+\label{tab:SM_parameters}
+\end{table}
+
+
+The starting point of the standart model is the Dirac's equation which was introduced in 1928, which summarized the previous works of Maxwell, Einstein, Bose, Pauli and others.
+\disn{1}{
+(i \hbar c \gamma^{\mu} \dd_{\mu} - m c^{2})\Psi = 0
+\nom}
+It allowed to theoretically calculate the energy levels of the hydrogen including the fine structure, and explain the Zeeman effect. Based on this equation the formulaes for the Compton scattering were calculated as well as for the bremsstrahlung, which was later observed experimentally. It also predicted the existence of the anti-matter, as a physical interpreatation af the solutions with the negative energy (the positrons were first discovered in 1932). It can be used to described all the half-integer spined non-interacting particles.
+
+The inclusion of the electromagnetic interaction was done by means of the gauge theory which was first suggested by Hermann Weyl in 1918 (although later proved incorrect, and then modified by him together with Vladimir Fock and Fritz London). The gauge theory is a type of a field theory which has the so-called gauge invariance or gauge symmetry - the property in which different configurations of the underlying fields, which are not themselves directly observable, result in identical observable quantities. The example of the simple transformation which will satisfy this criteria can be constructed using the local $U(1)$ symmetry group:
+\disn{2}{
+\Psi(x) -> e^{i\alpha(x)}\Psi(x)
+\nom}
+The term $e^{i\alpha(x)}$ is complex and thus can't be observed, but we also need the equation describing the particle to be invariant to this transformation, and with this restriction the equasion describing the interacting particles can be derived:
+\disn{3}{
+L = \bar \Psi (i \gamma_{\mu} \dd^{\mu} - m) \Psi + e \bar \Psi \gamma_{\mu} A^{\mu} \Psi - \frac{1}{4} F_{\mu\nu}F^{\mu\nu}
+\no
+F_{\mu\nu} = \dd_{\mu}A_{\nu} - \dd_{\nu}A_{\mu} \nom}
+The vector field $A_{\mu}$ introduced in this equation is the electromagnetic field and it allows us to achieve the desired invariance. The term $e \bar \Psi \gamma_{\mu} A_{\mu} \Psi$ describes the interaction between this field and the particle, and the term $F_{\mu\nu}F^{\mu\nu}$ reresents the kinetic energy of the field itself and is in accordance with the Maxwell's equations for the electromagnetic interactions. The quantisation of both $A^{\mu}$ and $\Psi$ leaded to the theory currently known as a Quantum Electro-Dynamics (QED) and is a component of the standard model.
+
+The inclusion of the weak interaction first was attempted by Enrico Fermi in 1933. His theory didn't involve any interaction carriers, with particles interacting directly in one vertex. And while it described the results of the $\beta$-decay remarkably well, the need for a more elaborate description of different occurences of the new type of interaction became gradually stronger as new experemental data was collected. The most notable was the "Wu experiment" conducted in 1956 by Chien-Shiung Wu which established the violation of the P-symmetry. The next attempt to develop a theory was done a year later after that in 1957 by Robert Marshak and George Sudarshan and also independently by Richard Feynman and Murray Gell-Mann. The theory they developed was called a $V-A$ theory as "vector minus axial vector" after the main term of the Lagrangian that described the interaction. In 1964 the CP violation was observed in the kaon experiment by James Cronin and Val Fitch. The $V-A$ theory couldn't explain it, so there was a need to either update the $V-A$ theory or to introduce the new theory of some "superweak interaction". By the year 1968 the new theory took a form of an electroweak interaction. It was developed by Sheldon Glashow, Steven Weinberg, and Abdus Salam. They showed that both electromagnetic and weak interations are two aspects of the same force and predicted the existence of the carriers of that interactions: $W$ and $Z$ bosons (observed directly in 1983).
+
