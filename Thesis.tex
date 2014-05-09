@@ -19,7 +19,86 @@
 \def\mygreen{\textcolor{green}}
 \def\myred{\textcolor{red}}
 \def\myblue{\textcolor{blue}}
+
+\newcommand{\tbu}{{\color{red}TO BE UPDATED }}
+
+\def\pt{\ensuremath{p_{\mathrm{T}}}} % Subscript roman not italic (EE)
+\def\pT{\ensuremath{p_{\mathrm{T}}}} % Subscript roman not italic (EE)
+\def\et{\ensuremath{E_{\mathrm{T}}}} % Subscript roman not italic (EE)
+\def\eT{\ensuremath{E_{\mathrm{T}}}} % Subscript roman not italic (EE)
+\def\ET{\ensuremath{E_{\mathrm{T}}}} % Subscript roman not italic (EE)
+\def\HT{\ensuremath{H_{\mathrm{T}}}} % Subscript roman not italic (EE)
+\def\ptsq{\ensuremath{p^2_{\mathrm{T}}}} % Fixed so it works correctly (EE)
+
+\def\antibar#1{\ensuremath{#1\bar{#1}}}
+\def\ttbar{\antibar{t}}
+
+\def\degr{\ensuremath{^\circ}} % Removed mbox - caused problems and not needed (EE)
+\def\abseta{\ensuremath{|\eta|}}
+\def\Hgg{\ensuremath{H\to\gamma\gamma}}
+\def\mh{\ensuremath{m_h}}
+\def\mW{\ensuremath{m_W}}
+\def\mZ{\ensuremath{m_Z}}
+\def\mH{\ensuremath{m_H}}
+\def\mA{\ensuremath{m_A}}
+\def\met{\ensuremath{E_{\mathrm{T}}^{\mathrm{miss}}}} % Sub/superscript roman not italic (EE)
+\def\MET{\met}
+\def\Wjj{\ensuremath{W \rightarrow jj}}
+\def\tjjb{\ensuremath{t \rightarrow jjb}}
+\def\Hbb{\ensuremath{H \rightarrow b\bar b}}
+\def\Zmm{\ensuremath{Z \rightarrow \mu\mu}}
 \def\Zee{\ensuremath{Z \rightarrow ee}}
+\def\Zll{\ensuremath{Z \rightarrow \ell\ell}}
+\def\Zgmm{\ensuremath{Z/\gamma^* \rightarrow \mu\mu}}
+\def\Zgee{\ensuremath{Z/\gamma^* \rightarrow ee}}
+\def\Zgll{\ensuremath{Z/\gamma^* \rightarrow \ell\ell}}
+\def\Wln{\ensuremath{W \rightarrow \ell\nu}}
+\def\Wpmln{\ensuremath{W^\pm \rightarrow \ell\nu}}
+\def\Wen{\ensuremath{W \rightarrow e\nu}}
+\def\Wplus{\ensuremath{W^+}}
+\def\Wminus{\ensuremath{W^-}}
+\def\Wplusenu {\ensuremath{\Wplus  \rightarrow e^+\nu}}
+\def\Wminusenu{\ensuremath{\Wminus \rightarrow e^-\bar{\nu}}}
+\def\Wmn{\ensuremath{W \rightarrow \mu\nu}}
+\def\Wplusmunu {\ensuremath{\Wplus  \rightarrow \mu^+\nu}}
+\def\Wminusmunu{\ensuremath{\Wminus \rightarrow \mu^-\bar{\nu}}}
+\def\Wpluslnu {\ensuremath{\Wplus  \rightarrow \ell^+\nu}}
+\def\Wminuslnu{\ensuremath{\Wminus \rightarrow \ell^-\bar{\nu}}}
+\def\Hllll{\ensuremath{H \rightarrow ZZ^{(*)} \rightarrow \mu\mu\mu\mu}}
+\def\Hmmmm{\ensuremath{H \rightarrow \mu\mu\mu\mu}}
+\def\Heeee{\ensuremath{H \rightarrow eeee}}
+\def\Amm{\ensuremath{A \rightarrow \mu\mu}}
+\def\Ztau{\ensuremath{Z \rightarrow \tau\tau}}
+\def\Wtau{\ensuremath{W \rightarrow \tau\nu}}
+\def\Atau{\ensuremath{A \rightarrow \tau\tau}}
+\def\Htau{\ensuremath{H \rightarrow \tau\tau}}
+\def\begL{10$^{31}$~cm$^{-2}$~s$^{-1}$}
+\def\lowL{10$^{33}$~cm$^{-2}$~s$^{-1}$}
+\def\highL{10$^{34}$~cm$^{-2}$~s$^{-1}$}
+\newcommand{\EjetRec}{\ensuremath{E_{\mathrm{rec}}}} % Subscript roman not italic (EE)
+\newcommand{\PjetRec}{\ensuremath{p_{\mathrm{rec}}}} % Subscript roman not italic (EE)
+\newcommand{\EjetTru}{\ensuremath{E_{\mathrm{truth}}}} % Subscript roman not italic (EE)
+\newcommand{\PjetTru}{\ensuremath{p_{\mathrm{truth}}}} % Subscript roman not italic (EE)
+\newcommand{\EjetDM}{\ensuremath{E_{\mathrm{DM}}}} % Subscript roman not italic (EE)
+\newcommand{\Rcone}{\ensuremath{R_{\mathrm{cone}}}} % Subscript roman not italic (EE)
+
+\newcommand{\Pythia}{\textsc{Pythia6}}
+\newcommand{\Pythiaeight}{\textsc{Pythia8}}
+\newcommand{\Powheg}{\textsc{Powheg}}
+\newcommand{\Mcatnlo}{\textsc{Mc@Nlo}}
+\newcommand{\Herwig}{\textsc{Herwig}}
+\newcommand{\Herwigpp}{\textsc{Herwig++}}
+\newcommand{\Photos}{\textsc{Photos}}
+\newcommand{\Jimmy}{\textsc{Jimmy}}
+\newcommand{\Tauola}{\textsc{Tauola}}
+\newcommand{\Alpgen}{\textsc{Alpgen}}
+\newcommand{\Sherpa}{\textsc{Sherpa}}
+
+\newcommand{\pdfMrst}{MRST LO$^\ast$}
+\newcommand{\pdfMstw}{MSTW 2008 NNLO}
+\newcommand{\pdfCteq}{CT10 NLO}
+\newcommand{\pdfCteql}{CTEQ6L1}
+\newcommand{\pdfHera}{HERAPDF 1.5 NLO}
 
 \newcommand{\disn}[2]{$$\displaylines{\refstepcounter{equation}%
             \label{#1}\hskip 1em minus 1em #2\hfilneg}$$}

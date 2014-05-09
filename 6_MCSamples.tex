@@ -13,25 +13,113 @@ The simulation process takes lots of time, with the most time-consuming process 
 \section{MC generators used in ATLAS experiment}
 \label{sec:MC_gen}
 
-1. General physiscs (NLO, LO, PS, QED radiation ... ) 
+The first stage of the MC production is the simulation of the $pp$ collision itself. The simulation of this process is based on the standard model, and tries to account for every significant aspect of it. The core of the simulation is the calculation of the matrix element (ME) of the $pp$ interaction, which can be done in different orders. The simplest case is the leading order (LO), which in case of the $\Zee$ is the bare Drell-Yan diagram, with no loops or extra legs. The simulations in the leading order are not precise, and generally the next to leading order (NLO) or next to next to leading order (NNLO) are used instead, with one or two extra loops/legs respectively. The calculation of the matrix element in higher orders is very complex, and in order to increase the precision of the simulation the additional particles are simulated outside of the ME. Additional QCD particles are generated using the "parton shower" (PS) technique, which is to simulate the QCD radiation on every parton independently, using the formulas not unlike the ME. The PS technique is widely adopted and used in every MC generator. Additional QED radiation is generated in a similar way by the independent package named "Photos", with the similar technique. This package can be used in conjunction with other MC generators.
 
-\subsection{signal}
-2. MC tuning and which one we use
-3. What we use
+Here is the list of the most noticeable MC generators used in ATLAS analyses:
+\begin{itemize}
+\item \Herwig~\cite{lib:MC_herwig} is a general-purpose event generator for high-energy processes, with particular emphasis on the detailed simulation of QCD parton showers. The program provides a full simulation of hard lepton-lepton, lepton-hadron and hadron-hadron scattering and soft hadron-hadron collisions in a single package, and has the following special features:
+\begin{itemize}
+\item Initial- and final-state QCD jet evolution with soft gluon in terference taken into account via angular ordering.
+\item Color coherence of (initial and final) partons in all hard subprocesses, including the production and decay of heavy quarks and supersymmetric particles.
+\item Azimuthal correlations within and between jets due to gluon interference and polarization.
+\item A cluster model for jet hadronization based on non-perturbative gluon splitting, and a similar cluster model for soft and underlying hadronic events.
+\item A space-time picture of event development, from parton showers to hadronic decays, with an optional color rearrangement model based on space-time structure.
+\end{itemize}
+In MC11c \Herwig\ is used to provide the parton showering for other generators.
 
-MC@NLO+herwig PowHeg+herwig/pythia
+\item \Pythia~\cite{lib:MC_pythia} is a generator with the objective to provide as accurate as possible a representation of event properties in a wide range of reactions, within and beyond the Standard Model, with emphasis on those where strong interactions play a role, directly or indirectly, and therefore multihadronic final states are produced. The physics is then not understood well enough to give an exact description, instead the program has to be based on a combination of analytical results and various QCD-based models.
 
-photos for QED
+\item \Powheg~\cite{lib:MC_powheg} is a hard event generator for heavy quark production in hadronic collisions. It is accurate at the next-to-leading order in QCD, and it can be interfaced to Shower Monte Carlo programs like \Herwig\ and \Pythia, in such a way that both the leading logarithmic accuracy of the shower and the NLO accuracy are maintained in the output. This generator is the main MC generator used in 2011 analyses.
 
-CT10 PDF
+\item \Mcatnlo~\cite{lib:MC_mcatnlo} is a practical implementation, based upon the Fortran \Herwig\ and \Herwigpp\ event generators, of the \Mcatnlo\ formalism, which allows one to incorporate NLO QCD matrix elements consistently into a parton shower framework.
 
-\subsection{BG}
-4. BG MCs (7 of them)
+\end{itemize}
+
+\subsection{Signal MC}
+
+The part of Monte Carlo simulation which represents \Zee\ events is called "signal MC", and is the most important part of MC. As well as the standard model itself, the MC generators have parameters which can't be theoretically predicted, and should be found empirically. This process is called "MC tuning", and is done separately for every experiment, because the tune which will describe well one experiment won't fit for other. The tunes used in ATLAS are described in~\cite{lib:MC_tune1, lib:MC_tune2}.
+
+The other important part of MC customization is the PDF set. PDF stands for "parton distribution function". It is a model that describes the energy distribution between quarks inside the proton. There are several PDF sets calculated based on the data from different experiments. The sets are distributed with the LHAPDF software~\cite{lib:lhapdf}, which represents the full compendium of PDF sets calculated and validated by this time. The biggest contributions to the PDF collection were done by the Tevatron and H1 experiments. The PDF sets used in the current analyses are dicribed in~\cite{lib:MC_pdfct10, lib:MC_pdfcteq6l1}.
+
+\subsection{Background MC}
+
+The part of Monte Carlo simulation which represents different EM processes which can be misinterpreted as \Zee\ is called "background MC". We use seven different types of backgrond MCs.
+\begin{itemize}
+\item \Wen, the decay of $W$ boson into electron and neutrino. Can be misinterpreted as $Z$ decay if another electron is reconstructed in the same event.
+\item \Wtau, the decay of $W$ boson into tau and neutrino. Can be misinterpreted if tau decays into electron, and another unrelated electron is reconstructed as in the previous case.
+\item \Ztau, the decay of $Z$ boson into two taus. Can be misinterpreted if at least one tau decays into electron, and another electron is reconstructed. The case of both tau decaying into electrons and $Z$ boson constructed from them is unlikely, because the resulting boson won't fit into the mass window.
+\item \ttbar events, which have lots of decay modes, and thus can be misinterpreted as almost anything, including \Zee.
+\item $WW$, $WZ$, and $ZZ$ events. In our analysis we filter such events, and thus misinterpretation of e.g. $WZ$ event as \Zee\ event is a background event for us.
+\end{itemize}
+
+The list of used MC periods is presented in Tab.~\ref{tab:MC_bg}
+
+\begin{table}
+  \begin{center}
+    \begin{tabular}{@{} l @ { }|@{ } l @{ }| r @ { } | @{ } r @{ } | @{ }r@{}}
+      \hline
+      \hline
+      Process & Data set & Generator & $\sigma{\cdot}\text{BR}{\cdot}\epsilon_{filter}$ [nb] & $N_{evt}\,[10^6]$\\
+      \hline
+
+      \Wplusenu       & 108297  &  \Powheg\Pythia  &
+      6.160 (5\%) & 23 \\
+      \Wminusenu & 108300  &  \Powheg\Pythia &
+      4.300 (5\%) & 17 \\
+      \Wplusenu       & 113186 &  \Powheg\Herwig  &
+      6.160 (5\%) & 16 \\
+      \Wminusenu & 113184 &  \Powheg\Herwig &
+      4.300 (5\%) & 12 \\
+      \Wplusenu       & 106080 & \Mcatnlo &
+      6.160 (5\%) & 16 \\
+      \Wminusenu & 106081 & \Mcatnlo &
+      4.300 (5\%) & 12 \\
+
+      \hline
+
+      \Wtau\ Np0   &  107700 &  \Alpgen\Herwig\ & 8.285 (5\%) & 3.4 \\
+      \Wtau\ Np1   &  107701 &  \Alpgen\Herwig\ & 1.560 (5\%) & 2.5 \\
+      \Wtau\ Np2   &  107702 &  \Alpgen\Herwig\ & 0.452 (5\%) & 3.8 \\
+      \Wtau\ Np3   &  107703 &  \Alpgen\Herwig\ & 0.122 (5\%) & 1 \\
+      \Wtau\ Np4   &  107704 &  \Alpgen\Herwig\ & 0.0307 (5\%) & 0.25 \\
+      \Wtau\ Np5   &  107705 &  \Alpgen\Herwig\ & 0.00835 (5\%) & 0.07 \\
+      \Wtau        &  107054 &  \Pythia\        & 10.460 (5\%) & 1 \\
+      
+      \hline
+      
+      \Ztau\ Np0  &  107670 &  \Alpgen\Herwig\  & 0.834 (5\%) & 6.6 \\
+      \Ztau\ Np1  &  107671 &  \Alpgen\Herwig\  & 0.168 (5\%) & 1.3 \\
+      \Ztau\ Np2  &  107672 &  \Alpgen\Herwig\  & 0.0508 (5\%) & 0.81 \\
+      \Ztau\ Np3  &  107673 &  \Alpgen\Herwig\  & 0.0140 (5\%) & 0.22 \\
+      \Ztau\ Np4  &  107674 &  \Alpgen\Herwig\  & 0.00355 (5\%) & 0.06 \\
+      \Ztau\ Np5  &  107675 &  \Alpgen\Herwig\  & 0.00093 (5\%) & 0.02 \\
+      \Ztau\      &  106052 &  \Pythia\         & 0.990 (5\%) & 3\\
+      
+      \hline
+      
+      \ttbar  & 105200 & \Mcatnlo & $0.1773\, (6.2\%) \cdot \, 0.555$ & 1.5\\
+      
+      \hline
+      
+      $WW$ & 105985 & \Herwig & 44.9 $\cdot$ 0.389 $\cdot 10^{-3}$ (7\%) & 1.5 \\
+      $WZ$ & 105987 & \Herwig & 18.5 $\cdot$ 0.310 $\cdot 10^{-3}$ (7\%) & 1 \\
+      $ZZ$ & 105986 & \Herwig & 6.02 $\cdot$ 0.212 $\cdot 10^{-3}$ (7\%) &
+      0.25 \\
+
+
+
+
+      \hline
+    \end{tabular}
+    \caption{ Background Monte Carlo samples }
+    \label{tab:MC_bg}
+  \end{center}
+\end{table}
 
 \section{MC production chain}
 \label{sec:MC_sim_rec}
 
-The output of the MC generators consists of the set of the final-state particles, which in turn are passed to the ATLAS MC production chain. This chain consist of three main stages, namely: the simulation, digitization and the reconstruction.
+The output of the MC generators consists of the set of the final-state particles, which in turn are passed to the ATLAS MC production chain. This chain consist of three main stages, namely: the simulation, digitization and the reconstruction (see Fig.~\ref{fig:MC_gen}).
 
 Although the whole process of the production of the MC samples can be considered as "simulation", in this context "the simulation process" refers to the particular stage of the whole production chain: the simulation of the propagation of the high-energy particles through the matter of the detector. It is done using the Geant4 software and the highly-accurate 3D model of the detector. The simulation in Geant4 is done as a discrete step-by-step process, with the length of the step being calculated dynamically for each particle, based on particle energy and the physical processes that happen to that particle. Because of that the simulation of the particles in vacuum takes much less time than in heavy matter. That is the reason why the majority of the simulation time is spent in calorimeters: they are built of the densest material there is in explicit purpose to stop as many particles as possible.
 
@@ -41,9 +129,9 @@ The last step in the production chain is the same for both MC and genuine data s
 
 The result of the reconstruction is the data stored in the special format called AOD (Analysis Data Object), which is also developed internally by ATLAS. AODs can be read by the ATLAS analysis framework, which gives easy access to all reconstructed objects.
 
-\begin{figure}[htb]
+\begin{figure}
 \center{
-\includegraphics[width=1.0\textwidth]{figures/blank.eps}
+\includegraphics[width=0.7\textwidth]{figures/MC_production_chain.eps}
 \caption{Diagram of the ATLAS MC production chain}
 \label{fig:MC_gen}}
 \end{figure}
@@ -52,12 +140,12 @@ The result of the reconstruction is the data stored in the special format called
 \label{sec:MC_FS}
 The frozen showers system (FS) is a system that is designed to speed up the geant4 simulation process inside the EM calorimeters. The main principle of FS is to substitute the low-energy particles with the EM-showers, which are pre-simulated and stored in the libraries. These libraries must be generated in advance for each calorimeter and for each type of particles which is needed to be parameterized during the production simulation. The generation process consists mostly of the simulating of the low-energy particles and saving the information about every energy deposition this particle made. The array of these deposits or "hits" passes through several post-processing procedures in order to reduce it's size, and becomes a "shower".
 
-\begin{figure}[htb]
-\center{
-\includegraphics[width=1.0\textwidth]{figures/blank.eps}
-\caption{Diagram showing the shower substitution}
-\label{fig:MC_FS_idea}}
-\end{figure}
+%\begin{figure}
+%\center{
+%\includegraphics[width=1.0\textwidth]{figures/blank.eps}
+%\caption{Diagram showing the shower substitution}
+%\label{fig:MC_FS_idea}}
+%\end{figure}
 
 The generation of the shower library is thus a preparatory procedure, which needs to be done every time when something is changed in the geant4 simulation process. The examples are the change of the geant4 version used, or the change in the detector geometry. Usually these changes applied between the MC campaigns, which means that the new set of libraries needs to be generated for each campaign. In order to improve results of FS-enabled simulation the libraries are then tuned: the shape and the energy response of the stored showers are slightly changed to provide the needed changes in the resulting simulation.
 
@@ -72,14 +160,14 @@ The easiest way to do it is to use a particles gun: a tool that can create a par
 
 The better way to handle this is to generate the library using the process similar to the usual MC production chain. It's called a two-staged library generation. The first stage is to conduct the normal simulation of the MC samples, but on much lesser scale, only hundreds are required. During the simulation, every time when the low-energy particle is requested to be parameterized using FS, the parameters of this low-energy particle are saved as a starting point for the shower. As the starting points tend to be clustered very tightly around the track of the initial high-energy particle, only the fracture of the initial starting points is used for library generation in order to rarify them and get a more even coverage of the detector's volume. The sample coverage of the all EM calorimeters in ATLAS detector can be seen in fig.~\ref{fig:MC_FS_stpoints}. The second stage is the simulation itself. During this stage the starting points are taken one-by-one and simulated using the standard simulation infrastructure, producing the showers, which in turn go to the final library. The sample distribution of the simulated hits within the shower can be seen in fig.~\ref{fig:MC_FS_shower}
 
-\begin{figure}[htb]
+\begin{figure}
 \center{
 \includegraphics[width=1.0\textwidth]{figures/MC_FS_stpoints.eps}
 \caption{The first stage of the 2-staged library production: FS starting point generation}
 \label{fig:MC_FS_stpoints}}
 \end{figure}
 
-\begin{figure}[htb]
+\begin{figure}
 \center{
 \includegraphics[width=0.75\textwidth]{figures/MC_FS_shower.eps}
 \caption{The second stage of the 2-staged library production: the simulation of the shower}
@@ -99,21 +187,54 @@ During the production run the simulation software checks constantly if any parti
 
 When the particle with the proper parameters is found, it is then removed from the simulation and replaced with the shower. Before the deposition, the shower is scaled to fully correspond to the particle in energy.
 
-\begin{figure}[htb]
+\begin{figure}
 \center{
 \includegraphics[width=1.0\textwidth]{figures/blank.eps}
-\caption{The simulation speed-up in case of single electron simulation for energy range $100-200 GeV$}
+\caption{The simulation speed-up in case of single electron simulation for energy range $100-200 GeV$ \tbu}
 \label{fig:MC_FS_speedup}}
 \end{figure}
 
-For the MC11b campaign, the data from which is used in this analysis, frozen showers system was enabled by default in FCAL. Several studies showed that the errors introduced by the FS is negligible compared to the errors between MC and data, while the simulation speedup was about 25\%. The smallness of the errors introduced by the FS compared to other fast simulation methods (most notably - FastCaloSim) leaded to the misunderstanding, when the simulation with the FS system enabled was called "full simulation" as opposed to other, less precise but faster methods, which were called "fast simulation". In this terminology, all of the MC samples used in this analysis are full simulations.
+For the MC11c campaign, the data from which is used in this analysis, frozen showers system was enabled by default in FCAL. Several studies showed that the errors introduced by the FS is negligible compared to the errors between MC and data, while the simulation speedup was about 25\%. The smallness of the errors introduced by the FS compared to other fast simulation methods (most notably - FastCaloSim) leaded to the misunderstanding, when the simulation with the FS system enabled was called "full simulation" as opposed to other, less precise but faster methods, which were called "fast simulation". In this terminology, all of the MC samples used in this analysis are full simulations.
 
 \section{MC samples used in analysis}
 \label{sec:MC_periods}
 
-\section{Something on reweighting and such}
+During this analysis the MC samples from MC11c campaign were used. The main generator used for both signal and background was \Powheg\ with the parton showering provided by \Pythia. The cross-check was done by the same \Powheg\ with the PS done by \Herwig\, and by \Mcatnlo\ also with the \Herwig-provided showers. For the
+\Mcatnlo\ and \Powheg\ matrix element calculations the \pdfCteq\ PDF set is used, while showering was performed with \pdfCteql PDF. The list of MC periods that was used can be found in Tab.~\ref{tab:MC_periods}.
+
+\begin{table}
+  \begin{center}
+    \begin{tabular}{@{ } l @{ }| r @ { } | @{ } r @{ } | @{ }r@{}}
+      \hline
+      \hline
+      Data set & Generator& $\sigma{\cdot}\text{BR}{\cdot}\epsilon_{filter}$ [nb] & $N_{evt}\,[10^6]$\\
+      \hline
+
+      108303 &   \Powheg\Pythia & 1.006 (5\%) & 20\\
+
+      126006 &   \Powheg \Herwig & 1.006 (5\%) & 10\\
+
+      106087 \&~129913 & \Mcatnlo & 0.990 (5\%) & 5+5\\
+
+
+      \hline
+    \end{tabular}
+    \caption{ Signal Monte Carlo samples }
+    \label{tab:MC_periods}
+  \end{center}
+\end{table}
+
+
+\section{Reweightings}
 \label{sec:MC_correction}
 
-Zvtx + pileup
+The MC samples have a number of known shortcomings, and some data distributions are not described well. To fix this we apply reweightings based on MC/data comparisons at the reconstruction levels, different MCs comparisons on the generation (truth) level, or using the other ATLAS analyses. The weights are applied based on the truth information and are validated using the closure tests. The list of corrections is this:
 
-plots before \& after (MC/Data)
+\begin{itemize}
+\item \textbf{Pileup Reweighting} is based on the $\mu$ variable and aims to equalize the amount of pileup in MC and data. This is done using the \textit{PileupReweighting} tool.
+\item \textbf{Vertex Spread in $z$ Reweighting} is based on the $z$ component of the vertex and aims to increase the spread of the beam spot in $z$-direction of MC, which is significantly smaller than in data. The \texttt{VertexPositionReweightTool} is used for that.
+\item \textbf{$Z$ Boson $p_T$ Reweighting} is applied to the $p_T$ distribution of the $Z$ bosons, which doesn't describe the data well in the MC signal generators used for this analysis. The results from ATLAS $Z$ $\phi^*$ and $\pt$ analyses were used for it, and it was done using the \texttt{BosonPtReweightingTool}.
+\item \textbf{$Z$ Boson Line Shape Reweighting} is the reweightings aimed to fix the fundamental shortcomings of the MC generators caused by the electroweak order not being high enough. This reweighting is done using the \texttt{LineShapeTool}.
+\end{itemize}
+
+plots before \& after (MC/Data) \tbu

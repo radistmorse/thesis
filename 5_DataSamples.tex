@@ -1,19 +1,24 @@
 \chapter{Data Samples}
 \label{sec:DataSamples}
 
-GRL + Lumi
+The data samples is the actual information about collisions taken from the detector. This information is divided into periods, runs and luminosity blocks (LB). The luminosity block is the smallest of the three, it's duration is decided by the ATLAS central trigger processor, and usually is one minute. The data taken within one LB is considered to have constant luminosity, which is calculated separately in stored in the luminosity database. The run represents the data taken during one beam injection. The period is a group of runs with the same detector properties. Each period represents different setup of the detector and/or triggers.
 
-why start with D?
+During some of the runs there were discovered problems with the detector or with the triggers, which compromised the data. Such runs should be excluded from the analysis, and it is done using the good run list (GRL) which lists all the runs and LBs which should be used. In this analysis the common GRL of the WZ group\\
+(\texttt{\footnotesize data11\_7TeV.periodAllYear\_DetStatus-v36-pro10\_CoolRunQuery-00-04-08\_WZjets\_allchannels\_DtoM.xml}) was used.
+
+The total luminosity for all the data used in the analysis was calculated by summing the luminosity from all LBs and equals \ensuremath{4.58\,\mathrm{fb}^{-1}} with a systematic uncertainty of $1.8\%$~\cite{lib:lumi}.
+
+why start with D? \tbu
 
 \begin{figure}[htb]
 \center{
 \includegraphics[width=1.0\textwidth]{figures/blank.eps}
-\caption{Diagram of data periods for 2011}
+\caption{Diagram of data periods for 2011 \tbu}
 \label{fig:data}}
 \end{figure}
 
 
-\begin{table}[ht!]
+\begin{table}
 \centering
 \begin{tabular}{ c | cccl } \hline\hline
 Period & Run Range & Lumi [$\rm pb^{-1}$] & Max Lumi $\rm [cm^{-2}s^{-1}]$ & Default SE trigger \\ \hline
@@ -29,6 +34,6 @@ L & 188902-190343 & & & EF\_e22vh\_medium1 \\
 M & 190503-191933 & & & EF\_e22vh\_medium1 \\
 \hline
 \end{tabular}
-\caption{The list of 2011 ATLAS data periods used in the Z analysis.}
+\caption{The list of 2011 ATLAS data periods used in the Z analysis. \tbu}
 \label{tab:data}
 \end{table}
