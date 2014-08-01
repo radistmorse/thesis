@@ -3,10 +3,10 @@
 
 In order to analyze the data we use the computer-generated data samples using the software that simulates the physical processes that happen in the detector. The process consists of several stages:
 \begin{enumerate}
-\item The simulation of the $pp$ collision, which involves the birth and the decay of high-energy particles (done by the MC generators, see sec.~\ref{sec:MC_gen})
-\item The simulation of interactions between the high-energy particles and the substance of the detector (done by the Geant4 software, see sec.~\ref{sec:MC_sim_rec})
-\item The simulation of the detector response based on the amount of deposited energy in different parts of the detectors (done by the ATLAS software)
-\item The reconstruction process runs the same way as for the genuine data samples
+\item The simulation of the $pp$ collision, which involves the birth and the decay of high-energy particles (done by the MC generators, see sec.~\ref{sec:MC_gen}).
+\item The simulation of interactions between the high-energy particles and the substance of the detector (done by the Geant4 software, see sec.~\ref{sec:MC_sim_rec}).
+\item The simulation of the detector response based on the amount of deposited energy in different parts of the detectors (done by the ATLAS software).
+\item The reconstruction process runs the same way as for the genuine data samples, it is fully described in Chapter~\ref{sec:Reconstruction}.
 \end{enumerate}
 The simulation process takes lots of time, with the most time-consuming process being the simulation of the particles passing through the detector, or even more precise, through the EM-calorimeters, as the calorimeters consist of the very dense materials (e.g. lead and liquid argon) and hence the incoming high-energy particles produce the large showers with the tens of thousands of lower-energy particles. There are several technics used to speed up the process, but most of them produces the different result from the full simulation, which makes them unusable for many types of analysis (including \Zee). The only technology which gives the result close enough to the full simulation to be enabled for all analysis samples by default is the Frozen Showers, which will be fully described in sec.~\ref{sec:MC_FS}.
 
@@ -51,70 +51,6 @@ The part of Monte Carlo simulation which represents different EM processes which
 \item \ttbar events, which have lots of decay modes, and thus can be misinterpreted as almost anything, including \Zee.
 \item $WW$, $WZ$, and $ZZ$ events. In our analysis we filter such events, and thus misinterpretation of e.g. $WZ$ event as \Zee\ event is a background event for us.
 \end{itemize}
-
-The list of used MC periods is presented in Tab.~\ref{tab:MC_bg}
-
-\begin{table}
-  \begin{center}
-    \begin{tabular}{@{} l @ { }|@{ } l @{ }| r @ { } | @{ } r @{ } | @{ }r@{}}
-      \hline
-      \hline
-      Process & Data set & Generator & $\sigma{\cdot}\text{BR}{\cdot}\epsilon_{filter}$ [nb] & $N_{evt}\,[10^6]$\\
-      \hline
-
-      \Wplusenu       & 108297  &  \Powheg\Pythia  &
-      6.160 (5\%) & 23 \\
-      \Wminusenu & 108300  &  \Powheg\Pythia &
-      4.300 (5\%) & 17 \\
-      \Wplusenu       & 113186 &  \Powheg\Herwig  &
-      6.160 (5\%) & 16 \\
-      \Wminusenu & 113184 &  \Powheg\Herwig &
-      4.300 (5\%) & 12 \\
-      \Wplusenu       & 106080 & \Mcatnlo &
-      6.160 (5\%) & 16 \\
-      \Wminusenu & 106081 & \Mcatnlo &
-      4.300 (5\%) & 12 \\
-
-      \hline
-
-      \Wtau\ Np0   &  107700 &  \Alpgen\Herwig\ & 8.285 (5\%) & 3.4 \\
-      \Wtau\ Np1   &  107701 &  \Alpgen\Herwig\ & 1.560 (5\%) & 2.5 \\
-      \Wtau\ Np2   &  107702 &  \Alpgen\Herwig\ & 0.452 (5\%) & 3.8 \\
-      \Wtau\ Np3   &  107703 &  \Alpgen\Herwig\ & 0.122 (5\%) & 1 \\
-      \Wtau\ Np4   &  107704 &  \Alpgen\Herwig\ & 0.0307 (5\%) & 0.25 \\
-      \Wtau\ Np5   &  107705 &  \Alpgen\Herwig\ & 0.00835 (5\%) & 0.07 \\
-      \Wtau        &  107054 &  \Pythia\        & 10.460 (5\%) & 1 \\
-      
-      \hline
-      
-      \Ztau\ Np0  &  107670 &  \Alpgen\Herwig\  & 0.834 (5\%) & 6.6 \\
-      \Ztau\ Np1  &  107671 &  \Alpgen\Herwig\  & 0.168 (5\%) & 1.3 \\
-      \Ztau\ Np2  &  107672 &  \Alpgen\Herwig\  & 0.0508 (5\%) & 0.81 \\
-      \Ztau\ Np3  &  107673 &  \Alpgen\Herwig\  & 0.0140 (5\%) & 0.22 \\
-      \Ztau\ Np4  &  107674 &  \Alpgen\Herwig\  & 0.00355 (5\%) & 0.06 \\
-      \Ztau\ Np5  &  107675 &  \Alpgen\Herwig\  & 0.00093 (5\%) & 0.02 \\
-      \Ztau\      &  106052 &  \Pythia\         & 0.990 (5\%) & 3\\
-      
-      \hline
-      
-      \ttbar  & 105200 & \Mcatnlo & $0.1773\, (6.2\%) \cdot \, 0.555$ & 1.5\\
-      
-      \hline
-      
-      $WW$ & 105985 & \Herwig & 44.9 $\cdot$ 0.389 $\cdot 10^{-3}$ (7\%) & 1.5 \\
-      $WZ$ & 105987 & \Herwig & 18.5 $\cdot$ 0.310 $\cdot 10^{-3}$ (7\%) & 1 \\
-      $ZZ$ & 105986 & \Herwig & 6.02 $\cdot$ 0.212 $\cdot 10^{-3}$ (7\%) &
-      0.25 \\
-
-
-
-
-      \hline
-    \end{tabular}
-    \caption{ Background Monte Carlo samples }
-    \label{tab:MC_bg}
-  \end{center}
-\end{table}
 
 \section{MC production chain}
 \label{sec:MC_sim_rec}
@@ -200,7 +136,7 @@ For the MC11c campaign, the data from which is used in this analysis, frozen sho
 \label{sec:MC_periods}
 
 During this analysis the MC samples from MC11c campaign were used. The main generator used for both signal and background was \Powheg\ with the parton showering provided by \Pythia. The cross-check was done by the same \Powheg\ with the PS done by \Herwig\, and by \Mcatnlo\ also with the \Herwig-provided showers. For the
-\Mcatnlo\ and \Powheg\ matrix element calculations the \pdfCteq\ PDF set is used, while showering was performed with \pdfCteql PDF. The list of MC periods that was used can be found in Tab.~\ref{tab:MC_periods}.
+\Mcatnlo\ and \Powheg\ matrix element calculations the \pdfCteq\ PDF set is used, while showering was performed with \pdfCteql PDF. The list of MC signal periods that was used can be found in Tab.~\ref{tab:MC_periods}, the periods for MC background events are in Tab.~\ref{tab:MC_bg}.
 
 \begin{table}
   \begin{center}
@@ -224,6 +160,67 @@ During this analysis the MC samples from MC11c campaign were used. The main gene
   \end{center}
 \end{table}
 
+\begin{table}
+  \begin{center}
+    \begin{tabular}{@{} l @ { }|@{ } l @{ }| r @ { } | @{ } r @{ } | @{ }r@{}}
+      \hline
+      \hline
+      Process & Data set & Generator & $\sigma{\cdot}\text{BR}{\cdot}\epsilon_{filter}$ [nb] & $N_{evt}\,[10^6]$\\
+      \hline
+
+      \Wplusenu       & 108297  &  \Powheg\Pythia  &
+      6.160 (5\%) & 23 \\
+      \Wminusenu & 108300  &  \Powheg\Pythia &
+      4.300 (5\%) & 17 \\
+      \Wplusenu       & 113186 &  \Powheg\Herwig  &
+      6.160 (5\%) & 16 \\
+      \Wminusenu & 113184 &  \Powheg\Herwig &
+      4.300 (5\%) & 12 \\
+      \Wplusenu       & 106080 & \Mcatnlo &
+      6.160 (5\%) & 16 \\
+      \Wminusenu & 106081 & \Mcatnlo &
+      4.300 (5\%) & 12 \\
+
+      \hline
+
+      \Wtau\ Np0   &  107700 &  \Alpgen\Herwig\ & 8.285 (5\%) & 3.4 \\
+      \Wtau\ Np1   &  107701 &  \Alpgen\Herwig\ & 1.560 (5\%) & 2.5 \\
+      \Wtau\ Np2   &  107702 &  \Alpgen\Herwig\ & 0.452 (5\%) & 3.8 \\
+      \Wtau\ Np3   &  107703 &  \Alpgen\Herwig\ & 0.122 (5\%) & 1 \\
+      \Wtau\ Np4   &  107704 &  \Alpgen\Herwig\ & 0.0307 (5\%) & 0.25 \\
+      \Wtau\ Np5   &  107705 &  \Alpgen\Herwig\ & 0.00835 (5\%) & 0.07 \\
+      \Wtau        &  107054 &  \Pythia\        & 10.460 (5\%) & 1 \\
+      
+      \hline
+      
+      \Ztau\ Np0  &  107670 &  \Alpgen\Herwig\  & 0.834 (5\%) & 6.6 \\
+      \Ztau\ Np1  &  107671 &  \Alpgen\Herwig\  & 0.168 (5\%) & 1.3 \\
+      \Ztau\ Np2  &  107672 &  \Alpgen\Herwig\  & 0.0508 (5\%) & 0.81 \\
+      \Ztau\ Np3  &  107673 &  \Alpgen\Herwig\  & 0.0140 (5\%) & 0.22 \\
+      \Ztau\ Np4  &  107674 &  \Alpgen\Herwig\  & 0.00355 (5\%) & 0.06 \\
+      \Ztau\ Np5  &  107675 &  \Alpgen\Herwig\  & 0.00093 (5\%) & 0.02 \\
+      \Ztau\      &  106052 &  \Pythia\         & 0.990 (5\%) & 3\\
+      
+      \hline
+      
+      \ttbar  & 105200 & \Mcatnlo & $0.1773\, (6.2\%) \cdot \, 0.555$ & 1.5\\
+      
+      \hline
+      
+      $WW$ & 105985 & \Herwig & 44.9 $\cdot$ 0.389 $\cdot 10^{-3}$ (7\%) & 1.5 \\
+      $WZ$ & 105987 & \Herwig & 18.5 $\cdot$ 0.310 $\cdot 10^{-3}$ (7\%) & 1 \\
+      $ZZ$ & 105986 & \Herwig & 6.02 $\cdot$ 0.212 $\cdot 10^{-3}$ (7\%) &
+      0.25 \\
+
+
+
+
+      \hline
+    \end{tabular}
+    \caption{ Background Monte Carlo samples }
+    \label{tab:MC_bg}
+  \end{center}
+\end{table}
 
 \section{Reweightings}
 \label{sec:MC_correction}
