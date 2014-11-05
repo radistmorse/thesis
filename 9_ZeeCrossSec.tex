@@ -1,3 +1,50 @@
 \chapter{\Zee\ cross section measurement}
 \label{sec:ZeeCrossSec}
-\textbf{$\sigma (Z \to e^+e^-)$}
+
+The measuremet of the \Zee\ decay process is the main purpose of this work, and in this chapters the details of the methodology of this measurement would be discussed. The differential cross-sections are calculated using the Bayesian iterative unfolding with 3 iterations. The formulae for both integrated and differential cross-sections are:
+
+\begin{equation}
+\sigma_{tot} = \sigma_{Z} \times BR(\Zee) = \frac{N - B}{C \cdot E \cdot A \cdot L_{int}  \cdot \Gamma}\,,
+\end{equation}
+
+where
+\begin{itemize}
+\item {\bfseries $N$} is the number of candidate events measured in data.
+\item {\bfseries $B$} is the number of background events (see Sec.~\ref{sec:Bkg} for futher information on the background estimation).
+\item {\bfseries $L_{int}$} is the integrated luminosity corresponding to the run.
+\item {\bfseries $\Gamma$} is the bin width for differential measurements. Measurements in rapidity quantities $\eta$ and $y$ are done in absolute binning as final value, i.e. $N$ is summed over positive and negative bin and $\Gamma$ is doubled.
+\item $C$, $E$, and $A$ are efficiency-acceptance corrections calculated from (binned) sum of weights of MC events generated or reconstructed with various cuts applied. They take the uncorrected event yield in steps to different levels:
+  \begin{itemize}
+  \item The \textit{genuinely experimental fiducial volume in each channel} as defined by the individual cuts is reached after dividing by 
+    \begin{equation}
+      C = \frac{N_\mathrm{MC, rec}}{N_\mathrm{MC, gen, cutexp}}\,.
+    \end{equation}
+    $C$ is corrected for any discrepancy in the electron efficiencies between data and MC as described in Sec.~\ref{sec:Efficiency}. Here the sum of weights of MC events generated after experimental fiducial acceptance cuts ($N_\mathrm{MC, gen, cutexp}$) and the sum of weights of MC events after simulation, reconstruction and experimental selection ($N_\mathrm{MC, rec}$) enter.
+  \item The \textit{common fiducial volume} is a small theoretical extrapolation designed to unify the fiducial volumes of different flavours of \Zll\ analyses
+    \begin{equation}
+      E = \frac{N_\mathrm{MC, gen, cutexp}}{N_\mathrm{MC, gen, cutfid}}\,.
+    \end{equation}
+    Here the sum of weights of MC events generated after common fiducial acceptance cuts ($N_\mathrm{MC, gen, cutfid}$) enters.
+  \item \textit{Total cross sections} are reached by a larger theoretical extrapolation
+    \begin{equation}
+      A = \frac{N_\mathrm{MC, gen, cutfid}}{N_\mathrm{MC, gen, all}}\,.
+    \end{equation}
+    Here the total sum of weights of MC events generated before any acceptance cuts except $m_{ee}$ ($N_\mathrm{MC, gen, all}$) enters.
+  \end{itemize}
+\end{itemize}
+
+The choice of the Bayesian unfolding method as opposed by the bin-by-bin unfolding method is motivated by the purity and stability factors, which are calculated as this:
+
+\begin{equation}
+P^{i} = \frac{N^{i}_{\text{rec\&gen}} }{ N^{i}_{\text{rec}} }\,, \; \;
+S^{i} = \frac{N^{i}_{\text{rec\&gen}} }{ N^{i}_{\text{gen}} }\,,
+\end{equation}
+
+where
+\begin{itemize}
+\item {\bfseries $N^i_{\text{rec\&gen}}$} is the sum of event weights which were generated and reconstructed in bin $i$.
+\item {\bfseries $N^i_{\text{rec}}$} is the sum of event weights reconstructed in bin $i$.
+\item {\bfseries $N^i_{\text{gen}}$} is the sum of event weights generated in bin $i$.
+\end{itemize}
+
+The purity is thus a measure of in-migration, which shows the amount of foreign events reconstructed in the given bin, while thw stability is a measure of the out-migration, which shows the amount of events that were reconstructed in other bins for every given bin. The relatively low values for purity and stability makes bin-by-bin unfolding biased and inefective, as it won't take into account the migration between bins, and the results of the purity and stability studies for \Zee\ central-forward analisys suggested that the Bayesian unfolding would be more effective. \tbu ref to the results.
