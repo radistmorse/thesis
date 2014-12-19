@@ -10,8 +10,8 @@ of the different sub-systems.
 
 \section{Physics requirements and detector overview}
 \label{sec:ATLAS_overview}
-The ATLAS detector has a cylindric shape, it's aligned along the beam line with the center situated at the interaction point.
-The coordinate system that is used to describe the detector follows it's natural geometry. the interaction point is taken as an origin,
+The ATLAS detector has a cylindric shape, it is aligned along the beam line with the center situated at the interaction point.
+The coordinate system that is used to describe the detector follows its natural geometry. the interaction point is taken as an origin,
 while the $z$ axis is put along the beam pipe, making the $x$-$y$ plane transverse. The positive $x$-axis is defined to be pointing to the center
 of the LHC ring, and positive $y$-axis is defined to be pointing upwards. The direction on the $z$-axis is picked such as to form a right-handed coordinate system.
 The azimuthal angle $\varphi$ is measured as usual around the beam axis, and the polar angle $\theta$ is the angle from the beam axis. The rapidity $y$ and pseudorapidity $\eta$
@@ -240,3 +240,16 @@ toroidal magnetic field of approximately 0.5 T and 1 T for the muon detectors in
 and end-cap regions, respectively.
 \end{itemize}
 
+\section{Online triggers and readout}
+\label{sec:ATLAS_triger}
+
+\begin{figure}
+\center{
+\includegraphics[width=0.6\textwidth]{figures/ATLAS_trigger.eps}
+\caption{Diagram of the ATLAS trigger and readout system.}
+\label{fig:ATLAS_trigger}}
+\end{figure}
+
+The readout system of the ATLAS detector is closely connected with the online trigger system, which consists of two trigger layers (the so-called L1 trigger and L2 trigger), and one event filter~\cite{lib:trigger}. The frequency at which LHC delivers bunch collisions is by design 40 MHz (every 25 ns), although throughout 2011 data taking it was 20 MHz (every 50 ns). It is physically impossible to reconstruct and record every of these 40 millions events per second. And what's more important, only a fraction of these events contain the actual $pp$ collision, so most of the events would be useless even if we managed to record them all. The gradual system of triggers makes an on-the-fly decision whether the event has an actual $pp$ collision or not. The L1 trigger works on the frequency of LHC bunches crossing. This trigger is fully hardware, so it takes a decision in a matter of nanoseconds during the time while the signal from the detectors travels the cables to the readout drivers (RODs). The L1 triggers makes only the rough assumptions about the event, which is it calculates the rough amount of energy deposited in the parts of the calorimeters and muon chambers, and finds so-called "regions of interest" (ROIs), which it passes to the next level trigger, to get a closer look at. The next level trigger is already software based, it is called the L2 trigger, it works on the frequency of 60 KHz and makes its decision while the event is stored in a read-out buffer (ROB). Its output event rate is 5 KHz. The final stage is an event filter which outputs the events at the average rate of 400 Hz. At this rate the events are saved to the output streams. The L2 trigger and the event filter are also collectively called the High Level Trigger (HLT), since they study the event much deeply then the L1 trigger, and work on reconstructed event, rather then the deposited energy, which is what the L1 trigger do. The precision of the L1 trigger is 1 GeV and it only measures the total amount of the deposited $E_{t}$ in the calorimeter towers. The L2 trigger attempts a partial reconstruction of the event in ROIs which are passed down from the L1 trigger as well as track reconstruction, and the event filter does the full event reconstruction in these regions.
+
+The full reconstruction of the filtered event is then done by the large on-site computer farm, and then stored by the use of the data acquisition system (DAQ).
