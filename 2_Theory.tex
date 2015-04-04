@@ -1,23 +1,23 @@
 \chapter{Theoretical introduction}
 \label{sec:Theory}
 
-In this section the theoretical basis for the measures will be exlained. First of all, the overview of the standard model, then the theoretical aspects of the $pp$ collisions, and in the end the inplications of the $Z$ boson.
+In this section the theoretical basis for the measures will be explained. First of all, the overview of the standard model, then the theoretical aspects of the $pp$ collisions, and in the end the specifies of the $Z$ boson production.
 
 \section{The Standard Model}
 \label{sec:theory_SM}
 
-The standart model is a theoretical foundation of all of modern particle physics. It described all of the currently-known particles and three out of four currently-known types of interactions (being weak, strong, and electromagnetic, excluding gravity). It was developed during the last fifty years and made several predictions on the nature of particles and interactions, all which were confirmed by the present time. Among its predictions were quarks (first confirmed in mid 1970s), vector bosons (confirmed in 1983), top-quark (confirmed in 1995), and $\tau$-neutrino (confirmed in 2000). The last to-date update to standard model was made in 2002 with the theoretical explanation of neutrino oscillations, which was confirmed to be true with the T2K experiment on july 2013. The last major prediction of the standard model was the existence of the Higgs boson, which was confirmed in january 2013.
+The standard model is a theoretical foundation of all of modern particle physics. It described all of the currently-known particles and three out of four currently-known types of interactions (being weak, strong, and electromagnetic, excluding gravity). It was developed during the last fifty years and made several predictions on the nature of particles and interactions, all which were confirmed by the present time. Among its predictions were quarks (first confirmed in mid 1970s), vector bosons (confirmed in 1983), top-quark (confirmed in 1995), and $\tau$-neutrino (confirmed in 2000). The last to-date update to standard model was made in 2002 with the theoretical explanation of neutrino oscillations, which was confirmed to be true with the T2K experiment on july 2013. The last major prediction of the standard model was the existence of the Higgs boson, which was confirmed in january 2013.
 
 The main theses of the standard model are:
 \begin{itemize}
-\item There are 61 fundamental particles which can be devided into several groups:
+\item There are 61 fundamental particles which can be divided into several groups:
 \begin{itemize}
 \item The quarks, which have electromagnetic weak and color charge, and thus participate in all three interactions. There are two types of quarks defined by their charges, three generations for each, and 3 possible color charges. Together with the anti-particle partner for every particle this makes 36 particles in total.
 \item The leptons, which do not have color charge, and thus do not participate in strong interactions. Again, there are two types of leptons, one having both electric and weak charges and one having only the weak, three generations for each and possible anti-particle partner, which makes the total of 12.
-\item The gauge bosons, the force carriers for all three fundamental interactions, which can be devded into three symmetry groups: the gluons, carriers of the strong interaction with 8 possible color charges, constituting the $SU(3)$ group; the $W^{\pm}$ and $Z$ bosons, carriers of the weak interaction, constituting the $SU(2)$ group; the photons, carriers of the electromagnetic interaction, constituting the $U(1)$ group. The total number of gauge bosons is thus 12.
+\item The gauge bosons, the force carriers for all three fundamental interactions, which can be divided into three symmetry groups: the gluons, carriers of the strong interaction with 8 possible color charges, constituting the $SU(3)$ group; the $W^{\pm}$ and $Z$ bosons, carriers of the weak interaction, constituting the $SU(2)$ group; the photons, carriers of the electromagnetic interaction, constituting the $U(1)$ group. The total number of gauge bosons is thus 12.
 \item The Higgs boson, by interacting with which all other particles gain their masses.
 \end{itemize}
-\item The quarks and leptons, together known as fermions, are participating in the interactions. The strong and electromagnetic interactions only occure between the fermions in the same generation, while the weak interaction can mix the generations, which makes all of the fermions to constantly decay into the lightest.
+\item The quarks and leptons, together known as fermions, are participating in the interactions. The strong and electromagnetic interactions only occur between the fermions in the same generation, while the weak interaction can mix the generations, which makes all of the fermions to constantly decay into the lightest.
 \item The standard model has several parameters which can not be theoretically predicted: the masses of all massive particles, the gauge couplings, the CKM mixing angles and the Weinberg angle (Tab.~\ref{tab:SM_parameters}).
 \end{itemize}
 
@@ -59,21 +59,61 @@ $\delta_{13}$ & CKM CP-violating Phase & 0.995 \\
 
 
 The starting point of the standart model is the Dirac's equation which was introduced in 1928, which summarized the previous works of Maxwell, Einstein, Bose, Pauli and others.
-\disn{1}{
-(i \hbar c \gamma^{\mu} \dd_{\mu} - m c^{2})\Psi = 0
-\nom}
-It allowed to theoretically calculate the energy levels of the hydrogen including the fine structure, and explain the Zeeman effect. Based on this equation the formulaes for the Compton scattering were calculated as well as for the bremsstrahlung, which was later observed experimentally. It also predicted the existence of the anti-matter, as a physical interpreatation af the solutions with the negative energy (the positrons were first discovered in 1932). It can be used to described all the half-integer spined non-interacting particles.
+
+\begin{equation}
+(i \hbar c \gamma^{\mu} \dd_{\mu} - m c^{2})\Psi = 0\,.
+\end{equation}
+
+It allowed to theoretically calculate the energy levels of the hydrogen including the fine structure, and explain the Zeeman effect. Based on this equation the formulaes for the Compton scattering were calculated as well as for the bremsstrahlung, which was later observed experimentally. It also predicted the existence of the anti-matter, as a physical interpretation of the solutions with the negative energy (the positrons were first discovered in 1932). It can be used to described all the half-integer spined non-interacting particles.
 
 The inclusion of the electromagnetic interaction was done by means of the gauge theory which was first suggested by Hermann Weyl in 1918 (although later proved incorrect, and then modified by him together with Vladimir Fock and Fritz London). The gauge theory is a type of a field theory which has the so-called gauge invariance or gauge symmetry - the property in which different configurations of the underlying fields, which are not themselves directly observable, result in identical observable quantities. The example of the simple transformation which will satisfy this criteria can be constructed using the local $U(1)$ symmetry group:
-\disn{2}{
-\Psi(x) -> e^{i\alpha(x)}\Psi(x)
-\nom}
-The term $e^{i\alpha(x)}$ is complex and thus can't be observed, but we also need the equation describing the particle to be invariant to this transformation, and with this restriction the equasion describing the interacting particles can be derived:
-\disn{3}{
-L = \bar \Psi (i \gamma_{\mu} \dd^{\mu} - m) \Psi + e \bar \Psi \gamma_{\mu} A^{\mu} \Psi - \frac{1}{4} F_{\mu\nu}F^{\mu\nu}
-\no
-F_{\mu\nu} = \dd_{\mu}A_{\nu} - \dd_{\nu}A_{\mu} \nom}
-The vector field $A_{\mu}$ introduced in this equation is the electromagnetic field and it allows us to achieve the desired invariance. The term $e \bar \Psi \gamma_{\mu} A_{\mu} \Psi$ describes the interaction between this field and the particle, and the term $F_{\mu\nu}F^{\mu\nu}$ reresents the kinetic energy of the field itself and is in accordance with the Maxwell's equations for the electromagnetic interactions. The quantisation of both $A^{\mu}$ and $\Psi$ leaded to the theory currently known as a Quantum Electro-Dynamics (QED) and is a component of the standard model.
 
-The inclusion of the weak interaction first was attempted by Enrico Fermi in 1933. His theory didn't involve any interaction carriers, with particles interacting directly in one vertex. And while it described the results of the $\beta$-decay remarkably well, the need for a more elaborate description of different occurences of the new type of interaction became gradually stronger as new experemental data was collected. The most notable was the "Wu experiment" conducted in 1956 by Chien-Shiung Wu which established the violation of the P-symmetry. The next attempt to develop a theory was done a year later after that in 1957 by Robert Marshak and George Sudarshan and also independently by Richard Feynman and Murray Gell-Mann. The theory they developed was called a $V-A$ theory as "vector minus axial vector" after the main term of the Lagrangian that described the interaction. In 1964 the CP violation was observed in the kaon experiment by James Cronin and Val Fitch. The $V-A$ theory couldn't explain it, so there was a need to either update the $V-A$ theory or to introduce the new theory of some "superweak interaction". By the year 1968 the new theory took a form of an electroweak interaction. It was developed by Sheldon Glashow, Steven Weinberg, and Abdus Salam. They showed that both electromagnetic and weak interations are two aspects of the same force and predicted the existence of the carriers of that interactions: $W$ and $Z$ bosons (observed directly in 1983).
+\begin{equation}
+\Psi(x) -> e^{i\alpha(x)}\Psi(x)\,.
+\end{equation}
 
+The term $e^{i\alpha(x)}$ is complex and thus can't be observed, but we also need the equation describing the particle to be invariant to this transformation, and with this restriction the equation describing the interacting particles can be derived:
+
+\begin{equation}
+\begin{gathered}
+L = \bar \Psi (i \gamma_{\mu} \dd^{\mu} - m) \Psi + e \bar \Psi \gamma_{\mu} A^{\mu} \Psi - \frac{1}{4} F_{\mu\nu}F^{\mu\nu}\\
+F_{\mu\nu} = \dd_{\mu}A_{\nu} - \dd_{\nu}A_{\mu}\,.
+\end{gathered}
+\end{equation}
+
+The vector field $A_{\mu}$ introduced in this equation is the electromagnetic field and it allows us to achieve the desired invariance. The term $e \bar \Psi \gamma_{\mu} A_{\mu} \Psi$ describes the interaction between this field and the particle, and the term $F_{\mu\nu}F^{\mu\nu}$ represents the kinetic energy of the field itself and is in accordance with the Maxwell's equations for the electromagnetic interactions. The quantisation of both $A^{\mu}$ and $\Psi$ leaded to the theory currently known as a Quantum Electro-Dynamics (QED) and is a component of the standard model.
+
+The inclusion of the weak interaction first was attempted by Enrico Fermi in 1933. His theory didn't involve any interaction carriers, with particles interacting directly in one vertex. And while it described the results of the $\beta$-decay remarkably well, the need for a more elaborate description of different occurrences of the new type of interaction became gradually stronger as new experimental data was collected. The most notable was the "Wu experiment" conducted in 1956 by Chien-Shiung Wu which established the violation of the P-symmetry. The next attempt to develop a theory was done a year later after that in 1957 by Robert Marshak and George Sudarshan and also independently by Richard Feynman and Murray Gell-Mann. The theory they developed was called a $V-A$ theory as "vector minus axial vector" after the main term of the Lagrangian that described the interaction. In 1964 the CP violation was observed in the kaon experiment by James Cronin and Val Fitch. The $V-A$ theory couldn't explain it, so there was a need to either update the $V-A$ theory or to introduce the new theory of some "superweak interaction". By the year 1968 the new theory took a form of an electroweak interaction. It was developed by Sheldon Glashow, Steven Weinberg, and Abdus Salam. They showed that both electromagnetic and weak interactions are two aspects of the same force and predicted the existence of the carriers of that interactions: $W$ and $Z$ bosons (observed directly in 1983).
+
+
+
+The strong interaction was first considered the same as the EM interaction in nature, but with massive carriers. Considering that
+
+\begin{equation}
+\Delta E \cdot \Delta t = (m_{q}c^{2}) \cdot \Delta t \approx \hbar \,,
+\end{equation}
+
+where $m_{q}$ is the mass of the field quant ond $\Delta t$ is its lifetime, and considering that $r = c \Delta t$ where the radius of the strong interaction was predicted to be $r = 10^{-15}$ m we will get the predicted value for the carrier mass as
+
+\begin{equation}
+m_{q}c^{2} \approx \frac{\hbar c}{r} \approx 200 \: \mbox{MeV}\,.
+\end{equation}
+
+The theoretical works predicting the massive carrier for the strong nuclear force was done by Hideki Yukava in 1935. In 1947 $\pi^{+}$-meson was observed with the mass of 140~MeV, which initially was thought the carrier of the strong interaction. Although technically it wasn't true, the discovery of $\pi$-mesons played a big role in the foundation of the QCD, and Yukava got a Nobel prize in 1949 for his work.
+
+
+\subsection{QCD}
+
+The firsts works on the theory of the strong interactions started even before this interaction was first observed, as a theoretical explorations of the possibilities of the $SU(3)$ groups in particle physics. The need for the new theory first arose in 1947 after the discovery of the $K$-mesons in cosmic rays. Later, in 1950 the $\Lambda^{0}$-baryons were observed experiments conducted by V. D. Hopper and S. Biswas. These particles had a much longer lifetime than the theories predicted, and it was proposed that they have some new, unknown charge which was called "strange". The number of new particles observed experimentally grew steadily, and there were no successful attempts to fit them into the $SU(2)$ groups.
+
+In 1961 Yuval Ne'eman and later independetly Murray Gell-Mann in 1962 proposed a new hadron classification model, the so-called "eightfold way". It was based on the $SU(3)$ group, and among other things, predicted the $\Omega$-baryon as part of the baryon decuplet. This baryon was found in 1964 with the mass and properties predicted by the model. Yet, the fundamental elements of the $SU(3)$ group were not present. This problem was solved with the introduction of the quark model independently by Murray Gell-Mann and George Zweig in 1964. The quark model still had several flaws though. First of all, the quarks that the theory proposed were never observed experimentally. Second, only the \antibar{q}\ and $qqq$ states were observed, no $qq$ or $qqqq$. There were no rule that forbade such states. And the main issue was the flaws within the theory itself. For example, according to the theory, the $\Delta^{++}$ baryon consisted of three quarks ($uuu$) with the spin $1/2$, which violated the Pauli principle. To solve this problem, there was introduced another charge, called "color". It was first proposed by Oscar W. Greenberg in 1964 as an independent $SU(3)$ group of color charges. This idea was developed for several years and eventually laid the foundation for the modern QCD theory. Murray Gell-Mann got the Nobel prize in 1969 for his works in this field.
+
+In the same year 1964, several works predicted the existence of the fourth quark as part of the quark-lepton symmetry. But the prediction is usually credited to Sheldon Glashow, John Iliopoulos and Luciano Maiani for their work on flavour-changing neutral currents that was published in 1970. The proposed mechanism (the GIM mechanism, for the first letters in the authors names) required the forth quark to exist.
+
+Also in 1964 the works started on the CP-violation in $K$-meson decays. The important work was done by James Watson Cronin and Val Logsdon Fitch which received the Nobel prize for it in 1980. The works on CP-violation were continued by Makoto Kobayashi and Toshihide Maskawa who based it on the work of Nicola Cabibbo on weak interactions, and added a third generation of quarks. They published their work in 1973.
+
+In 1974 the $J/\psi$ meson was first observed independently in SLAC and BNL. This particle had a width of a mass peak much smaller that the theory predicted for a particle of this mass. The only explanation for this was an assumption, that the particle was a bound state of an unknown heavy quark that was called "charm" (or c-quark).
+
+The bound state of the second heavy quark - the $\Upsilon$-meson, was discovered in 1977 in Fermilab. The last predicted quark was searched for for the next twenty years because of its very high mass. Only in 1995 it was jointly confirmed by two detectors (DZero and CDF) on Tevatron collider at Fermilab.
+
+Makoto Kobayashi and Toshihide Maskawa got a Nobel prize in 2008 for their work.

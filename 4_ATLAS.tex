@@ -2,9 +2,7 @@
 \label{sec:ATLAS}
 
 The ATLAS detector is one of the two general purpose detectors on LHC, and is designed for probing for p-p and A-A collisions.
-This detector represents the work of a large collaboration of several thousand physicists, engineers, technicians,
-and students over a period of fifteen years of dedicated design, development, fabrication, and installation.
-There are several fields in which the resarches are currently going in ATLAS collaboration, including Z and W boson decay, search for Higgs boson,
+This detector represents the work of a large collaboration of several thousand physicists, engineers and technicians over a period of fifteen years of dedicated design, development, fabrication, and installation. There are several fields in which the resarches are currently going in ATLAS collaboration, including Z and W boson decay, search for Higgs boson,
 supersymmetry, study on B-mesons, and others. This broad spectrum of researches makes high demands on the detector's complexity and the precision 
 of the different sub-systems.
 
@@ -15,7 +13,7 @@ The coordinate system that is used to describe the detector follows its natural 
 while the $z$ axis is put along the beam pipe, making the $x$-$y$ plane transverse. The positive $x$-axis is defined to be pointing to the center
 of the LHC ring, and positive $y$-axis is defined to be pointing upwards. The direction on the $z$-axis is picked such as to form a right-handed coordinate system.
 The azimuthal angle $\varphi$ is measured as usual around the beam axis, and the polar angle $\theta$ is the angle from the beam axis. The rapidity $y$ and pseudorapidity $\eta$
-are calculated using the standard equations:
+are calculated using the standard definition:
 
 \disn{}{
 y = \frac{1}{2} \log \left(\frac{E+p_z}{E-p_z}\right),
@@ -35,13 +33,22 @@ y = \frac{1}{2} \log \left(\frac{E+p_z}{E-p_z}\right),
 The overview of the ATLAS detector is shown on the Fig.~\ref{fig:ATLAS_overview}. The main detector sub-systems can be seen there: the innermost is the tracker, then goes the EM calorimeters, then the hadronic calorimeters, and finally the muon spectrometers. There is also a magnet system, which is not a detector by itself, but is essential to the functioning of the whole system. All of the sub-detectors are briefly described below.
 
 \begin{itemize}
-\item The tracker (also called "the inner detector") records the tracks of the particles and is used to determine the charge and transverse momentum.
+\item The tracker (also called "the inner detector") records the tracks of the particles and is used to determine the charge and momentum.
 \item The EM calorimeters identify and measure the energy of EM particles: electrons, positrons and photons.
 \item The hadronic calorimeters measure the energy of hadrons.
 \item The muon spectrometers identify and measure the energy, momentum and charge of the muons.
 \end{itemize}
 
+Based on their physical properties, different particles behave differently in these sub-detectors. The reconstruction of the particles rely heavily on the traces that particles leave or do not leave in different parts of the detector.
 
+\begin{itemize}
+\item {\bfseries Photons}, unless converted to the electrons, do not leave tracks in the tracker. Stop in the EM calorimeter and leave a cluster of the deposited energy in it.
+\item {\bfseries Electrons} leave a track in the tracker, in the EM calorimeter behave similarly to photons: leave cluster with similar shape and properties.
+\item {\bfseries Charged mesons and protons} leave a track in the tracker, leave a cluster deep in the EM calorimeter, which can be distinguished from the EM particles, stop in the hadronic calorimeter, leaving a cluster in it.
+\item {\bfseries Neutral mesons and neutrons} do not leave a track, leave a cluster deep in the EM calorimeter, do not propagate to the hadronic calorimeter.
+\item {\bfseries Muons} leave a track, leave a recognizable cluster in the calorimeters, which is associated with the so-called "minimum ionizing particles" (MIP), propagate further to the muon chambers and usually are not stopped by the detector.
+\item {\bfseries Neutrinos} do not interact with the detector, and leave it without any traces. Are identified by the missing $E_{t}$.
+\end{itemize}
 
 \section{Tracking}
 \label{sec:ATLAS_tracker}
@@ -241,7 +248,7 @@ and end-cap regions, respectively.
 \end{itemize}
 
 \section{Online triggers and readout}
-\label{sec:ATLAS_triger}
+\label{sec:ATLAS_trigger}
 
 \begin{figure}
 \center{

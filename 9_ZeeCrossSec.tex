@@ -15,7 +15,7 @@ where
 \item {\bfseries $\Gamma$} is the bin width for differential measurements. Measurements in rapidity quantities $\eta$ and $y$ are done in absolute binning as final value, i.e. $N$ is summed over positive and negative bin and $\Gamma$ is doubled.
 \item $C$, $E$, and $A$ are efficiency-acceptance corrections calculated from (binned) sum of weights of MC events generated or reconstructed with various cuts applied. They take the uncorrected event yield in steps to different levels:
   \begin{itemize}
-  \item The \textit{genuinely experimental fiducial volume in each channel} as defined by the individual cuts is reached after dividing by 
+  \item The \textit{genuinely experimental fiducial volume in each channel} as defined by the individual cuts is reached after dividing by
     \begin{equation}
       C = \frac{N_\mathrm{MC, rec}}{N_\mathrm{MC, gen, cutexp}}\,.
     \end{equation}
@@ -47,7 +47,7 @@ where
 \item {\bfseries $N^i_{\text{gen}}$} is the sum of event weights generated in bin $i$.
 \end{itemize}
 
-The purity is thus a measure of in-migration, which shows the amount of foreign events reconstructed in the given bin, while thw stability is a measure of the out-migration, which shows the amount of events that were reconstructed in other bins for every given bin. The relatively low values for purity and stability makes bin-by-bin unfolding biased and inefective, as it won't take into account the migration between bins, and the results of the purity and stability studies for \Zee\ central-forward analisys suggested that the Bayesian unfolding would be more effective. \tbu ref to the results.
+The purity is thus a measure of in-migration, which shows the amount of foreign events reconstructed in the given bin, while the stability is a measure of the out-migration, which shows the amount of events that were reconstructed in other bins for every given bin. The relatively low values for purity and stability makes bin-by-bin unfolding biased and inefective, as it won't take into account the migration between bins, and the results of the purity and stability studies for \Zee\ central-forward analisys suggested that the Bayesian unfolding would be more effective. \tbu ref to the results.
 
 While calculating the $C$, $E$ and $A$ correction factors, there is a very important thing that must be taken into account, which is the QED final state radiation (FSR). The results of the MC generation are so-called {\itshape born level} leptons, which are the leptons before FSR. To simulate FSR there are two tools in use in the MC productiob chain: \Photos\, which is the main tool that is used, and \Sherpa\ which uses different FSR algorithm and is used for systematic uncertainties calculation. After the FSR simulation, the resulting final state leptons are called {\itshape bare leptons}. The bare leptons represent the result of the actual collision much closer than the born leptons, but because of the work of the clustering algorithms during reconstruction, bare leptons are impossible to reconstruct. To overcome this problem, the third level of FSR was introduced, which is {\itshape dressed leptons}. The dressed leptons are bare leptons with the inclusion of all FSR photons within the $\Delta R < 0.1$. The dressed leptons are the leptons that most closely represent the particles that are actually reconstructed by the reconstruction algorithms.
 
@@ -61,13 +61,16 @@ A = \frac{N_\mathrm{MC, genBorn, cutfid}}{N_\mathrm{MC, genBorn, all}}\,.
 
 And for the bare and dressed levels the cross-sections are calculated with good approximation by using the $\delta^\mathrm{bare}$ and $\delta^\mathrm{dressed}$ which are defined as:
 
-\begin{eqnarray}
-  \delta^\mathrm{bare} = \frac{N_\mathrm{MC, genBare, fidcut}}{N_\mathrm{MC, genBorn, fidcut}}\:\:\:&\mbox{and}&\:\:\:
+\begin{equation}
+\begin{split}
+  \delta^\mathrm{bare} = \frac{N_\mathrm{MC, genBare, fidcut}}{N_\mathrm{MC, genBorn, fidcut}}\:\:\:&\mbox{and}\:\:\:
   \delta^\mathrm{dressed} = \frac{N_\mathrm{MC, genDressed, fidcut}}{N_\mathrm{MC, genBorn, fidcut}}\\
+  \sigma_{fid}^\mathrm{Born} \cdot \delta^\mathrm{bare} =
+  \sigma_{fid}^\mathrm{bare} \:\:\:\:\:\:&\mbox{and}\:\:\:\:\:\:
   \sigma_{fid}^\mathrm{Born} \cdot \delta^\mathrm{dressed} =
-  \sigma_{fid}^\mathrm{dressed} \:\:\:\:\:\:&\mbox{and}&\:\:\:\:\:\: \sigma_{fid}^\mathrm{Born} \cdot \delta^\mathrm{bare} =
-  \sigma_{fid}^\mathrm{bare}\,.
-\end{eqnarray}
+  \sigma_{fid}^\mathrm{dressed} \,.
+\end{split}
+\end{equation}
 
 
 The differential cross-section measurement was done in absolute rapidity binning, which allows the later combination of the CC and CF analysis results. The binning is shown in Tab.~\ref{tab:ZeeCS_bins}.
