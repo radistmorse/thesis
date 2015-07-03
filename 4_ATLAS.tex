@@ -3,7 +3,7 @@
 
 The ATLAS detector is one of the two general purpose detectors on LHC, and is designed for probing for p-p and A-A collisions.
 This detector represents the work of a large collaboration of several thousand physicists, engineers and technicians over a period of fifteen years of dedicated design, development, fabrication, and installation. There are several fields in which the resarches are currently going in ATLAS collaboration, including Z and W boson decay, search for Higgs boson,
-supersymmetry, study on B-mesons, and others. This broad spectrum of researches makes high demands on the detector's complexity and the precision 
+supersymmetry, study on B-mesons, and others. This broad spectrum of researches makes high demands on the detector's complexity and the precision
 of the different sub-systems.
 
 \section{Physics requirements and detector overview}
@@ -15,13 +15,10 @@ of the LHC ring, and positive $y$-axis is defined to be pointing upwards. The di
 The azimuthal angle $\varphi$ is measured as usual around the beam axis, and the polar angle $\theta$ is the angle from the beam axis. The rapidity $y$ and pseudorapidity $\eta$
 are calculated using the standard definition:
 
-\disn{}{
-y = \frac{1}{2} \log \left(\frac{E+p_z}{E-p_z}\right),
-\nom}
-
-\disn{}{
-\eta = - \log (\tan (\frac{\theta}{2})),
-\nom}
+\begin{align}
+y &= \frac{1}{2} \log \left(\frac{E+p_z}{E-p_z}\right)\,, \\
+\eta &= - \log (\tan (\frac{\theta}{2}))\,.
+\end{align}
 
 \begin{figure}
 \center{
@@ -252,7 +249,7 @@ and end-cap regions, respectively.
 
 \begin{figure}
 \center{
-\includegraphics[width=0.6\textwidth]{figures/ATLAS_trigger.eps}
+\includegraphics[width=0.7\textwidth]{figures/ATLAS_trigger.eps}
 \caption{Diagram of the ATLAS trigger and readout system.}
 \label{fig:ATLAS_trigger}}
 \end{figure}
