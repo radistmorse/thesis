@@ -173,16 +173,16 @@ Z boson is produced during the Drell-Yan process, which is shown on Fig.~\ref{fi
 
 To properly calculate a theoretical prediction for such a process, the PDFs must be applied to both interacting protons, which complicates the calculations and increases the resulting error. This is common problem of hadron colliders as opposed by lepton or $ep$ ones. But because of it's high rest mass, hadrons can be accelerated to the much higher energies, which makes hadron calorimeters still preferable for certain tasks despite this shortcoming.
 
-
+\section{Theoretical predictions for the \Zee\ cross-section}
 
 There are several processes where the events can be clearly filtered from the background. The \Wenu\ and \Zee\ decays are the examples of such processes. The electrons and the muons are the particles that undergo reconstruction and identification with best efficiencies, and the aforementioned decays have no hadronization phase which would result in jets, which have poor resolution and scale errors. The cress-section of such processes can thus be measured with high precision, and are important in different aspects.
 
-The focus of this work was the central-forward (CF) variant of the \Zee\ decay, where "central-forward" means that one of the two resulting electrons is detected in the forwaerd calorimeter, while the other in the central. From the technical point of view this puts some additional challenges to the electron reconstruction and identification, but from the prysical point of view, it covers some additional cover of the kinematic plane with bigger boson rapidity.
+The focus of this work was the central-forward (CF) variant of the \Zee\ decay, where "central-forward" means that one of the two resulting electrons is detected in the forward calorimeter, while the other in the central. From the technical point of view this puts some additional challenges to the electron reconstruction and identification, but from the physical point of view, it covers some additional cover of the kinematic plane with bigger boson rapidity.
 
-While the \Zee\ analysis can be used for several things, including the researches on $\alpha_{s}$ constant and forward-backward assymetry, the main application for the cross-section itself would be the PDF fits. The theoretical prediction for the Drell-Yan \Zgee\ process in LO is as follows~\cite{lib:theory_Z-c-s}:
+While the \Zee\ analysis can be used for several things, including the researches on $\alpha_{s}$ constant and forward-backward asymmetry, the main application for the cross-section itself would be the PDF fits. The theoretical prediction for the Drell-Yan \Zgee\ process in LO is as follows~\cite{lib:theory_Z-c-s}:
 
 \begin{equation}
-\frac{d^{2}\sigma}{dM_{ee}dy} = \frac{4\pi\alpha^{2}_{s}(M_{ee})}{9}2M_{ee}P(M_{ee})\Phi(x_{1},x_{2},M^{2}_{ee})\,.
+\frac{d^{2}\sigma}{dM_{ee}dy} = \frac{4\pi\alpha^{2}_{s}(M_{ee})}{9}2M_{ee}\cdot P(M_{ee})\cdot\Phi(x_{1},x_{2},M^{2}_{ee})\,.
 \end{equation}
 
 Here the $M_{ee}$ is the mass of the boson, the $P(M)$ is the propagator term and the $\Phi(x_{1},x_{2},M^{2})$ the parton distribution function that depends on the $x$ parameter of both quark and antiquark. This cross-section is a sum of contribution from both $Z$ and $\gamma^*$ process as well as interference thereof. For the photon process the propagator and the PDF are given as
@@ -196,8 +196,24 @@ It can be seen that the propagator term $P_{\gamma}$ suppresses the photon contr
 For the $Z/\gamma$ interference contribution the same terms can be given as
 
 \begin{equation}
-\begin{split}
+\begin{gathered}
 P_{Z\gamma}(M_{ee}) = \frac{k_{Z} \cdot v_{e} \cdot (M_{ee}^{2} - M_{Z}^{2})}{M_{ee}^{2} \cdot ((M_{ee}^{2} - M_{Z}^{2})^{2} + (\Gamma_{Z}M_{Z})^{2})}\,,\,\;
-\Phi_{Z\gamma} = \sum_{q} 2e_{q}v_{q} F_{\qqbar} \,.
-\end{split}
+\Phi_{Z\gamma} = \sum_{q} 2e_{q}v_{q} F_{\qqbar} \,,\\
+k_{Z} = \frac{1}{4\sin^{2}\theta\cos^{2}\theta} \,, \,\; \cos\theta = \frac{M_{W}}{M_{Z}} \,,
+\end{gathered}
 \end{equation}
+
+Where $\theta$ is a $\theta_{W}$ - a weak mixing angle. The contribution of this component is proportional to the vector coupling of the electron $v_{e}$, which is close to zero, so the contribution is also negligible.
+
+And finally for the \Zee\ process itself the terms are as follows:
+
+\begin{equation}
+P_{Z}(M_{ee}) = \frac{k^{2}_{Z} \cdot (v^{2}_{e} + a^{2}_{e})}{(M^{2}_{ee} - M^{2}_{Z})^{2} + (\Gamma_{Z}M_{Z})^{2}}\,,\,\;
+\Phi_{Z} = \sum_{q} (v^{2}_{q} + a^{2}_{q}) F_{\qqbar} \,.
+\end{equation}
+
+As it is seen from this, the PDFs are included in the cross-section formula as a direct factor, so the double-differential cross section can be directly used to conduct the PDF fits.
+
+It is important to note, that only $\sim$3\% of the produced $Z$ bosons decay into electrons. About 70\% decay into gluons, which results in jets, and suffer from bad analysis efficiency. About 20\% go into neutrinos, and are not detected at all, and only $\sim$10\% are lepton decays, which are divided roughly equally between electrons, muons and taus. So both \Zee\ and \Zmm\ analyses are equally important, while \Ztau\ is impossible to conduct due to very short life of $\tau$ particles. We consider \Ztau\ events a background.
+
+The electrons and muons are detected by the different parts of the ATLAS, and thus these particles are detected in different parts of the kinematic space (see Sec.~\ref{sec:ATLAS} for more details). The EM calorimeters that detect electrons have a coverage of $|\eta| < 5.2$, while muon chambers have $|\eta| < 2.4$. So in order to combine the results of the two analyses, they should be extrapolated to the common fiducial volume (more on that in Sec.~\ref{sec:ZeeCrossSec}).

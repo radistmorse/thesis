@@ -136,7 +136,7 @@ For the MC11d campaign, the data from which is used in this analysis, frozen sho
 \section{MC samples used in analysis}
 \label{sec:MC_periods}
 
-During this analysis the MC samples from MC11d campaign were used. The "d" is chronologically the fourth sample produced for the 2011 data (after "a", "b" and "c"). The decision to make new samples is made when some errors in GEANT software or in ATLAS geometry are discovered. The latest "d" sample fixes all such known errors. The main generator used for both signal and background was \Powheg\ with the parton showering provided by \Pythia. The cross-check was done by the same \Powheg\ with the PS done by \Herwig\, and by \Mcatnlo\ also with the \Herwig-provided showers. For the
+During this analysis the MC samples from both MC11c and MC11d campaigns were used. The "d" is chronologically the fourth sample produced for the 2011 data, and the "c" is the third. The decision to make new samples is usually made when some errors in GEANT software or in ATLAS geometry are discovered. The latest "d" sample fixes all such known errors, which affected the electron performance in various cases. The "d" is thus used in cases where the electron performance is important. The main generator used for both signal and background was \Powheg\ with the parton showering provided by \Pythia. The cross-check was done by the same \Powheg\ with the PS done by \Herwig\, and by \Mcatnlo\ also with the \Herwig-provided showers. For the
 \Mcatnlo\ and \Powheg\ matrix element calculations the \pdfCteq\ PDF set is used, while showering was performed with \pdfCteql PDF. The list of MC signal periods that was used can be found in Tab.~\ref{tab:MC_periods}, the periods for MC background events are in Tab.~\ref{tab:MC_bg}.
 
 \begin{table}
@@ -147,7 +147,7 @@ During this analysis the MC samples from MC11d campaign were used. The "d" is ch
       Data set & Generator& $\sigma{\cdot}\text{BR}{\cdot}\epsilon_{filter}$ [nb] & $N_{evt}\,[10^6]$\\
       \hline
 
-      108303 &   \Powheg\Pythia & 1.006 (5\%) & 20\\
+      108303$^{\mathrm{d}}$ &   \Powheg\Pythia & 1.006 (5\%) & 20\\
 
       126006 &   \Powheg \Herwig & 1.006 (5\%) & 10\\
 
@@ -156,7 +156,7 @@ During this analysis the MC samples from MC11d campaign were used. The "d" is ch
 
       \hline
     \end{tabular}
-    \caption{ Signal Monte Carlo samples }
+    \caption{Signal Monte Carlo samples. The sample marked with $^{\mathrm{d}}$ was taken from the MC11d campaign, the others are from the MC11c.}
     \label{tab:MC_periods}
   \end{center}
 \end{table}
@@ -169,9 +169,9 @@ During this analysis the MC samples from MC11d campaign were used. The "d" is ch
       Process & Data set & Generator & $\sigma{\cdot}\text{BR}{\cdot}\epsilon_{filter}$ [nb] & $N_{evt}\,[10^6]$\\
       \hline
 
-      \Wplusenu       & 108297  &  \Powheg\Pythia  &
+      \Wplusenu       & 108297$^{\mathrm{d}}$  &  \Powheg\Pythia  &
       6.160 (5\%) & 23 \\
-      \Wminusenu & 108300  &  \Powheg\Pythia &
+      \Wminusenu & 108300$^{\mathrm{d}}$  &  \Powheg\Pythia &
       4.300 (5\%) & 17 \\
       \Wplusenu       & 113186 &  \Powheg\Herwig  &
       6.160 (5\%) & 16 \\
@@ -191,7 +191,10 @@ During this analysis the MC samples from MC11d campaign were used. The "d" is ch
       \Wtau\ Np4   &  107704 &  \Alpgen\Herwig\ & 0.0307 (5\%) & 0.25 \\
       \Wtau\ Np5   &  107705 &  \Alpgen\Herwig\ & 0.00835 (5\%) & 0.07 \\
       \Wtau        &  107054 &  \Pythia\        & 10.460 (5\%) & 1 \\
-
+      \Wplusenu & 147412$^{\mathrm{d}}$  &  \Powheg\Pythiaeight  &
+      6.160 $\cdot$ 0.1510 (5\%) & 15 \\
+      \Wminusenu & 147415$^{\mathrm{d}}$  &  \Powheg\Pythiaeight  &
+      4.300 $\cdot$ 0.1404 (5\%) & 10 \\
       \hline
 
       \Ztau\ Np0  &  107670 &  \Alpgen\Herwig\  & 0.834 (5\%) & 6.6 \\
@@ -201,24 +204,26 @@ During this analysis the MC samples from MC11d campaign were used. The "d" is ch
       \Ztau\ Np4  &  107674 &  \Alpgen\Herwig\  & 0.00355 (5\%) & 0.06 \\
       \Ztau\ Np5  &  107675 &  \Alpgen\Herwig\  & 0.00093 (5\%) & 0.02 \\
       \Ztau\      &  106052 &  \Pythia\         & 0.990 (5\%) & 3\\
+      \Ztau & 147418$^{\mathrm{d}}$ &   \Powheg\Pythiaeight   &
+      0.990 $\cdot$ 0.263 (5\%) & 6\\
+      \hline
+
+      \ggee & 129652 & \Pythiaeight & $2.41\cdot 10^{-3} \cdot 0.7$ (40\%) & 0.5\\
 
       \hline
 
-      \ttbar  & 105200 & \Mcatnlo & $0.1773\, (6.2\%) \cdot \, 0.555$ & 1.5\\
+      \ttbar  & 105200$^{\mathrm{d}}$ & \Mcatnlo & $0.1773\, (6.2\%) \cdot \, 0.555$ & 1.5\\
 
       \hline
 
-      $WW$ & 105985 & \Herwig & 44.9 $\cdot$ 0.389 $\cdot 10^{-3}$ (7\%) & 1.5 \\
-      $WZ$ & 105987 & \Herwig & 18.5 $\cdot$ 0.310 $\cdot 10^{-3}$ (7\%) & 1 \\
-      $ZZ$ & 105986 & \Herwig & 6.02 $\cdot$ 0.212 $\cdot 10^{-3}$ (7\%) &
+      $WW$ & 105985$^{\mathrm{d}}$ & \Herwig & 44.9 $\cdot$ 0.389 $\cdot 10^{-3}$ (7\%) & 1.5 \\
+      $WZ$ & 105987$^{\mathrm{d}}$ & \Herwig & 18.5 $\cdot$ 0.310 $\cdot 10^{-3}$ (7\%) & 1 \\
+      $ZZ$ & 105986$^{\mathrm{d}}$ & \Herwig & 6.02 $\cdot$ 0.212 $\cdot 10^{-3}$ (7\%) &
       0.25 \\
-
-
-
 
       \hline
     \end{tabular}
-    \caption{ Background Monte Carlo samples }
+    \caption{ Background Monte Carlo samples. The samples marked with $^{\mathrm{d}}$ were taken from the MC11d campaign, the others are from the MC11c. }
     \label{tab:MC_bg}
   \end{center}
 \end{table}

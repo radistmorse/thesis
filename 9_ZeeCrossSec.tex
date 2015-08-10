@@ -1,9 +1,9 @@
 \chapter{\Zee\ cross section measurement}
 \label{sec:ZeeCrossSec}
-\tbu distinguish bin-by-bin and bayesian
 
+The measuremet of the \Zee\ decay process is the main purpose of this work, and in this chapters the details of the methodology of this measurement would be discussed. The differential cross-sections are calculated using the Bayesian iterative unfolding with 3 iterations. The Bayesian unfolding is in some sense an evolution of the more primitive bin-by-bin unfolding, but the idea behind it is the same. But we will describe the unfolding methodology based on bin-by-bin, since it is more direct and is easier to explain.
 
-The measuremet of the \Zee\ decay process is the main purpose of this work, and in this chapters the details of the methodology of this measurement would be discussed. The differential cross-sections are calculated using the Bayesian iterative unfolding with 3 iterations. The formulae for both integrated and differential cross-sections are:
+The formulae for both integrated and differential cross-sections are:
 
 \begin{equation}
 \sigma_{tot} = \sigma_{Z} \times BR(\Zee) = \frac{N - B}{C \cdot E \cdot A \cdot L_{int}  \cdot \Gamma}\,,
@@ -35,7 +35,7 @@ where
   \end{itemize}
 \end{itemize}
 
-The choice of the Bayesian unfolding method as opposed by the bin-by-bin unfolding method is motivated by the purity and stability factors, which are calculated as this:
+The main difference in the results of the Bayesian and bin-by-bin unfoldings lies in two important factors: purity and stability. These two factors are calculated as follows:
 
 \begin{equation}
 P^{i} = \frac{N^{i}_{\text{rec\&gen}} }{ N^{i}_{\text{rec}} }\,, \; \;
@@ -49,7 +49,7 @@ where
 \item {\bfseries $N^i_{\text{gen}}$} is the sum of event weights generated in bin $i$.
 \end{itemize}
 
-The purity is thus a measure of in-migration, which shows the amount of foreign events reconstructed in the given bin, while the stability is a measure of the out-migration, which shows the amount of events that were reconstructed in other bins for every given bin. The relatively low values for purity and stability makes bin-by-bin unfolding biased and inefective, as it won't take into account the migration between bins, and the results of the purity and stability studies for \Zee\ central-forward analisys suggested that the Bayesian unfolding would be more effective. \tbu ref to the results.
+The purity is thus a measure of in-migration, which shows the amount of foreign events reconstructed in the given bin, while the stability is a measure of the out-migration, which shows the amount of events that were reconstructed in other bins for every given bin. The relatively low values for purity and stability makes bin-by-bin unfolding biased and inefective, as it won't take into account the migration between bins, and the results of the purity and stability studies for \Zee\ central-forward analisys suggested that the Bayesian unfolding would be more effective.
 
 While calculating the $C$, $E$ and $A$ correction factors, there is a very important thing that must be taken into account, which is the QED final state radiation (FSR). The results of the MC generation are so-called {\itshape born level} leptons, which are the leptons before FSR. To simulate FSR there are two tools in use in the MC productiob chain: \Photos\, which is the main tool that is used, and \Sherpa\ which uses different FSR algorithm and is used for systematic uncertainties calculation. After the FSR simulation, the resulting final state leptons are called {\itshape bare leptons}. The bare leptons represent the result of the actual collision much closer than the born leptons, but because of the work of the clustering algorithms during reconstruction, bare leptons are impossible to reconstruct. To overcome this problem, the third level of FSR was introduced, which is {\itshape dressed leptons}. The dressed leptons are bare leptons with the inclusion of all FSR photons within the $\Delta R < 0.1$. The dressed leptons are the leptons that most closely represent the particles that are actually reconstructed by the reconstruction algorithms.
 
@@ -74,8 +74,9 @@ And for the bare and dressed levels the cross-sections are calculated with good 
 \end{split}
 \end{equation}
 
+When it comes to Bayesian unfolding, all the coefficients mentioned above gets hidden inside the unfolding matrixes and are not observed directly. Yet we can see, that since the $A$ extrapolation coefficient deals with total cross-section, which we are not interested in, and that the $E$ coefficient is purely theoretical, and doesn't depend on experiment in any way, only on the set of the fiducial cuts that we apply. The only coefficient that can be regarded as a result of an experiment is thus the $C$ coefficient, which roughly represents the fraction of the total number of the $Z$ bosons produced, that got included in the analysis. For the 2011 \Zee\ CF analysis it was $\sim$42\% (see Sec.~\ref{sec:results} for more details).
 
-The differential cross-section measurement was done in absolute rapidity binning, which allows the later combination of the CC and CF analysis results. The binning is shown in Tab.~\ref{tab:ZeeCS_bins}.
+The differential cross-section measurement was done in absolute rapidity binning, which allows the later combination of the CC and CF analysis results. The binning is shown in Tab.~\ref{tab:ZeeCS_bins}. The mass binning for the double-diffirential CF analysis had only two bins: the peak-mass window $66 < m_{ee} < 116$ and the high-mass window $116 < m_{ee} < 150$.
 
 \begin{table}
 \centering
