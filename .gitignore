@@ -1,4 +1,6 @@
 *.pdf
+!/figures/*.pdf
+/figures/*converted-to.pdf
 *.aux
 *.log
 *.bbl
