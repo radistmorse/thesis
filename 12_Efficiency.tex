@@ -26,6 +26,112 @@ The calculated trigger efficiencies for the default single-electron triggers use
 
 \section{Reconstruction and identification efficiency}
 
-There are three separate efficiencies that contribute to the electron identification, the efficiency of the cluster reconstruction algorithm, the efficiency of the electron reconstruction algorithm, and the efficiency of the electron identification algorithm. Every subsequent algorithm only works if its predecessors succeeded, so all the three efficiencies are tied together, and may be explored together.
+There are three separate efficiencies that contribute to the electron identification: the efficiency of the cluster reconstruction algorithm, the efficiency of the electron reconstruction algorithm, and the efficiency of the electron identification algorithm. Every subsequent algorithm only works if its predecessors succeeded, so all the three efficiencies are tied together, and may be explored together.
+
+\subsection{Central electron identification efficiencies}
+
+For the central electrons, the samples from the \Zee, \Wenu, and $J/\psi \to ee$ were taken in the kinematic intervals of $7 < E_{t} < 50$ and $|\eta| < 2.47$~\cite{lib:elec_reco}. The efficiencies and uncertainties were calculated separately for each channel, but then combined for the scale factors calculation to reduce the errors. For all three channels the selection for the tag electron required it to be reconstructed inside the $|\eta| < 2.47$ range with at least six hits in the SCT and at least one hit in the pixel detector. Tight selection criteria are applied to the tag object, which is an electron in case of \Zee\ and $J/\psi \to ee$ events, and is a $E_{t}^{miss}$ in case of \Wenu. To further decrease the amount of background, an additional cuts are applied to each channel separately.
+
+For the \Wenu\ channel the selection was tighten for the lower-mass events, i.e. the ones with the transverse mass $40 < m_{t} < 50$~GeV and $25 < E_{t}^{miss} < 40$~GeV. For the tighter selection, the probe electron was required a $P_{t} > 15$~GeV, and the event was discarded if more then one electron candidate satisfied the medium ID criteria. To reduce the amount of hadrons misidentified as electrons, two additional isolational critera were added: the probe electron should be separated from any jet with $P_{t} > 25$~GeV with a conus of at least $\Delta R > 0.4$, and similarly the $E_{t}^{miss}$ vector should be separated from any jet with the same energy by the angular distance of at least $\Delta \varphi > 0.7$.
+
+For the \Zee\ channel the additional criteria included the $E_{t} > 20$~GeV cut for the tag electron, as well as exclusion of the transition region $1.37 < |\eta| < 1.52$, and the similar to the \Wenu cahnnel isolation requirement for the probe electron: no jets with $P_{t} > 25$~GeV within the $\Delta R < 0.4$ conus. The OS cut was required for the selection, but the SS events were also counted for the OS-SS background substraction the same way as in the trigger efficiencies calculation. The mass window was tighten to $80 < m_{ee} < 100$ to further suppress the background.
+
+For the $J/\psi \to ee$ channel the additional filtering was very high due to the big number of problems reconstructing the low $E_{t}$ events. There are two types of events in this channel: prompt and non-prompt. The event is called prompt when it happens in the vicinity of the primary vertex, while the non-prompt $J/\psi$ particles can lay off of the main vertex due to the relatively long lifetime of its parent $b$-hadron. The non-prompt events are usually surrounded by the hadronic activity which complicates the task of proper identification even further. To remedy this the events are split in two parts based on the lifetime of the $J/\psi$ parent particle derived from the transverse shift of the event vertex from the primary vertex, with events with longer lifetime being non-prompt. The additional restriction are also put on the tag electron, which requires additional TRT hits and large isolation conuses.
+
+For the evaluation of the remaining amount of background, the discriminating variables are used for each of the channels. For \Wenu\ the discriminating variable is the isolation: the sum of all energies from both electromagnetic and hadronic calorimeters is calculated for the cone around the probe electron, excluding the energy from the electron itself. The resulting quantity is then referred as $E_{t}^{cone}(X)/E_{t}$ where $X$ is $\Delta R$ of the cone, usually $0.3$. The background template is constructed by reversing the two criteria of the electron id: TRT high-threshold fraction from the tight ID, and the total shower width from the loose ID. The discriminating variable is used to determine which bins are more signal-dominated, and which are background-dominated (located below and above the threshold respectively), and then the template is fitted to data for the background-dominated bins, and scaled respectively for the signal-dominated ones. For the \Zee\ events there are two discriminating variables, and thus two background templates available. The first one is the $m_{ee}$ mass window, where the template is constructed from the events failing at least two loose ID cuts and with a significant amount of energy in a cone around the probe. The template is fitted to data in the high-energy mass window $m_{ee} > 120$~GeV. The second template is the same is for the \Wenu\ events. For the $J/\psi \to ee$ channel the mass window is used like in \Zee. The template is constructed mainly from the same sign events with some additions made with Chebyshev polinoms.
+
+\begin{figure}
+\center{
+\subfigure[\Wenu]{\includegraphics[width=0.45\textwidth]{figures/eff_rec_id_bg_a.pdf}}
+\subfigure[\Zee]{\includegraphics[width=0.45\textwidth]{figures/eff_rec_id_bg_b.pdf}}
+\subfigure[$J/\psi \to ee$ prompt]{\includegraphics[width=0.45\textwidth]{figures/eff_rec_id_bg_c.pdf}}
+\subfigure[$J/\psi \to ee$ non-prompt]{\includegraphics[width=0.45\textwidth]{figures/eff_rec_id_bg_d.pdf}}
+
+\caption{Background estimation for different channels. (a) shows the $E_{t}^{cone}(0.3)/E_{t}$ variable of \Wenu\ events for probes (black dots) and normolised background template. The black dashed line shows the threshold. (b) shows two normalized background templates for \Zee, see text for details. (c) and (d) show backgrounds for short-lifetime and long-lifetime $J/\psi \to ee$ events respectively, being decomposited to various components.}
+\label{fig:eff_rec_id_bg}}
+\end{figure}
+
+
+For the uncertainties calculation, the shifting of various parameters is applied to all channels and the resulting shift in the efficiencies is observed. For the \Wenu\ events the thresholds for the $E_{t}^{miss}$ and $m_{t}$ cuts are shifted, and the width of the cone for the discriminating variable is alternated to $0.4$. For the resulting $\sim$80 samples the backgrounds are then evaluated using the same method, and the resulting spread of the efficiencies is calculated. For the samples used the signal/background ratio distribution in the signal region exhibits an RMS (Root Mean Square) of 30\% at low $E_{t}$ (15-20~GeV) and 25\% at high $E_{t}$ (35-40~GeV). For the \Zee\ events the different mass-windows is used along with some alternative criteria for the tag electron. Both background templates are used, and in case of the isolation template the radius of the cone is also shifted, which gives $\sim$120 samples total. The S/B ratio distribution exhibits an RMS of $\sim$10\%. For the $J/\psi \to ee$ channel the isolation criteria was shifted for the tag electron as well as the high TRT requirement. The variaing mass window and the same sign cut aro also used to produce a total of 76 and 52 samples for prompt and non-prompt events respectively, with RMS of $\sim$30\%.
+
+Since the events are statistically independent, their combination is used to produce the final results. Since it is data-to-MC ratio (which are scale factors) we are interested in, we can disregard the effects of the resolution or bin migration, or the trigger influence. A global $\chi^{2}$ minimisation was used to calculate the SF for every particular bin, in 2D $p_{t}$-$\eta$ binning. The formula for each bin is as follows:
+\begin{equation}
+\chi^{2} = \sum_{i,k} \frac{\left[ \mu^{i,k} - \mathrm{SF}^{i} - \sum_{j} \gamma_{j}^{i,k}\mathrm{SF}^{i}b_{j} \right]}
+  {\left( \delta^{i,k}_{\mathrm{sta}} \right)^{2} \mu^{i,k}\mathrm{SF}^{i} \left( 1 - \sum_{j} \gamma_{j}^{i,k}b_{j} \right) + \left(\delta^{i,k}_{\mathrm{unc}} \mathrm{SF}^{i} \right)^{2}}
+  + \sum_{j} b_{j}^{2} \,,
+\end{equation}
+where $i$, $k$, and $j$ run  over  the  $(E_{t}, \eta)$ bins, the three channels, and the correlated systematics, respectively. The variables $\delta^{i,k}_{\mathrm{sta}}$, $delta^{i,k}_{\mathrm{unc}}$, and $\gamma_{j}^{i,k}$ represent the relative statistical, uncorrelated, and correlated systematic uncertainties respectively. The nuisance parameters $b_{j}$ are  related  to  correlated  uncertainties,  which are  dominated  by  the  background subtraction uncertainties. The combined scale factors are given by $\mathrm{SF}^{i}$. The resulting scale factors for some bins are shown in Fig.~\ref{fig:eff_rec_id_SFs}.
+
+\begin{figure}
+\center{
+\subfigure[$15 < E_{t} < 20$]{\includegraphics[width=0.45\textwidth]{figures/eff_rec_id_SFs_a.pdf}}
+\subfigure[$35 < E_{t} < 40$]{\includegraphics[width=0.45\textwidth]{figures/eff_rec_id_SFs_b.pdf}}
+
+\caption{Examples of combined scale factors for the three identification criteria (loose, medium, tight) as a function of the probe-electron $\eta$. Results are shown for different ranges of the probe electron energy. The error bars indicate the total uncertainties. }
+\label{fig:eff_rec_id_SFs}}
+\end{figure}
+
+\subsection{Forward electron identification efficiencies}
+
+In the forward region of the calorimeters, the electron identification efficiency is measured with a \Zee\ central-forward sample  where  a  well-isolated $E_{t} > 25$~GeV tag  electron satisfying the tight requirement is identified in the central region of the calorimeter and the probe cluster with $E_{t} > 20$~GeV is found in the forward region. A s an additional cut the low $E_{t}^{miss}$ is required for the event candidates to suppress the contribution from the \Wenu\ channel.
+The invariant mass $m_{ee}$ is fitted by the Crystal Ball function convolved with a non-relativistic Breit-Wigner function with fixed $Z$ width to model the signal, and a Landau function to model the background in a mass window of $55 < m_{ee} < 130$~GeV. The S/B ratio is $\sim$7 for the outer EMEC and $\sim$5 for the FCAL. The various shifts to the tag requirements and to the fit parameters were performed to determine the amount of the systematical uncertainties, the resulting scale factors for a some bins can be seen in Fig.~\ref{fig:eff_rec_id_forward_SFs}.
+
+\begin{figure}
+\center{
+\includegraphics[width=0.5\textwidth]{figures/eff_rec_id_forward_SFs.pdf}
+\caption{The scale factors for the forward electrons with $E_{t} > 20$~GeV. The error bars correspond to the total uncertainties.}
+\label{fig:eff_rec_id_forward_SFs}}
+\end{figure}
+
+
+\subsection{Reconstruction efficiencies}
+
+For reconstruction efficiency measurements the events from the \Zee\ channel are used for both central and forward electrons. As discussed in Sec.~\ref{sec:Rec_elec} the algorithm for the forward electrons is much more complex and gives an afficiency of about 97\% at 7~GeV and $\sim$99\% at 15~GeV. For the higher energies the efficiency of it is mached by that of the track reconstruction and cluster-track matching algorithms.
+
+Efficiency values were measured for three samples:
+
+\begin{itemize}
+\item All reconstructed electron candidates in \Zee\ channel;
+\item All the same electron candidates, but with additional requirement of the quality of the matching track, to match with the $J/\psi \to ee$ conditions described above;
+\item All reconstructed electron candidates with additional requirements on hadronic leakage and the track quality to match with the \Wenu\ conditions described above.
+\end{itemize}
+
+The conditions for these measures follows that of the identification closely, except for the corrections for the photon conversions: the photons are included in the denominator when calculating the efficiency, provided they satisfy all the requirements. Naturally, that also means that the opposite sign requirement also doesn't apply.
+
+For the background evaluation the same technique is applied: the background template is constructed using the inversion of several ID cuts (at least two from the loose ID not counting the ones dealing with the track) and failing the isolation requirement, and then normilized to the data in the high-mass region ($110 < m_{ee} < 250$).
+
+The three samples together with the variations obtained from the variations of the background thresholds are used to find the systematic unsertainties with the same method as used in the identification efficiency calculation.
+
+The resulting efficiencies can be seen in Fig.~\ref{fig:eff_rec}. It can be seen that the systematical error increases greatly at $E_{t} < 20$~GeV.
+
+\begin{figure}
+\center{
+\subfigure[Reconstruction efficiencies]{\includegraphics[width=0.45\textwidth]{figures/eff_rec_a.pdf}}
+\subfigure[Systematical and statistical uncertainties]{\includegraphics[width=0.45\textwidth]{figures/eff_rec_b.pdf}}
+
+\caption{Reconstruction efficiencies for the central electrons, the error bars represent the total uncertainty, which can be seen fully in (b).}
+\label{fig:eff_rec}}
+\end{figure}
 
 \section{Isolation efficiency}
+
+In \Zee central-forward the two addotional isolation cut are used in order to reduce the amount of the background: Iso98$E_{t}^{\mathrm{cone20}}$ and Iso97$p_{t}^{\mathrm{cone40}}$ for both track and cluster. The efficiency of the isolation is thus the fraction of the electrons that pass this additional cut:
+\begin{equation}
+\varepsilon_{Iso} = \frac{N_\text{probe with Iso} }{ N_\text{all probe} }, \;\;\;\;
+\delta \varepsilon_{Iso} = \frac{\sqrt{(1-2\varepsilon) \delta N_\text{probe with Iso}^2 + \varepsilon^2 \delta N_\text{all probe}^2}}
+                                {N_\text{all probe}},
+\end{equation}
+where $\varepsilon_{Iso}$ is the efficiency, and $\delta \varepsilon_{Iso}$ is the corresponding statistical error.
+
+The measurement was done with the \Zee\ sample with the same setup, with the $p_{t}$ cut of the probe electron being lowered to 15~GeV and mass window reduced to $80 < m_{ee} < 100$~GeV to remedy the increased background. The remaining background is negligible (less than $0.1$\%) so no substraction is necessary.
+
+The systematical error evaluation was done by shifting the mass window in the same way as for the trigger efficiencies calculation, and also by increasing the $p_{t}$ cut for the tag electron to 24~GeV. The resulting efficiencies can be seen in Fig.~\ref{fig:eff_iso_SFs}.
+
+\begin{figure}
+\center{
+\subfigure[Isolation efficiencies]{\includegraphics[width=0.45\textwidth]{figures/eff_iso_SFs.pdf}}
+\subfigure[Combined uncertainties]{\includegraphics[width=0.45\textwidth]{figures/eff_iso_unc.pdf}}
+
+\caption{Isolation efficiencies in 2D binning by $p_{t}$ and $\eta$.}
+\label{fig:eff_iso_SFs}}
+\end{figure}
