@@ -4,12 +4,10 @@
 The measuremet of the \Zee\ decay process is the main purpose of this work, and in this chapters the details of the methodology of this measurement would be discussed. The differential cross-sections are calculated using the Bayesian iterative unfolding with 3 iterations. The Bayesian unfolding is in some sense an evolution of the more primitive bin-by-bin unfolding, but the idea behind it is the same. But we will describe the unfolding methodology based on bin-by-bin, since it is more direct and is easier to explain.
 
 The formulae for both integrated and differential cross-sections are:
-
 \begin{equation}
 \sigma_{tot} = \sigma_{Z} \times BR(\Zee) = \frac{N - B}{C \cdot E \cdot A \cdot L_{int}  \cdot \Gamma}\,,
 \end{equation}
-
-where
+where:
 \begin{itemize}
 \item {\bfseries $N$} is the number of candidate events measured in data.
 \item {\bfseries $B$} is the number of background events (see Sec.~\ref{sec:Bkg} for futher information on the background estimation).
@@ -36,13 +34,11 @@ where
 \end{itemize}
 
 The main difference in the results of the Bayesian and bin-by-bin unfoldings lies in two important factors: purity and stability. These two factors are calculated as follows:
-
 \begin{equation}
 P^{i} = \frac{N^{i}_{\text{rec\&gen}} }{ N^{i}_{\text{rec}} }\,, \; \;
 S^{i} = \frac{N^{i}_{\text{rec\&gen}} }{ N^{i}_{\text{gen}} }\,,
 \end{equation}
-
-where
+where:
 \begin{itemize}
 \item {\bfseries $N^i_{\text{rec\&gen}}$} is the sum of event weights which were generated and reconstructed in bin $i$.
 \item {\bfseries $N^i_{\text{rec}}$} is the sum of event weights reconstructed in bin $i$.
@@ -54,15 +50,12 @@ The purity is thus a measure of in-migration, which shows the amount of foreign 
 While calculating the $C$, $E$ and $A$ correction factors, there is a very important thing that must be taken into account, which is the QED final state radiation (FSR). The results of the MC generation are so-called {\itshape born level} leptons, which are the leptons before FSR. To simulate FSR there are two tools in use in the MC productiob chain: \Photos\, which is the main tool that is used, and \Sherpa\ which uses different FSR algorithm and is used for systematic uncertainties calculation. After the FSR simulation, the resulting final state leptons are called {\itshape bare leptons}. The bare leptons represent the result of the actual collision much closer than the born leptons, but because of the work of the clustering algorithms during reconstruction, bare leptons are impossible to reconstruct. To overcome this problem, the third level of FSR was introduced, which is {\itshape dressed leptons}. The dressed leptons are bare leptons with the inclusion of all FSR photons within the $\Delta R < 0.1$. The dressed leptons are the leptons that most closely represent the particles that are actually reconstructed by the reconstruction algorithms.
 
 The calculation of the correction factors is always done on the born level, because the simulation on the born level is the best from the theoretical point of view (the FSR simulation is very approximate). The $C$, $E$ and $A$ then look like this:
-
 \begin{equation}
 C = \frac{N_\mathrm{MC, rec}}{N_\mathrm{MC, genBorn, cutexp}}\,, \;
 E = \frac{N_\mathrm{MC, genBorn, cutexp}}{N_\mathrm{MC, genBorn, cutfid}}\,, \;
 A = \frac{N_\mathrm{MC, genBorn, cutfid}}{N_\mathrm{MC, genBorn, all}}\,.
 \end{equation}
-
 And for the bare and dressed levels the cross-sections are calculated with good approximation by using the $\delta^\mathrm{bare}$ and $\delta^\mathrm{dressed}$ which are defined as:
-
 \begin{equation}
 \begin{split}
   \delta^\mathrm{bare} = \frac{N_\mathrm{MC, genBare, fidcut}}{N_\mathrm{MC, genBorn, fidcut}}\:\:\:&\mbox{and}\:\:\:

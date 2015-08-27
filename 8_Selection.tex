@@ -29,7 +29,7 @@ The application of cuts is one of the most important parts of the analysis. Duri
 \item {\bfseries Two good electrons per event}: This cut drops all the events that has the number of good electrons other then two. The Drell-Yan process produces exactly two electrons, so everything else is a background for our analysis.
 \item {\bfseries Minimum electron $P_{t}$}: This cut drops all the electrons with the $P_{t} < 20$~GeV. We do not have adequate corrections for the electrons with low $P_{t}$.
 \item {\bfseries Electron $|\eta|$}: This cut drops all the electrons that are reconstructed outside the required $\eta$ regions: $|\eta| < 2.47$ for the central electron and $|\eta| > 2.52$ for the forward electron.
-\item {\bfseries Electrons are outside the crack regions}: This cut drops all the electrons that are reconstructed inside the crack regions of the calorimeters. For the central electrons the cracks are $1.37 < |\eta| < 1.52$ and $|\eta| > 2.47$.
+\item {\bfseries Electrons are outside the crack regions}: This cut drops all the electrons that are reconstructed inside the crack regions of the calorimeters. For the central electrons the cracks are $1.47 < |\eta| < 1.52$ and $|\eta| > 2.47$, for the forward electrons it is $3.16 < |\eta| < 3.35$
 \item {\bfseries Z boson mass}: This cut drops all the events with the combined mass of two elextrons outside of the range $66 < |M_{ee}| < 116$.
 \item {\bfseries Number of tracks at primary vertex}: This cut drops all the events that do not have a vertex with at least three tracks.
 \item {\bfseries A track for the central electron}: This cut drops all the events in which the central electron doesn't have a track. The "author" cut which requires the specific author for every electron supersedes this cut, but it is kept for compatibility purposes.
@@ -45,4 +45,58 @@ The application of cuts is one of the most important parts of the analysis. Duri
 \item {\bfseries Electron author}: This cut requires the correct author (described in sec.~\ref{sec:Rec_elec}) for both central and forward electron.
 \end{itemize}
 
-\tbu cutflow (MC/Data)
+The cutflows, i.e. the tables that shows how much events pass any given cut, can be seen in Tab.~\ref{tab:sel_cutflow_data} for data and in Tab.~\ref{tab:sel_cutflow_MC} for MC. The relative efficiency shows how many events pass the cut relative to the previous cut, while the absolute efficiency shows the number of events relative to the whole number of events.
+
+\begin{table}
+\centering
+\begin{tabular}{@{}lrrr@{}} \hline \hline
+ Cut & events & $\epsilon_{rel}$ [\%] & $\epsilon_{abs}$ [\%] \\\hline
+ All events  &    234255443 & &   100.00000 \\
+ primary vertex w. $>2$ tracks &    234127638 &     99.9454 &    99.94544 \\
+ veto LAr noise bursts & 233365291 &     99.6744 &    99.62001 \\
+$|\eta_{cnt}| < 2.47$, $2.5<|\eta_{fwd}|<4.9$ &    138946695 &     59.5404 &    59.31418 \\
+excl. $1.47 < |\eta| < 1.52$ &    127877309 &     92.0334 &    54.58883 \\
+excl. $3.16 < |\eta| < 3.35$ &    124775277 &     97.5742 &    53.26462 \\
+$pt_{e}^{cent.} > 25$\,GeV &    74478333 &     59.6900 &    31.79364 \\
+$pt_{e}^{fwd.} > 20$\,GeV &      8404968 &     11.2851 &     3.58795 \\
+Author &     8404244 &     99.9914 &     3.58764 \\
+good object quality &     8338286 &     99.2152 &     3.55948 \\
+ Tight++ &      1537446 &     18.4384 &     0.65631 \\
+ FwdTight &       370376 &     24.0903 &     0.15811 \\
+ Iso98Etcone20 &       355029 &     95.8564 &     0.15156 \\
+ Iso97Ptcone40 &       340852 &     96.0068 &     0.14550 \\
+ single-lepton trigger &       339235 &     99.5256 &     0.14481 \\
+ MaxTwoGoodElectrons &       339235 &    100.0000 &     0.14481 \\\hline
+ $66 < m_{ee} < 116$~GeV &       321575 &     94.7942 &     0.13728 \\
+ $116 < m_{ee} < 150$~GeV &         7740 &        2.28 &     0.0033 \\ \hline \hline
+\end{tabular}
+\caption{The cutflow for the \Zee\ CF data selection both for peak and high mass windows.}
+\label{tab:sel_cutflow_data}
+\end{table}
+
+\begin{table}
+\centering
+\begin{tabular}{@{}lrrr@{}} \hline \hline
+ Cut & events (weighted)  & $\epsilon_{rel}$ [\%] & $\epsilon_{abs}$ [\%] \\\hline
+ All events &     19783527.83 &             &   100.00000 \\
+ primary vertex w. $>2$ tracks &     19659928.15 &     99.3752 &    99.37524 \\
+ veto LAr noise bursts &     19659928.15 &    100.0000 &    99.37524 \\
+$|\eta_{cnt}| < 2.47$, $2.5<|\eta_{fwd}|<4.9$ &     12425328.01 &     63.2013 &    62.80643 \\
+excl. $1.47 < |\eta| < 1.52$ &     11837779.90 &     95.2714 &    59.83655 \\
+excl. $3.16 < |\eta| < 3.35$ &     11431076.75 &     96.5644 &    57.78078 \\
+$pt_{e}^{cent.} > 25$\,GeV &      7959710.26 &     69.6322 &    40.23403 \\
+$pt_{e}^{fwd.} > 20$\,GeV &      3207445.87 &     40.2960 &    16.21271 \\
+Author &      3206917.09 &     99.9835 &    16.21004 \\
+good object quality &      3186720.53 &     99.3702 &    16.10795 \\
+ Tight++ &      2228171.55 &     69.9205 &    11.26276 \\
+ FwdTight &      1684155.81 &     75.5847 &     8.51292 \\
+ Iso98Etcone20 &      1661813.91 &     98.6734 &     8.39999 \\
+ Iso97Ptcone40 &      1629799.05 &     98.0735 &     8.23816 \\
+ single-lepton trigger &      1584699.06 &     97.2328 &     8.01019 \\
+ MaxTwoGoodElectrons &      1584699.06 &    100.0000 &     8.01019 \\ \hline
+ $66 < m_{ee} < 116$~GeV &      1542376.88 &     97.3293 &     7.79627 \\
+ $116 < m_{ee} < 150$~GeV &        42206.05 &        2.66 &     0.21 \\ \hline \hline
+\end{tabular}
+\caption{The cutflow for the \Zee\ CF MC selection both for peak and high mass windows. The number of events is corrected for weights.}
+\label{tab:sel_cutflow_MC}
+\end{table}

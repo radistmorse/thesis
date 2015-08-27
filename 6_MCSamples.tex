@@ -126,12 +126,14 @@ When the particle with the proper parameters is found, it is then removed from t
 
 \begin{figure}
 \center{
-\includegraphics[width=1.0\textwidth]{figures/blank.eps}
-\caption{The simulation speed-up in case of single electron simulation for energy range $100-200 GeV$ \tbu}
+\includegraphics[width=1.0\textwidth]{figures/MC_FS_speedup.eps}
+\caption{The simulation result for single electrons with energy 1000~GeV. CPU speed-up can be seen in top right. \tbu A BETTER PLOT}
 \label{fig:MC_FS_speedup}}
 \end{figure}
 
-For the MC11d campaign, the data from which is used in this analysis, frozen showers system was enabled by default in FCAL. Several studies showed that the errors introduced by the FS is negligible compared to the errors between MC and data, while the simulation speedup was about 25\%. The smallness of the errors introduced by the FS compared to other fast simulation methods (most notably - FastCaloSim) leaded to the misunderstanding, when the simulation with the FS system enabled was called "full simulation" as opposed to other, less precise but faster methods, which were called "fast simulation". In this terminology, all of the MC samples used in this analysis are full simulations.
+For the MC11c and MC11d campaigns, the data from which is used in this analysis, frozen showers system was enabled by default in FCAL. Several studies showed that the errors introduced by the FS is negligible compared to the errors between MC and data, while the simulation speedup was about 25\%. The smallness of the errors introduced by the FS compared to other fast simulation methods (most notably - FastCaloSim) leaded to the misunderstanding, when the simulation with the FS system enabled was called "full simulation" as opposed to other, less precise but faster methods, which were called "fast simulation". In this terminology, all of the MC samples used in this analysis are full simulations.
+
+The sample comparison of the default, non-accelerated MC samples with the samples with enabled frozen showers can be seen in Fig.~\ref{fig:MC_FS_speedup}. It can be seen that the speed-up is significant, while the results remain the same.
 
 \section{MC samples used in analysis}
 \label{sec:MC_periods}
@@ -234,10 +236,17 @@ During this analysis the MC samples from both MC11c and MC11d campaigns were use
 The MC samples have a number of known shortcomings, and some data distributions are not described well. To fix this we apply reweightings based on MC/data comparisons at the reconstruction levels, different MCs comparisons on the generation (truth) level, or using the other ATLAS analyses. The weights are applied based on the truth information and are validated using the closure tests. The list of corrections is this:
 
 \begin{itemize}
-\item \textbf{Pileup Reweighting} is based on the $\mu$ variable and aims to equalize the amount of pileup in MC and data. This is done using the \textit{PileupReweighting} tool.
-\item \textbf{Vertex Spread in $z$ Reweighting} is based on the $z$ component of the vertex and aims to increase the spread of the beam spot in $z$-direction of MC, which is significantly smaller than in data. The \texttt{VertexPositionReweightTool} is used for that.
-\item \textbf{$Z$ Boson $p_T$ Reweighting} is applied to the $p_T$ distribution of the $Z$ bosons, which doesn't describe the data well in the MC signal generators used for this analysis. The results from ATLAS $Z$ $\phi^*$ and $\pt$ analyses were used for it, and it was done using the \texttt{BosonPtReweightingTool}.
-\item \textbf{$Z$ Boson Line Shape Reweighting} is the reweightings aimed to fix the fundamental shortcomings of the MC generators caused by the electroweak order not being high enough. This reweighting is done using the \texttt{LineShapeTool}.
+\item \textbf{Pileup Reweighting} is based on the $\mu$ variable and aims to equalize the amount of pileup in MC and data. This is done using the \textit{PileupReweighting} tool~\cite{lib:pileuptool, lib:pileupscale}.
+\item \textbf{Vertex Spread in $z$ Reweighting} is based on the $z$ component of the vertex and aims to decrease the spread of the beam spot in $z$-direction of MC, which is significantly smaller in data (for data $\sigma_z \approx 56$mm, while for narrow beam spot MC sample $\sigma_z = 75$mm and for wide beam spot $\sigma_z = 90$mm). The \texttt{VertexPositionReweightTool} is used for that. The effect of this correction can be seen in Fig.~\ref{fig:MC_zvtx}.
+\item \textbf{$Z$ Boson $p_T$ Reweighting} is applied to the $p_T$ distribution of the $Z$ bosons, which doesn't describe the data well in the MC signal generators used for this analysis. The results from ATLAS $Z$ $\phi^*$ and $\pt$ analyses~\cite{lib:Zphistar} were used for it, and it was done using the \texttt{BosonPtReweightingTool}.
+\item \textbf{$Z$ Boson Line Shape Reweighting} is the reweightings aimed to fix the fundamental shortcomings of the MC generators caused by the electroweak order not being high enough. This reweighting is done using the \texttt{LineShapeTool}. See~\cite{lib:lineshape} for details.
 \end{itemize}
 
-plots before \& after (MC/Data) \tbu
+\begin{figure}
+\center{
+\subfigure[$z_{vtx}$ weights] {\includegraphics[width=0.32\textwidth]{figures/MCrew_zvtx_weights.eps}}
+\subfigure[Before $z_{vtx}$ reweight] {\includegraphics[width=0.32\textwidth]{figures/MCrew_zvtx_before.eps}}
+\subfigure[After $z_{vtx}$ reweight] {\includegraphics[width=0.32\textwidth]{figures/MCrew_zvtx_after.eps}}
+\caption{The effect of the vertex spread correction applied to MC11c samples. The corrections for MC11d remained the same.}
+\label{fig:MC_zvtx}}
+\end{figure}
