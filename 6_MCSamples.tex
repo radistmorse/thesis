@@ -3,14 +3,21 @@
 
 In order to analyze the data we use the computer-generated so-called pseudo-data samples using the software that simulates the physical processes that happen in the detector. This pseudo-data is also called "Monte Carlo" or MC and its purpose is to construct the data samples based on the theoretical predictions of our physical model. Ideally, the MC samples should be as close to the real data as possible, allowing us to inspect all the stages of the analysis with a great precision. MC is used for tuning of the reconstruction algorithms (see Sec.~\ref{sec:Reconstruction}), calibration of the calorimeter (see Sec.~\ref{sec:Calibration}), calculation of the efficiencies (see Sec.~\ref{sec:Efficiency}), estimation of the background (see Sec.~\ref{sec:Bkg}), and finally for the comparison of the data to the theoretical predictions (see Sec.~\ref{sec:Results}). Unfortunately, we are unable to recreate the data samples precisely, so some corrections are made by the means of reweightings (see Sec.~\ref{sec:MC_correction}).
 
-The process of generating of the MC samples consists of several stages:
+\begin{figure}
+\center{
+\includegraphics[width=0.7\textwidth]{figures/MC_production_chain.eps}
+\caption{Diagram of the ATLAS MC production chain}
+\label{fig:MC_gen}}
+\end{figure}
+
+The process of generating of the MC samples consists of several stages, which can be seen in the diagram of the MC production chain in Fig.~\ref{fig:MC_gen}. Here are the short descriptions of every step of the production:
 \begin{enumerate}
 \item The simulation of the $pp$ collision, which involves the production and the decay of high-energy particles (done by the MC generators, see sec.~\ref{sec:MC_gen}).
-\item The simulation of interactions between the high-energy particles and the substance of the detector (done by the Geant4 software~\cite{lib:geant4}, see sec.~\ref{sec:MC_sim_rec}).
+\item The simulation of interactions between the high-energy particles and the substance of the detector (done by the Geant4 software~\cite{lib:geant4}, see sec.~\ref{sec:MC_sim}).
 \item The simulation of the detector response based on the amount of deposited energy in different parts of the detectors (done by the ATLAS software).
 \item The reconstruction process runs the same way as for the genuine data samples, it is fully described in Chapter~\ref{sec:Reconstruction}.
 \end{enumerate}
-The simulation process takes lots of time, with the most time-consuming process being the simulation of the particles passing through the detector, or even more precise, through the EM-calorimeters, as the calorimeters consist of the very dense materials (e.g. lead and liquid argon) and hence the incoming high-energy particles produce the large showers with the tens of thousands of lower-energy particles. There are several technics used to speed up the process, but most of them produce the different result from the standard not-optimized simulation, which makes them unusable for many types of analysis (including \Zee). The only technology which gives the result close enough to the standard simulation to be enabled for all analysis samples by default is the Frozen Showers, which will be fully described in sec.~\ref{sec:MC_FS}.
+The simulation process takes a lot of time, with the most time-consuming process being the simulation of the particles passing through the detector, or even more precise, through the EM-calorimeters, as the calorimeters consist of the very dense materials (e.g. lead and liquid argon) and hence the incoming high-energy particles produce the large showers with the tens of thousands of lower-energy particles. There are several technics used to speed up the process, but most of them produce the different result from the standard not-optimized simulation, which makes them unusable for many types of analysis (including \Zee). The only technology which gives the result close enough to the standard simulation to be enabled for all analysis samples by default is the Frozen Showers, which will be fully described in sec.~\ref{sec:MC_FS}. In the following sections the details of the steps involved in the MC production chain are discussed. In sec.~\ref{sec:MC_gen} the details of the various MC generators (first step) are given, and in sec.~\ref{sec:MC_sim} the rest of the production chain is discussed, with the focus on the simulation of the passage of the high-energy particles through the detector (second stage) and the digitization process (third stage). The reconstruction process is discussed fully in sec.~\ref{sec:Reconstruction}.
 
 \section{MC generators used in ATLAS experiment}
 \label{sec:MC_gen}
@@ -29,12 +36,13 @@ Here is the list of the most noticeable MC generators used in ATLAS analyses:
 \end{itemize}
 In MC11c \Herwig\ is used to provide the parton showering for other generators.
 
-\item \Pythia~\cite{lib:MC_pythia} is a generator with the objective to provide as accurate as possible a representation of event properties in a wide range of reactions, within and beyond the Standard Model, with emphasis on those where strong interactions play a role, directly or indirectly, and therefore multihadronic final states are produced. The physics is then not understood well enough to give an exact description, instead the program has to be based on a combination of analytical results and various QCD-based models.
+\item \Pythia~\cite{lib:MC_pythia6} (and an updated version \Pythiaeight~\cite{lib:MC_pythia8}) is a generator with the objective to provide as accurate as possible a representation of event properties in a wide range of reactions, within and beyond the Standard Model, with emphasis on those where strong interactions play a role, directly or indirectly, and therefore multihadronic final states are produced. The physics is then not understood well enough to give an exact description, instead the program has to be based on a combination of analytical results and various QCD-based models.
 
 \item \Powheg~\cite{lib:MC_powheg} is a hard event generator for heavy quark production in hadronic collisions. It is accurate at the next-to-leading order in QCD, and it can be interfaced to Shower Monte Carlo programs like \Herwig\ and \Pythia, in such a way that both the leading logarithmic accuracy of the shower and the NLO accuracy are maintained in the output. This generator is the main MC generator used in 2011 analyses.
 
 \item \Mcatnlo~\cite{lib:MC_mcatnlo} is a practical implementation, based upon the Fortran \Herwig\ and \Herwigpp\ event generators, of the \Mcatnlo\ formalism, which allows one to incorporate NLO QCD matrix elements consistently into a parton shower framework.
 
+\item \Sherpa~\cite{lib:MC_sherpa1, lib:MC_sherpa2} is a multy-purpose tool which contains a very flexible tree-level matrix-element generator for the calculation of hard scattering processes within the Standard Model and various new physics models.  The emission of additional QCD partons off  the  initial  and  final  states  is  described through a parton-shower model without the need of an additional generator. This generator is only used for the signal MC.
 \end{itemize}
 
 \subsection{Signal MC}
@@ -46,7 +54,9 @@ The other important part of MC customization is the PDF set. PDF stands for "par
 
 \subsection{Background MC}
 
-The part of Monte Carlo simulation which represents different EM processes which can be misinterpreted as \Zee\ is called "background MC". We use seven different types of backgrond MCs.
+The part of Monte Carlo simulation which represents different processes which can be misinterpreted as \Zee\ is called "background MC". There are several background processes that can be simulated using MC, and most of them (all but one) are electroweak processes, that is why the background MC is also called an "electroweak background" as opposed by the "multi-jet background" or also "QCD background" which is the background from the multi-jet hadronic processes, which cannot be reliably simulated.
+
+We use seven different types of backgrond MCs.
 \begin{itemize}
 \item \Wenu, the decay of $W$ boson into electron and neutrino. Can be misinterpreted as $Z$ decay if another electron is reconstructed in the same event, most notably, when a jet is misinterpreted as an electron (a "fake electron").
 \item \Wtau, the decay of $W$ boson into tau and neutrino. Can be misinterpreted if tau decays into electron, and another unrelated electron is reconstructed as in the previous case.
@@ -56,10 +66,8 @@ The part of Monte Carlo simulation which represents different EM processes which
 \item $WZ$, and $ZZ$ events. In our analysis we filter such events, and thus misinterpretation of e.g. $WZ$ event as \Zee\ event is a background event for us.
 \end{itemize}
 
-\section{MC production chain}
-\label{sec:MC_sim_rec}
-
-The output of the MC generators consists of the set of the final-state particles, which in turn are passed to the ATLAS MC production chain. This chain consist of three main stages, namely: the simulation, digitization and the reconstruction (see Fig.~\ref{fig:MC_gen}).
+\section{MC simulation process in ATLAS}
+\label{sec:MC_sim}
 
 Although the whole process of the production of the MC samples can be considered as "simulation", in this context "the simulation process" refers to the particular stage of the whole production chain: the simulation of the propagation of the high-energy particles through the matter of the detector. It is done using the Geant4 software and the highly-accurate 3D model of the detector. The simulation in Geant4 is done as a discrete step-by-step process, with the length of the step being calculated dynamically for each particle, based on particle energy and the physical processes that happen to that particle. Because of that the simulation of the particles in vacuum takes much less time than in heavy matter. That is the reason why the majority of the simulation time is spent in calorimeters: they are built of the densest material there is in explicit purpose to stop as many particles as possible.
 
@@ -68,13 +76,6 @@ The output of the simulation stage is "hits", the 4D vertexes of energy deposits
 The last step in the production chain is the same for both MC and genuine data samples, as the digitization process aims to provide the same data as we get from the detector during production runs. During this step the responses from the detector are reconstructed into physical objects, which is done in two steps. First step is more on the technical side, during which the response from the trackers is reconstructed into tracks and the response from the calorimeters is reconstructed into clusters. The second stage is physical and depends on the analysis. During this stage the tracks and clusters are combined into the physical particles. The flavors of this stage of reconstruction include e/gamma, jet/EtMiss/tau, b tagging and muon. $\Zee$ analysis uses the first: e/gamma flavored reconstruction. This process is done using the internal ATLAS reconstruction software. More on the reconstruction process with respect to the real data from the detector is in Sec.~\ref{sec:Reconstruction}.
 
 The result of the reconstruction is the data stored in the special format called AOD (Analysis Data Object), which is also developed internally by ATLAS. AODs can be read by the ATLAS analysis framework, which gives easy access to all reconstructed objects.
-
-\begin{figure}
-\center{
-\includegraphics[width=0.7\textwidth]{figures/MC_production_chain.eps}
-\caption{Diagram of the ATLAS MC production chain}
-\label{fig:MC_gen}}
-\end{figure}
 
 \subsection{Frozen Showers}
 \label{sec:MC_FS}
@@ -158,7 +159,7 @@ During this analysis the MC samples from both MC11c and MC11d campaigns were use
 
       106087 \&~129913 & \Mcatnlo & 0.990 (5\%) & 5+5\\
 
-      147770 & \Sherpa & 1.070 (5%) & 10 \\
+      147770 & \Sherpa & 1.070 (5\%) & 10 \\
 
       \hline
     \end{tabular}

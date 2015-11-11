@@ -1,24 +1,24 @@
 \chapter{Event Selection}
 \label{sec:Selection}
 
-The event selection is one of the main phases of the analysis, during it we try to suppress as much as possible background events while keeping the signal events. The process of selecting the suitable events goes in three stages. The first stage is the online triggers, which, as name suggests, occurs during the data taking, even before the data is written on the storage. The specifies of the trigger work was described in the corresponding section (see Sec.~\ref{sec:ATLAS_trigger}). The other two stages are specific to our analysis software ZeeD (described later in Sec.~\ref{sec:ZeeD}), and even the division to pre-selection and actual selection is due to some specifics of ZeeD (described in Sec.~\ref{sec:ZeeD_TTrees}). These two stages would be described in the following sections.
+The event selection is one of the main phases of the analysis, which is focused on suppressing of as much as possible background events while keeping the signal events. The process of selecting the suitable events goes in three stages. The first stage is the online triggers, which, as name suggests, occurs during the data taking, even before the data is written on the storage. The specifies of the trigger work was described in the corresponding section (see Sec.~\ref{sec:ATLAS_trigger}). The other two stages are the pre-selection and analysis selection (or just selection), and they are specific to our analysis software ZeeD (described later in Sec.~\ref{sec:ZeeD}), although the division of the selection in such a way is a common practice because of the large amount of data. These two stages would be described in the following sections.
 
 \section{Analysis pre-selection}
 \label{sec:Sel_pre-sel}
 
-The goal of the preselection stage is to reduce the amount of the data while not biasing the samples in regards of the \Zee\ analysis. There are two flavours of preselection: the two-electron preselection and the one-electron. The cut for the two-electron stream is $P_{t} > 14$ GeV for both electrons and for one-electron the cut is $P_{t} > 20$ GeV. For the central-forward \Zee\ analysis mostly the single-electron stream is used, but the di-electron is also used in some cases, for instance for the trigger efficiency scale factors (tag\&probe method). Such cuts do not affect any possible distribution within the \Zee\ analysis, be it the signal or the background studies. During the preselection stage we also extract all the data that is relevant to the analysis, while disregarding all the rest of the data stream (e.g. muons, jets and so on). This allows us to reduce the phisical amount of data from terabytes to just mere gigabytes, and to speed-up the analysis by the factor of hundreds. The resulting pre-selected data in its physical form is very similar to the D3PD, but is customly designed specifically for the needs of \Zee\ analysis.
+The goal of the preselection stage is to reduce the amount of the data while not biasing the samples in regards of the \Zee\ analysis. There are two flavours of preselection: the two-electron preselection and the one-electron. The cut for the two-electron stream requires $P_{t} > 14$ GeV for both electrons and for one-electron the cut reqiores $P_{t} > 20$ GeV. For the central-forward \Zee\ analysis mostly the single-electron stream is used, but the di-electron is also used in some cases, for instance for the trigger efficiency scale factors (tag\&probe method). Such cuts do not affect any possible distribution within the \Zee\ analysis, be it the signal or the background studies. During the preselection stage we also extract all the data that is relevant to the analysis, while disregarding all the rest of the data stream (e.g. muons, jets and so on). This allows us to reduce the phisical amount of data from terabytes to just mere gigabytes, and to speed-up the analysis by the factor of hundreds. The resulting pre-selected data is very similar to the D3PD from the programming point of view (which is a commonly used data format that was developed after AOD, and was later incorporated in AOD successor - xAOD), but is customly designed specifically for the needs of \Zee\ analysis.
 
 \section{Analysis cuts}
 \label{sec:Sel_cuts}
 
-The application of cuts is one of the most important parts of the analysis. During this stage we try to suppress the background while keeping the signal intact. The cuts can be divided in three categories: the technical cuts, the kinematic cuts and the electron "goodness" cuts. The technical cuts are applied on a per-event basis. Here we check that during the event taking no problems were encounterd. This includes a so-called good run list, which excludes the events which were taken during the runs with observed problems in the detector, and the OQ-map (object quality map) which is a list of a regions of the calorimeter which are known to be faulty, and so the cut excludes all the events with at least one electron depositing energy in one of those regions. The kinematic cuts deal with the kinematic properties of the electrons: we require only two electrons, with one being inside the central region and one inside the forward region, both reconstructed with the correct reconstruction algorithm and both meeting the needed criteria for the kinematic properties. The final cuts are the cuts on quality of the elctrons, which involves the meeting of a certain IsEM criteria and a certain isolation criteria. Every group of cuts will now be described fully.
+The application of cuts is one of the most important parts of the analysis. During this stage we try to suppress the background while keeping the signal intact. The cuts can be divided in three categories: the technical cuts, the kinematic cuts and the electron "goodness" cuts. The technical cuts are applied on a per-event basis. Here we check that during the event taking no problems were encounterd. This includes a so-called good run list, which excludes the events which were taken during the runs with observed problems in the detector, and the OQ-map (object quality map) which is a list of a regions of the calorimeter which are known to be faulty, and so the cut excludes all the events with at least one electron depositing energy in one of those regions. The kinematic cuts deal with the kinematic properties of the electrons: we require only two electrons, with one being inside the central region and one inside the forward region, both reconstructed with the correct reconstruction algorithm and both meeting the needed criteria for the kinematic properties. And finally there are the cuts on the quality of the elctrons, which involves the meeting of a certain IsEM criteria and a certain isolation criteria. Every group of cuts will now be described fully.
 
 \subsection{Data quality cuts}
 \label{sec:Sel_GRL_OQ}
 
 \begin{itemize}
 \item {\bfseries Good Run List}: This cut drops every event that was taken during the non-succesfull runs of the LHC. The list of the good runs that is used is the list that is common for every analysis in WZ group.
-\item {\bfseries Object Quality Maps}: This cut drops every event that has a particle reconstructed inside one of the faulty regions of the calorimeter.
+\item {\bfseries Object Quality Maps}: This cut drops every electron that was reconstructed inside one of the faulty regions of the calorimeter. The events with such electrons can still be applicable for the analysis, if they have another two good electrons.
 \item {\bfseries LAr Veto}: This cut drops every event that was taken while the LAr calorimeter was malfunctioning, as indicated by the \texttt{LArErrorState} property.
 \end{itemize}
 
@@ -28,30 +28,30 @@ The application of cuts is one of the most important parts of the analysis. Duri
 \begin{itemize}
 \item {\bfseries Two good electrons per event}: This cut drops all the events that has the number of good electrons other then two. The Drell-Yan process produces exactly two electrons, so everything else is a background for our analysis.
 \item {\bfseries Minimum electron $P_{t}$}: This cut drops all the electrons with the $P_{t} < 20$~GeV. We do not have adequate corrections for the electrons with low $P_{t}$.
-\item {\bfseries Electron $|\eta|$}: This cut drops all the electrons that are reconstructed outside the required $\eta$ regions: $|\eta| < 2.47$ for the central electron and $|\eta| > 2.52$ for the forward electron.
+\item {\bfseries Electron $|\eta|$}: This cut drops all the electrons which have a cluster that is reconstructed outside the required $\eta$ regions: $|\eta| < 2.47$ for the central electron and $|\eta| > 2.52$ for the forward electron.
 \item {\bfseries Electrons are outside the crack regions}: This cut drops all the electrons that are reconstructed inside the crack regions of the calorimeters. For the central electrons the cracks are $1.47 < |\eta| < 1.52$ and $|\eta| > 2.47$, for the forward electrons it is $3.16 < |\eta| < 3.35$
 \item {\bfseries Z boson mass}: This cut drops all the events with the combined mass of two elextrons outside of the range $66 < |M_{ee}| < 116$.
 \item {\bfseries Number of tracks at primary vertex}: This cut drops all the events that do not have a vertex with at least three tracks.
-\item {\bfseries A track for the central electron}: This cut drops all the events in which the central electron doesn't have a track. The "author" cut which requires the specific author for every electron supersedes this cut, but it is kept for compatibility purposes.
 \end{itemize}
 
 \subsection{Electron quality cuts}
 \label{sec:Sel_isem_iso}
 
 \begin{itemize}
+\item {\bfseries A track for the central electron}: This cut drops all the events in which the central electron doesn't have a track. The "author" cut which requires the specific author for every electron supersedes this cut, but it is kept for compatibility purposes.
 \item {\bfseries Central electron IsEM}: This cut requires the central electron to satisfy the IsEM criteria (described in sec.~\ref{sec:Rec_elecID}).
 \item {\bfseries Forward electron IsEM}: This cut requires the forward electron to satisfy the IsEM criteria.
 \item {\bfseries Central electron isolation}: This cut requires the central electron to sotisfy the isolation criteria (described in sec.~\ref{sec:Rec_eleciso}).
 \item {\bfseries Electron author}: This cut requires the correct author (described in sec.~\ref{sec:Rec_elec}) for both central and forward electron.
 \end{itemize}
 
-The cutflows, i.e. the tables that shows how much events pass any given cut, can be seen in Tab.~\ref{tab:sel_cutflow_data} for data and in Tab.~\ref{tab:sel_cutflow_MC} for MC. The relative efficiency shows how many events pass the cut relative to the previous cut, while the absolute efficiency shows the number of events relative to the whole number of events.
+The cutflows, i.e. the tables that shows how much events pass any given cut, can be seen in Tab.~\ref{tab:sel_cutflow_data} for the data and in Tab.~\ref{tab:sel_cutflow_MC} for the signal MC. The relative efficiency shows how many events pass the cut relative to the previous cut, while the absolute efficiency shows the number of events relative to the whole number of events.
 
 \begin{table}
 \centering
 \begin{tabular}{@{}lrrr@{}} \hline \hline
  Cut & events & $\epsilon_{rel}$ [\%] & $\epsilon_{abs}$ [\%] \\\hline
- All events  &    234255443 & &   100.00000 \\
+ All events (after pre-selection)  &    234255443 & &   100.00000 \\
  primary vertex w. $>2$ tracks &    234127638 &     99.9454 &    99.94544 \\
  veto LAr noise bursts & 233365291 &     99.6744 &    99.62001 \\
 $|\eta_{cnt}| < 2.47$, $2.5<|\eta_{fwd}|<4.9$ &    138946695 &     59.5404 &    59.31418 \\
@@ -78,7 +78,7 @@ good object quality &     8338286 &     99.2152 &     3.55948 \\
 \centering
 \begin{tabular}{@{}lrrr@{}} \hline \hline
  Cut & events (weighted)  & $\epsilon_{rel}$ [\%] & $\epsilon_{abs}$ [\%] \\\hline
- All events &     19783527.83 &             &   100.00000 \\
+ All events (after pre-selection) &     19783527.83 &             &   100.00000 \\
  primary vertex w. $>2$ tracks &     19659928.15 &     99.3752 &    99.37524 \\
  veto LAr noise bursts &     19659928.15 &    100.0000 &    99.37524 \\
 $|\eta_{cnt}| < 2.47$, $2.5<|\eta_{fwd}|<4.9$ &     12425328.01 &     63.2013 &    62.80643 \\

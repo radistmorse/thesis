@@ -20,7 +20,7 @@ where:
       C = \frac{N_\mathrm{MC, rec}}{N_\mathrm{MC, gen, cutexp}}\,.
     \end{equation}
     $C$ is corrected for any discrepancy in the electron efficiencies between data and MC as described in Sec.~\ref{sec:Efficiency}. Here the sum of weights of MC events generated after experimental fiducial acceptance cuts ($N_\mathrm{MC, gen, cutexp}$) and the sum of weights of MC events after simulation, reconstruction and experimental selection ($N_\mathrm{MC, rec}$) enter.
-  \item The \textit{common fiducial volume} is a small theoretical extrapolation designed to unify the fiducial volumes of different flavours of \Zll\ analyses
+  \item The \textit{common fiducial volume} is a small theoretical extrapolation designed to unify the fiducial volumes of different flavours of \Zll\ analyses. Since the electrons and muons are detected by the different parts of the ATLAS detector, these particles are detected in different parts of the kinematic space. The EM calorimeters that detect electrons have a coverage of $|\eta| < 5.2$, while muon chambers have $|\eta| < 2.4$. These differences in the kinematic coverage makes combining the results of the corresponding analyses a challenge, which resulted in intruduction of the common fiducial volume which covers both kinematic spaces.
     \begin{equation}
       E = \frac{N_\mathrm{MC, gen, cutexp}}{N_\mathrm{MC, gen, cutfid}}\,.
     \end{equation}
@@ -45,7 +45,17 @@ where:
 \item {\bfseries $N^i_{\text{gen}}$} is the sum of event weights generated in bin $i$.
 \end{itemize}
 
-The purity is thus a measure of in-migration, which shows the amount of foreign events reconstructed in the given bin, while the stability is a measure of the out-migration, which shows the amount of events that were reconstructed in other bins for every given bin. The relatively low values for purity and stability makes bin-by-bin unfolding biased and inefective, as it won't take into account the migration between bins, and the results of the purity and stability studies for \Zee\ central-forward analisys suggested that the Bayesian unfolding would be more effective.
+The purity is thus a measure of in-migration, which shows the amount of foreign events reconstructed in the given bin, while the stability is a measure of the out-migration, which shows the amount of events that were reconstructed in other bins for every given bin. The relatively low values for purity and stability makes bin-by-bin unfolding biased and inefective, as it won't take into account the migration between bins, and the results of the purity and stability studies for \Zee\ central-forward analisys suggested that the Bayesian unfolding would be more effective (see Fig.~\ref{fig:ZeeCS_purity_stability} for the exact values of the purity and stability of the 2011 \Zee\ central-forward analyses).
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.45\textwidth]{figures/ZCF_purity_peak}%
+  \includegraphics[width=0.45\textwidth]{figures/ZCF_stability_peak} \\
+  \includegraphics[width=0.45\textwidth]{figures/ZCF_purity_high}%
+  \includegraphics[width=0.45\textwidth]{figures/ZCF_stability_high} \\
+  \caption{Purity (left) and stability (right) for the Z central-forward peak mass (top) and high mass (bottom) analyses.}
+  \label{fig:ZeeCS_purity_stability}
+\end{figure}
 
 While calculating the $C$, $E$ and $A$ correction factors, there is a very important thing that must be taken into account, which is the QED final state radiation (FSR). The results of the MC generation are so-called {\itshape born level} leptons, which are the leptons before FSR. To simulate FSR there are two tools in use in the MC productiob chain: \Photos\, which is the main tool that is used, and \Sherpa\ which uses different FSR algorithm and is used for systematic uncertainties calculation. After the FSR simulation, the resulting final state leptons are called {\itshape bare leptons}. The bare leptons represent the result of the actual collision much closer than the born leptons, but because of the work of the clustering algorithms during reconstruction, bare leptons are impossible to reconstruct. To overcome this problem, the third level of FSR was introduced, which is {\itshape dressed leptons}. The dressed leptons are bare leptons with the inclusion of all FSR photons within the $\Delta R < 0.1$. The dressed leptons are the leptons that most closely represent the particles that are actually reconstructed by the reconstruction algorithms.
 
@@ -67,7 +77,7 @@ And for the bare and dressed levels the cross-sections are calculated with good 
 \end{split}
 \end{equation}
 
-When it comes to Bayesian unfolding, all the coefficients mentioned above gets hidden inside the unfolding matrixes and are not observed directly. Yet we can see, that since the $A$ extrapolation coefficient deals with total cross-section, which we are not interested in, and that the $E$ coefficient is purely theoretical, and doesn't depend on experiment in any way, only on the set of the fiducial cuts that we apply. The only coefficient that can be regarded as a result of an experiment is thus the $C$ coefficient, which roughly represents the fraction of the total number of the $Z$ bosons produced, that got included in the analysis. For the 2011 \Zee\ CF analysis it was $\sim$42\% (see Sec.~\ref{sec:results} for more details).
+When it comes to Bayesian unfolding, all the coefficients mentioned above gets hidden inside the unfolding matrixes and are not observed directly. Yet we can see, that since the $A$ extrapolation coefficient deals with total cross-section, which we are not interested in, and that the $E$ coefficient is purely theoretical, and doesn't depend on experiment in any way, only on the set of the fiducial cuts that we apply. The only coefficient that can be regarded as a result of an experiment is thus the $C$ coefficient, which roughly represents the fraction of the total number of the $Z$ bosons produced, that got included in the analysis. For the 2011 \Zee\ CF analysis it was $\sim$42\% (see Sec.~\ref{sec:Results} for more details).
 
 The differential cross-section measurement was done in absolute rapidity binning, which allows the later combination of the CC and CF analysis results. The binning is shown in Tab.~\ref{tab:ZeeCS_bins}. The mass binning for the double-diffirential CF analysis had only two bins: the peak-mass window $66 < m_{ee} < 116$ and the high-mass window $116 < m_{ee} < 150$.
 
