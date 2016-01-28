@@ -42,7 +42,7 @@ In MC11c \Herwig\ is used to provide the parton showering for other generators.
 
 \item \Mcatnlo~\cite{lib:MC_mcatnlo} is a practical implementation, based upon the Fortran \Herwig\ and \Herwigpp\ event generators, of the \Mcatnlo\ formalism, which allows one to incorporate NLO QCD matrix elements consistently into a parton shower framework.
 
-\item \Sherpa~\cite{lib:MC_sherpa1, lib:MC_sherpa2} is a multy-purpose tool which contains a very flexible tree-level matrix-element generator for the calculation of hard scattering processes within the Standard Model and various new physics models.  The emission of additional QCD partons off  the  initial  and  final  states  is  described through a parton-shower model without the need of an additional generator. This generator is only used for the signal MC.
+\item \Sherpa~\cite{lib:MC_sherpa1, lib:MC_sherpa2} is a multi-purpose tool which contains a very flexible tree-level matrix-element generator for the calculation of hard scattering processes within the Standard Model and various new physics models.  The emission of additional QCD partons off  the  initial  and  final  states  is  described through a parton-shower model without the need of an additional generator. This generator is only used for the signal MC.
 \end{itemize}
 
 \subsection{Signal MC}
@@ -241,7 +241,7 @@ During this analysis the MC samples from both MC11c and MC11d campaigns were use
 The MC samples have a number of known shortcomings, and some data distributions are not described well. To fix this we apply reweightings based on MC/data comparisons at the reconstruction levels, different MCs comparisons on the generation (truth) level, or using the other ATLAS analyses. The weights are applied based on the truth information and are validated using the closure tests. The list of corrections is this:
 
 \begin{itemize}
-\item \textbf{Pileup Reweighting} is based on the $\mu$ variable and aims to equalize the amount of pileup in MC and data. This is done using the \textit{PileupReweighting} tool~\cite{lib:pileuptool, lib:pileupscale}.
+\item \textbf{Pileup Reweighting} is based on the $\mu$ variable and aims to equalize the amount of pileup in MC and data. This is done using the \texttt{PileupReweighting} tool~\cite{lib:pileuptool, lib:pileupscale}. The difference between data and MC in pileup conditions can be seen in Fig.~\ref{fig:MC_pileup}.
 \item \textbf{Vertex Spread in $z$ Reweighting} is based on the $z$ component of the vertex and aims to decrease the spread of the beam spot in $z$-direction of MC, which is significantly smaller in data (for data $\sigma_z \approx 56$mm, while for narrow beam spot MC sample $\sigma_z = 75$mm and for wide beam spot $\sigma_z = 90$mm). The \texttt{VertexPositionReweightTool} is used for that. The effect of this correction can be seen in Fig.~\ref{fig:MC_zvtx}.
 \item \textbf{$Z$ Boson $p_T$ Reweighting} is applied to the $p_T$ distribution of the $Z$ bosons, which doesn't describe the data well in the MC signal generators used for this analysis. The results from ATLAS $Z$ $\phi^*$ and $\pt$ analyses~\cite{lib:Zphistar} were used for it, and it was done using the \texttt{BosonPtReweightingTool}.
 \item \textbf{$Z$ Boson Line Shape Reweighting} is the reweightings aimed to fix the fundamental shortcomings of the MC generators caused by the electroweak order not being high enough. This reweighting is done using the \texttt{LineShapeTool}. See~\cite{lib:lineshape} for details.
@@ -254,4 +254,11 @@ The MC samples have a number of known shortcomings, and some data distributions 
 \subfigure[After $z_{vtx}$ reweight] {\includegraphics[width=0.32\textwidth]{figures/MCrew_zvtx_after.eps}}
 \caption{The effect of the vertex spread correction applied to MC11c samples. The corrections for MC11d remained the same.}
 \label{fig:MC_zvtx}}
+\end{figure}
+
+\begin{figure}
+\center{
+\includegraphics[width=0.6\textwidth]{figures/MCrew_pileup.pdf}
+\caption{The comparison of the pileup conditions of the MC11c and 2011 data. The pileup conditions for different MC periods is also shown.}
+\label{fig:MC_pileup}}
 \end{figure}

@@ -1,53 +1,89 @@
 \chapter{Results}
 \label{sec:Results}
 
-In this section the results of the cross-section calculations are presented. The results of the integral and differential cross-sections (as defined in Sec.~\ref{sec:ZeeCrossSec}) are shown together with uncertainties and theoretical predictions. There are two main types of the uncertainties: statistical and systematical, and whereas the statistical uncertainties are trivial to calculate, and depend only on the amount of the data in any given bin, the sources for the systematical uncertainties are much more numerous. The sources for the different systematical uncertainties are described throughout this thesis, but for the convinience the complete list of them that contributed to the final result is presented in Tab.~\ref{tab:Zee_unc_list}.
+In this section the results of the cross-section calculations are presented. The results of the integral and differential cross-sections (as defined in Sec.~\ref{sec:ZeeCrossSec}) are shown together with uncertainties and theoretical predictions. There are two main types of the uncertainties: statistical and systematical, and whereas the statistical uncertainties are trivial to calculate, and depend only on the amount of the data in any given bin, the sources for the systematical uncertainties are much more numerous. The sources for the different systematical uncertainties are described throughout this thesis, but for the convinience the complete list of them that contributed to the final result is presented in Tab.~\ref{tab:Zee_unc_list_peak} for peak mass region and Tab.~\ref{tab:Zee_unc_list_high} for high mass region.
 
 \begin{table}
 \centering
-\begin{tabular}{lcc}
+\begin{tabular}{l p{0.6cm}p{0.6cm}p{0.6cm}p{0.6cm}p{0.6cm}p{0.6cm}p{0.6cm}p{0.6cm}l}
 \hline
-   & peak mass & high mass  \\
+   & 1.20, & 1.40, & 1.60, & 1.80, & 2.00, & 2.20, & 2.40, & 2.80, & 3.20, \\
+   & 1.40 & 1.60 & 1.80 & 2.00 & 2.20 & 2.40 & 2.80 & 3.20 & 3.60  \\
 \hline
-Trigger efficiency                       & 0.050 & 0.048 \\
-Recon. efficiency                        & 0.128 & 0.120 \\
-Id. efficiency                           & 0.121 & 0.126 \\
-Id.Fwd efficiency                        & 1.514 & 1.506 \\
-Isol. efficiency                         & 0.039 & 0.052 \\
-Electron resolution                      & 0.011 & 0.915 \\
-Electron scale                           & 0.115 & 0.474 \\
-Fwd Electron scale                       & 0.179 & 2.166 \\
-pT Rew.                                  & 0.043 & 0.153 \\
-Matrix element                           & 1.120 & 0.301 \\
-PS and hadronization                     & 1.250 & 1.762 \\
-Theory: PDF                              & 0.059 & 0.119 \\
-EW Bkg                                   & 0.139 & 3.428 \\
-QCD Bkg                                  & 0.052 & 3.802 \\
+Trigger efficiency            & 0.159 & 0.072 & 0.067 & 0.064 & 0.070 & 0.068 & 0.089 & 0.115 & 0.220 \\
+Recon. efficiency             & 0.499 & 0.370 & 0.340 & 0.251 & 0.180 & 0.122 & 0.093 & 0.149 & 0.307 \\
+Id. efficiency                & 0.258 & 0.223 & 0.210 & 0.166 & 0.157 & 0.133 & 0.164 & 0.216 & 0.436 \\
+Id.Fwd efficiency             & 3.215 & 2.898 & 2.641 & 2.450 & 2.070 & 1.840 & 1.634 & 5.443 & 6.991 \\
+Iso. efficiency               & 0.090 & 0.082 & 0.078 & 0.091 & 0.064 & 0.077 & 0.067 & 0.067 & 0.179 \\
+Electron resolution           & 0.073 & 0.029 & 0.046 & 0.008 & 0.051 & 0.072 & 0.023 & 0.010 & 0.117 \\
+Fwd Electron resolution       & 0.984 & 0.696 & 0.513 & 1.727 & 2.632 & 1.883 & 3.002 & 0.451 & 0.353 \\
+Electron scale                & 0.438 & 0.277 & 0.186 & 0.212 & 0.255 & 0.154 & 0.114 & 0.097 & 0.247 \\
+Fwd Electron scale            & 0.410 & 0.243 & 0.124 & 0.042 & 0.161 & 0.096 & 0.156 & 0.432 & 2.114 \\
+Matrix element                & 0.138 & 0.138 & 0.138 & 0.138 & 0.138 & 0.138 & 0.138 & 0.138 & 0.138 \\
+PS and hadronization          & 0.522 & 0.522 & 0.522 & 0.522 & 0.522 & 0.521 & 0.521 & 0.521 & 0.521 \\
+PDF                           & 0.124 & 0.057 & 0.031 & 0.015 & 0.015 & 0.010 & 0.007 & 0.021 & 0.057 \\
+EW Bkg                        & 0.386 & 0.325 & 0.197 & 0.163 & 0.156 & 0.132 & 0.120 & 0.064 & 0.029 \\
+QCD Bkg                       & 0.228 & 0.174 & 0.177 & 0.248 & 0.220 & 0.083 & 0.187 & 0.093 & 0.289 \\
 \hline
-Tot. Syst. Uncertainty                   & 2.288 & 6.216 \\
+Stat. Uncertainty (MC)        & 0.635 & 0.353 & 0.207 & 0.206 & 0.186 & 0.175 & 0.126 & 0.199 & 0.453 \\
+Stat. Uncertainty             & 1.763 & 1.019 & 0.730 & 0.595 & 0.580 & 0.499 & 0.339 & 0.494 & 1.227 \\
+\hline
+Tot. Syst. Uncertainty        & 3.540 & 3.107 & 2.797 & 3.084 & 3.426 & 2.707 & 3.480 & 5.515 & 7.368 \\
 \hline
 \end{tabular}
-\caption{The list of the systematic uncertainties in percent.}
-\label{tab:Zee_unc_list}
+\caption{The list of the uncertainties in percent for peak mass region.}
+\label{tab:Zee_unc_list_peak}
 \end{table}
 
-As the work that was done as part of this thesis contributed to the W,Z inclusive paper~\cite{lib:wz2011} all the results were taken from there, including the theory comparison that was done for the combined \Zll\ results, and were thus, strictly speaking, outside of the scope of this thesis.
+\begin{table}
+\centering
+\begin{tabular}{l r r r r r r}
+\hline
+   & \multicolumn{1}{l}{1.20,} & \multicolumn{1}{l}{1.60,} & \multicolumn{1}{l}{2.00,}
+   & \multicolumn{1}{l}{2.40,} & \multicolumn{1}{l}{2.80,} & \multicolumn{1}{l}{3.20,}  \\
+   & 1.60  & 2.00  & 2.40  & 2.80  & 3.20  & 3.60  \\
+\hline
+Trigger efficiency            & 0.067 & 0.037 & 0.058 & 0.109 & 0.139 & 0.191  \\
+Recon. efficiency             & 0.195 & 0.158 & 0.147 & 0.142 & 0.137 & 0.135  \\
+Id. efficiency                & 0.132 & 0.113 & 0.170 & 0.246 & 0.256 & 0.243  \\
+Id.Fwd efficiency             & 2.463 & 1.919 & 1.517 & 1.955 & 5.330 & 7.069  \\
+Iso. efficiency               & 0.046 & 0.053 & 0.080 & 0.096 & 0.078 & 0.079  \\
+Electron resolution           & 0.459 & 0.714 & 0.672 & 1.254 & 1.102 & 0.753  \\
+Fwd Electron resolution       & 2.357 & 5.231 & 12.303 & 20.601 & 14.154 & 1.554  \\
+Electron scale                & 0.302 & 0.354 & 0.717 & 0.592 & 0.609 & 1.607  \\
+Fwd Electron scale            & 1.470 & 1.884 & 2.252 & 2.086 & 2.497 & 2.566  \\
+Matrix element                & 0.606 & 0.568 & 0.429 & 0.494 & 0.488 & 0.565  \\
+PS and hadronization          & 1.480 & 1.385 & 1.048 & 1.208 & 1.195 & 1.397  \\
+PDF                           & 0.162 & 0.081 & 0.110 & 0.074 & 0.099 & 0.471  \\
+EW Bkg                        & 8.332 & 6.544 & 2.880 & 2.144 & 1.184 & 0.000  \\
+QCD Bkg                       & 5.904 & 5.575 & 5.417 & 3.043 & 1.828 & 10.225  \\
+\hline
+Stat. Uncertainty (MC)        & 1.619 & 1.156 & 0.981 & 0.930 & 1.716 & 3.892  \\
+Stat. Uncertainty             & 6.845 & 5.213 & 4.023 & 3.886 & 5.291 & 14.533  \\
+\hline
+Tot. Syst. Uncertainty        & 11.044 & 10.576 & 14.109 & 21.221 & 15.594 & 13.012 \\
+\hline
+\end{tabular}
+\caption{The list of the uncertainties in percent for high mass region.}
+\label{tab:Zee_unc_list_high}
+\end{table}
+As the work that was done as part of this thesis contributed to the W,Z inclusive paper~\cite{lib:wz2011} the combined \Zee\ and \Zll\ results were taken wrof there. The theory comparison was anly done for the combined \Zll\ results, and thus was, strictly speaking, outside of the scope of this thesis.
 
-The double-differential were done in the rapidity and mass binning with three mass bins. The \Zee\ central-forward analysis contributed only to two of them: the peak mass ($66 < M_{ee} < 116$~GeV) and the high mass ($116 < M_{ee} < 150$~GeV) windows. Fig.~\ref{fig:res_zee_fid} shows the double-diffirential cross-section with statistical and systematical uncertainties, and Fig.~\ref{fig:res_zee_fid_norm} shows the comparison with the \Powheg\ and \Mcatnlo\ simulations.
+The double-differential were done in the rapidity and mass binning with three mass bins. The \Zee\ central-forward analysis contributed only to two of them: the peak mass ($66 < M_{ee} < 116$~GeV) and the high mass ($116 < M_{ee} < 150$~GeV) windows. Fig.~\ref{fig:res_zee_fid} shows the double-diffirential cross-section with statistical and systematical uncertainties, and Fig.~\ref{fig:res_zee_fid_norm} shows the comparison with the different MC simulations. The \Powheg\Pythia\ MC simulation was the one used as signal MC, while the others were used as sources for systematical uncertainties.
 
 \begin{figure}
 \center{
-  \includegraphics[width=0.45\textwidth]{figures/ZeeCF_Mass_66_116_FiduCS_band.pdf}
-  \includegraphics[width=0.45\textwidth]{figures/ZeeCF_Mass_116_150_FiduCS_band.pdf}
+  \includegraphics[width=0.45\textwidth]{figures/ZeeCF_Mass_66_116.pdf}
+  \includegraphics[width=0.45\textwidth]{figures/ZeeCF_Mass_116_150.pdf}
   \caption{\Zee\ CF fiducial diffirential cross-section, as a function of absolute boson rapidity for peak mass (left) and high mass (right) regions together with statistical and systematic uncertainties.}
 \label{fig:res_zee_fid}}
 \end{figure}
 
 \begin{figure}
 \center{
-\includegraphics[width=0.45\textwidth]{figures/ZeeCF_Mass_66_116_FiduCS.pdf}
-\includegraphics[width=0.45\textwidth]{figures/ZeeCF_Mass_116_150_FiduCS.pdf}
-\caption{Normalised \Zee\ CF differential cross-section, as a function of absolute boson rapidity for peak mass (left) and high mass (right) regions.}
+\includegraphics[width=0.45\textwidth]{figures/ZeeCF_Mass_66_116_MC.pdf}
+\includegraphics[width=0.45\textwidth]{figures/ZeeCF_Mass_116_150_MC.pdf}
+\caption{\Zee\ CF ficucial differential cross-section, as a function of absolute boson rapidity for peak mass (left) and high mass (right) regions compared to various MC simulations.}
 \label{fig:res_zee_fid_norm}}
 \end{figure}
 
@@ -59,15 +95,15 @@ The same results in tabular form can be seen in Tabs.~\ref{tab:Zee_NBC_peak} and
 \hline
     &   $N$   & $B \pm \delta B$  &  $C \pm \delta C$ \\
 \hline
-$1.20 < |\eta| <1.40$          & 4178       & 193.7      $\pm$ 19.7 & 0.381      $\pm$ 0.014 \\
-$1.40 < |\eta| <1.60$          & 12404      & 517.7      $\pm$ 47.4 & 0.436      $\pm$ 0.013 \\
-$1.60 < |\eta| <1.80$          & 24210      & 812.1      $\pm$ 72.7 & 0.453      $\pm$ 0.012 \\
-$1.80 < |\eta| <2.00$          & 33978      & 1021.2     $\pm$ 110.9 & 0.459      $\pm$ 0.014 \\
-$2.00 < |\eta| <2.20$          & 38023      & 1141.2     $\pm$ 123.9 & 0.449      $\pm$ 0.015 \\
-$2.20 < |\eta| <2.40$          & 51372      & 1454.4     $\pm$ 77.6 & 0.429      $\pm$ 0.011 \\
-$2.40 < |\eta| <2.80$          & 101004     & 2613.2     $\pm$ 267.5 & 0.440      $\pm$ 0.015 \\
-$2.80 < |\eta| <3.20$          & 47304      & 1104.4     $\pm$ 52.3 & 0.384      $\pm$ 0.021 \\
-$3.20 < |\eta| <3.60$          & 8453       & 126.6      $\pm$ 29.5 & 0.276      $\pm$ 0.020 \\
+$1.20 < |y| <1.40$          & 4178       & 193.7      $\pm$ 19.7 & 0.381      $\pm$ 0.014 \\
+$1.40 < |y| <1.60$          & 12404      & 517.7      $\pm$ 47.4 & 0.436      $\pm$ 0.013 \\
+$1.60 < |y| <1.80$          & 24210      & 812.1      $\pm$ 72.7 & 0.453      $\pm$ 0.012 \\
+$1.80 < |y| <2.00$          & 33978      & 1021.2     $\pm$ 110.9 & 0.459      $\pm$ 0.014 \\
+$2.00 < |y| <2.20$          & 38023      & 1141.2     $\pm$ 123.9 & 0.449      $\pm$ 0.015 \\
+$2.20 < |y| <2.40$          & 51372      & 1454.4     $\pm$ 77.6 & 0.429      $\pm$ 0.011 \\
+$2.40 < |y| <2.80$          & 101004     & 2613.2     $\pm$ 267.5 & 0.440      $\pm$ 0.015 \\
+$2.80 < |y| <3.20$          & 47304      & 1104.4     $\pm$ 52.3 & 0.384      $\pm$ 0.021 \\
+$3.20 < |y| <3.60$          & 8453       & 126.6      $\pm$ 29.5 & 0.276      $\pm$ 0.020 \\
 \hline
 \end{tabular}
 \caption{Main components of the differential \Zee\ CF cross-section for peak mass region.}
@@ -80,12 +116,12 @@ $3.20 < |\eta| <3.60$          & 8453       & 126.6      $\pm$ 29.5 & 0.276     
 \hline
     &   $N$   & $B \pm \delta B$  &  $C \pm \delta C$ \\
 \hline
-$1.20 < |\eta| <1.60$          & 1136       & 592.4      $\pm$ 54.8 & 0.552      $\pm$ 0.024 \\
-$1.60 < |\eta| <2.00$          & 1676       & 754.6      $\pm$ 79.2 & 0.565      $\pm$ 0.035 \\
-$2.00 < |\eta| <2.40$          & 2006       & 737.4      $\pm$ 80.2 & 0.531      $\pm$ 0.067 \\
-$2.40 < |\eta| <2.80$          & 1754       & 506.2      $\pm$ 48.6 & 0.515      $\pm$ 0.107 \\
-$2.80 < |\eta| <3.20$          & 659        & 120.7      $\pm$ 12.8 & 0.439      $\pm$ 0.068 \\
-$3.20 < |\eta| <3.60$          & 84         & 15.2       $\pm$ 8.3 & 0.348      $\pm$ 0.031 \\
+$1.20 < |y| <1.60$          & 1136       & 592.4      $\pm$ 54.8 & 0.552      $\pm$ 0.024 \\
+$1.60 < |y| <2.00$          & 1676       & 754.6      $\pm$ 79.2 & 0.565      $\pm$ 0.035 \\
+$2.00 < |y| <2.40$          & 2006       & 737.4      $\pm$ 80.2 & 0.531      $\pm$ 0.067 \\
+$2.40 < |y| <2.80$          & 1754       & 506.2      $\pm$ 48.6 & 0.515      $\pm$ 0.107 \\
+$2.80 < |y| <3.20$          & 659        & 120.7      $\pm$ 12.8 & 0.439      $\pm$ 0.068 \\
+$3.20 < |y| <3.60$          & 84         & 15.2       $\pm$ 8.3 & 0.348      $\pm$ 0.031 \\
 \hline
 \end{tabular}
 \caption{Main components of the differential \Zee\ CF cross-section for high mass region.}
@@ -98,15 +134,15 @@ In Tabs.~\ref{tab:Zee_peak} and~\ref{tab:Zee_high} the results of the cross-sect
 \centering
 \begin{tabular}{lc}
 \hline
-$1.20 < |\eta| <1.40$          & 5.715 $\pm$ 0.101 (stat) $\pm$ 0.207 (syst) $\pm$ 0.103 (lum) [pb]  \\
-$1.40 < |\eta| <1.60$          & 14.864 $\pm$ 0.151 (stat) $\pm$ 0.465 (syst) $\pm$ 0.268 (lum) [pb]  \\
-$1.60 < |\eta| <1.80$          & 28.200 $\pm$ 0.206 (stat) $\pm$ 0.792 (syst) $\pm$ 0.508 (lum) [pb]  \\
-$1.80 < |\eta| <2.00$          & 39.245 $\pm$ 0.233 (stat) $\pm$ 1.214 (syst) $\pm$ 0.706 (lum) [pb]  \\
-$2.00 < |\eta| <2.20$          & 44.786 $\pm$ 0.260 (stat) $\pm$ 1.534 (syst) $\pm$ 0.806 (lum) [pb]  \\
-$2.20 < |\eta| <2.40$          & 63.598 $\pm$ 0.317 (stat) $\pm$ 1.717 (syst) $\pm$ 1.145 (lum) [pb]  \\
-$2.40 < |\eta| <2.80$          & 61.087 $\pm$ 0.207 (stat) $\pm$ 2.126 (syst) $\pm$ 1.100 (lum) [pb]  \\
-$2.80 < |\eta| <3.20$          & 32.826 $\pm$ 0.162 (stat) $\pm$ 1.811 (syst) $\pm$ 0.591 (lum) [pb]  \\
-$3.20 < |\eta| <3.60$          & 8.313 $\pm$ 0.102 (stat) $\pm$ 0.614 (syst) $\pm$ 0.150 (lum) [pb]  \\
+$1.20 < |y| <1.40$          & 5.715 $\pm$ 0.101 (stat) $\pm$ 0.207 (syst) $\pm$ 0.103 (lum) [pb]  \\
+$1.40 < |y| <1.60$          & 14.864 $\pm$ 0.151 (stat) $\pm$ 0.465 (syst) $\pm$ 0.268 (lum) [pb]  \\
+$1.60 < |y| <1.80$          & 28.200 $\pm$ 0.206 (stat) $\pm$ 0.792 (syst) $\pm$ 0.508 (lum) [pb]  \\
+$1.80 < |y| <2.00$          & 39.245 $\pm$ 0.233 (stat) $\pm$ 1.214 (syst) $\pm$ 0.706 (lum) [pb]  \\
+$2.00 < |y| <2.20$          & 44.786 $\pm$ 0.260 (stat) $\pm$ 1.534 (syst) $\pm$ 0.806 (lum) [pb]  \\
+$2.20 < |y| <2.40$          & 63.598 $\pm$ 0.317 (stat) $\pm$ 1.717 (syst) $\pm$ 1.145 (lum) [pb]  \\
+$2.40 < |y| <2.80$          & 61.087 $\pm$ 0.207 (stat) $\pm$ 2.126 (syst) $\pm$ 1.100 (lum) [pb]  \\
+$2.80 < |y| <3.20$          & 32.826 $\pm$ 0.162 (stat) $\pm$ 1.811 (syst) $\pm$ 0.591 (lum) [pb]  \\
+$3.20 < |y| <3.60$          & 8.313 $\pm$ 0.102 (stat) $\pm$ 0.614 (syst) $\pm$ 0.150 (lum) [pb]  \\
 \hline
 \end{tabular}
 \caption{Differential \Zee\ CF cross-section for the peak mass region, measured in the experimental fiducial volume together with uncertainties.}
@@ -117,44 +153,16 @@ $3.20 < |\eta| <3.60$          & 8.313 $\pm$ 0.102 (stat) $\pm$ 0.614 (syst) $\p
 \centering
 \begin{tabular}{lc}
 \hline
-$1.20 < |\eta| <1.60$          & 0.271 $\pm$ 0.018 (stat) $\pm$ 0.030 (syst) $\pm$ 0.005 (lum) [pb]  \\
-$1.60 < |\eta| <2.00$          & 0.454 $\pm$ 0.023 (stat) $\pm$ 0.047 (syst) $\pm$ 0.008 (lum) [pb]  \\
-$2.00 < |\eta| <2.40$          & 0.680 $\pm$ 0.027 (stat) $\pm$ 0.095 (syst) $\pm$ 0.012 (lum) [pb]  \\
-$2.40 < |\eta| <2.80$          & 0.697 $\pm$ 0.027 (stat) $\pm$ 0.147 (syst) $\pm$ 0.013 (lum) [pb]  \\
-$2.80 < |\eta| <3.20$          & 0.367 $\pm$ 0.019 (stat) $\pm$ 0.057 (syst) $\pm$ 0.007 (lum) [pb]  \\
-$3.20 < |\eta| <3.60$          & 0.064 $\pm$ 0.009 (stat) $\pm$ 0.009 (syst) $\pm$ 0.001 (lum) [pb]  \\
+$1.20 < |y| <1.60$          & 0.271 $\pm$ 0.018 (stat) $\pm$ 0.030 (syst) $\pm$ 0.005 (lum) [pb]  \\
+$1.60 < |y| <2.00$          & 0.454 $\pm$ 0.023 (stat) $\pm$ 0.047 (syst) $\pm$ 0.008 (lum) [pb]  \\
+$2.00 < |y| <2.40$          & 0.680 $\pm$ 0.027 (stat) $\pm$ 0.095 (syst) $\pm$ 0.012 (lum) [pb]  \\
+$2.40 < |y| <2.80$          & 0.697 $\pm$ 0.027 (stat) $\pm$ 0.147 (syst) $\pm$ 0.013 (lum) [pb]  \\
+$2.80 < |y| <3.20$          & 0.367 $\pm$ 0.019 (stat) $\pm$ 0.057 (syst) $\pm$ 0.007 (lum) [pb]  \\
+$3.20 < |y| <3.60$          & 0.064 $\pm$ 0.009 (stat) $\pm$ 0.009 (syst) $\pm$ 0.001 (lum) [pb]  \\
 \hline
 \end{tabular}
 \caption{Differential \Zee\ CF cross-section for the high mass region, measured in the experimental fiducial volume together with uncertainties.}
 \label{tab:Zee_high}
-\end{table}
-
-And finally in Tabs~\ref{tab:Zee_NBC} and~\ref{tab:Zee} the results for integrated cross-sections can be found.
-
-\begin{table}
-\centering
-\begin{tabular}{lccc}
-\hline
-    &   $N$   & $B \pm \delta B$  &  $C \pm \delta C$ \\
-\hline
-$\hfill 66.00 < m_{ee} <116.00$       & 321575     & 9174.1     $\pm$ 462.1 & 0.425      $\pm$ 0.010 \\
-$116.00 < m_{ee} <150.00$      & 7740       & 2732.8     $\pm$ 261.8 & 0.520      $\pm$ 0.018 \\
-\hline
-\end{tabular}
-\caption{Main components of the integrated \Zee\ CF cross-section.}
-\label{tab:Zee_NBC}
-\end{table}
-
-\begin{table}
-\centering
-\begin{tabular}{lc}
-\hline
-$\hfill 66.00 < m_{ee} <116.00$       & 3.204 $\pm$ 0.006 (stat) $\pm$ 0.073 (syst) $\pm$ 0.058 (lum) [pb]  \\
-$116.00 < m_{ee} <150.00$      & 0.063 $\pm$ 0.001 (stat) $\pm$ 0.004 (syst) $\pm$ 0.001 (lum) [pb]  \\
-\hline
-\end{tabular}
-\caption{Integrated \Zee\ CF cross-section, measured in the experimental fiducial volume together with uncertainties.}
-\label{tab:Zee}
 \end{table}
 
 The comparison with the theoretical predictions was done for the combined \Zll\ results. Since the combination itself was outside of the scope of this thesis, it won't be described here. It is important to note, that \Zee central-forward data contributed only to the $|y| > 1.2$ part of the combined cross-section, and the last three bins $|y| > 2.4$ of it can be seen as purely \Zee\ central-forward. The combined cross-section itself can be seen in Fig.~\ref{fig:Zll}, while the comparison with the different theoretical predictions can be seen in Fig.~\ref{fig:Zll_theory}.
@@ -163,7 +171,7 @@ The comparison with the theoretical predictions was done for the combined \Zll\ 
 \center{
   \includegraphics[width=0.45\textwidth]{figures/Z_66_116_combined.pdf}
   \includegraphics[width=0.45\textwidth]{figures/Z_116_150_combined.pdf}
-  \caption{Combined \Zll\ cross-section for peak mass (left) and high mass (right) regions together with uncertainties. The ratio and the pull values are also shown for each source.}
+  \caption{Combined \Zll\ cross-section for peak mass (left) and high mass (right) regions together with uncertainties. The ratio and the pull values are also shown for each source.~\cite{lib:wz2011}}
 \label{fig:Zll}}
 \end{figure}
 
@@ -171,6 +179,6 @@ The comparison with the theoretical predictions was done for the combined \Zll\ 
 \center{
   \includegraphics[width=0.45\textwidth]{figures/Z_66_116_NNLO_combined.pdf}
   \includegraphics[width=0.45\textwidth]{figures/Z_116_150_NNLO_combined.pdf}
-  \caption{Comparison of the combined \Zll\ cross-section with NNLO predictions using varios PDF sets for peak mass (left) and high mass (right) regions together with uncertainties. The ratios are also shown.}
+  \caption{Comparison of the combined \Zll\ cross-section with NNLO predictions using varios PDF sets for peak mass (left) and high mass (right) regions together with uncertainties. The ratios are also shown.~\cite{lib:wz2011}}
 \label{fig:Zll_theory}}
 \end{figure}
