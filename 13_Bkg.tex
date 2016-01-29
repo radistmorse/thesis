@@ -3,13 +3,13 @@
 
 As was described in Sec.~\ref{sec:Selection}, the selection phase is designed to suppress the background events (i.e. not \Zee\ events) while keeping the signal events. But even with all the cuts applied, some of the background events still pass all of them. In order to get the correct results, we need to estimate the number of the background events in our selection.
 
-The background events come in two flavours: the electroweak (EW) background and the QCD background. The difference from the analysis point of view is in that we can directly predict the amount of the EW background based on the MC simulation (except for two components which will be discussed later), while the QCD background we have to estimate, using so-called fits based on the indirect data. Both of these methods will be descrabed here.
+The background events come in two flavors: the electroweak (EW) background and the QCD background. The difference from the analysis point of view is in that we can directly predict the amount of the EW background based on the MC simulation (except for two components which will be discussed later), while the QCD background we have to estimate, using so-called fits based on the indirect data. Both of these methods will be described here.
 
 \section{Electroweak background}
 
-The sources of the electroweak background are the events that came from various electroweak decays but were misinterpreted as \Zee. The list of the processes that contribute to the EW background was given in Tab.~\ref{tab:MC_bg}. There are eight of them, including three single-boson decays, three di-boson decays, \ttbar, and photon induced background. All the processes except the last one have a cross-section comparable with \Zee\ which can be reliably predicted by the theory, and also use the same effiviency coefficients as signal, and therefore can be simulated using MC. For the photon-induced background the situation is more complicated. We can't reliably evaluate the amount of this background, and the relative uncertainty for it is usually 30-50\%. This background is added after the unfolding.
+The sources of the electroweak background are the events that came from various electroweak decays but were misinterpreted as \Zee. The list of the processes that contribute to the EW background was given in Tab.~\ref{tab:MC_bg}. There are eight of them, including three single-boson decays, three di-boson decays, \ttbar, and photon induced background. All the processes except the last one have a cross-section comparable with \Zee\ which can be reliably predicted by the theory, and also use the same efficiency coefficients as signal, and therefore can be simulated using MC. For the photon-induced background the situation is more complicated. We can't reliably evaluate the amount of this background, and the relative uncertainty for it is usually 30-50\%. This background is added after the unfolding.
 
-The electroweak background is largely dominated by the \Wenu\ events, where the electron goes to the central part of the calorimeter, and the fake forward electron is produced by the W+jet activity. Since the jet behaviour in the forward region is modelled poorly, this background is normalized to data, instead of theoretical-driven luminocity normalization used for other backgrounds.
+The electroweak background is largely dominated by the \Wenu\ events, where the electron goes to the central part of the calorimeter, and the fake forward electron is produced by the W+jet activity. Since the jet behavior in the forward region is modeled poorly, this background is normalized to data, instead of theoretical-driven luminocity normalization used for other backgrounds.
 
 For the \Wenu\ evaluation three selections were used, all of them in two mass windows around mass peak: $66 < m_{ee} < 80$~GeV and $100 < m_{ee} < 150$~GeV, but two of them also have an additional cuts:
 \begin{itemize}
@@ -69,7 +69,7 @@ All other electroweak backgrounds are simply scaled to the theoretically predict
 
 The QCD background is the name for the multi-jet hadronic background. Since it's nearly impossible to simulate all the multitude of the hadronic processes with even remote accuracy. There are two methods to evaluate the amount of the multi-jet background. The first one is by using the theoretical functions to evaluate the form of the background. Usually the convolution of the Crystal Ball and the Breit-Wigner functions is used with the use of the RooFit framework~\cite{lib:bkg_roofit}. The second method is more precise and is usually used when the data samples are large enough to provide the adequate statistical error, and consist of constructing the background template (i.e. the form) from the data itself, by using the cut inversion: several cuts in the selection chain (usually the most basic ones) are inverted to provide the sample of the background events with the most "signal-like" signature. The amount of such events is usually very limited, but the total amount of the 2011 data allows us to use this method, which is otherwise better than the theoretical predictions of the RooFit method.
 
-In both cases, after the template is constructed, it is normalized to the data, which is done by using the discriminatory variable. This variable shows how much background there is in any particular bin, to distinguish background-dominated bins from the signal-dominated bins. For the \Zee\ CF analysis the discriminatory variable was the isolation of the central electrone cluster $E_{t}^{\mathrm{cone30}}$. This variable showed the best results among the other tested, but since it is used in the default analysis selection, it can't be used direclty, and the background was normalized to the selection without the isolation cuts, and then scaled accordingly.
+In both cases, after the template is constructed, it is normalized to the data, which is done by using the discriminatory variable. This variable shows how much background there is in any particular bin, to distinguish background-dominated bins from the signal-dominated bins. For the \Zee\ CF analysis the discriminatory variable was the isolation of the central electron cluster $E_{t}^{\mathrm{cone30}}$. This variable showed the best results among the other tested, but since it is used in the default analysis selection, it can't be used directly, and the background was normalized to the selection without the isolation cuts, and then scaled accordingly.
 
 The background template is constructed based on the three selections: the one with the default cuts, with the default cuts and relaxed track and cluster isolation, and with the default cuts and relaxed cluster isolation only. For all selection the cut inversion included some of the electron tight ID criteria. See Tab.~\ref{tab:bkg_qcd_samples}. To calculate the systematic uncertainties for the background additional selections must be constructed. These selections must take into account the way the background is scaled: it is matched to the data in high-$E_{t}^{\mathrm{cone30}}$ bin, and the isolation cuts are not applied. See Tab.~\ref{tab:bkg_qcd_unc_samples} for the list.
 
@@ -110,7 +110,7 @@ The normalization procedure was made in several iterations, during which the bac
 \item $N_{\mathrm{EWbkg}}^{\mathrm{tail}}$ is the electroweak background MC events integrated over the isolation tail bins;
 \item $N_{\mathrm{temp}}^{\mathrm{tail}}$ is the template events integrated over the isolation tail bins;
 \end{itemize}
-\item the scaled template (i.e. the QCD background) is substracted from the data togethe with the electroweak background, and the remaining events are compared to signal MC to determine the new scalefactor for the MC: $s_{\mathrm{sig}} = \frac{N_{\mathrm{data}} - (s_{\mathrm{temp}} \cdot N_{\mathrm{temp}} + N_{\mathrm{EWbkg}})}{N_{\mathrm{sig.MC}}}$, where all the variables are the same, only integrated over all bins, not only the tail bins;
+\item the scaled template (i.e. the QCD background) is subtracted from the data together with the electroweak background, and the remaining events are compared to signal MC to determine the new scalefactor for the MC: $s_{\mathrm{sig}} = \frac{N_{\mathrm{data}} - (s_{\mathrm{temp}} \cdot N_{\mathrm{temp}} + N_{\mathrm{EWbkg}})}{N_{\mathrm{sig.MC}}}$, where all the variables are the same, only integrated over all bins, not only the tail bins;
 \item if the new MC scalefactor differs from the previous by less then $0.1$\%, the template scalefactor is considered to be final, otherwise, the new iteration is made.
 \end{itemize}
 
@@ -139,7 +139,7 @@ For the systematic uncertainties, several values were used as the threshold of t
  3.2 -  3.6 &   1.43 &   0.26  &   0.25 \\
 \hline \hline
 \end{tabular}
-\caption{The bin-by-bin QCD background astimation for the \Zee\ CF $66 < m_{ee} < 116$~GeV analysis in percents.}
+\caption{The bin-by-bin QCD background estimation for the \Zee\ CF $66 < m_{ee} < 116$~GeV analysis in percents.}
 \label{tab:bkg_qcd_peak_percents}
 \end{table}
 
@@ -155,7 +155,7 @@ For the systematic uncertainties, several values were used as the threshold of t
  3.2 -  3.6 &  18.07 &   5.53  &   3.17 \\
 \hline \hline
 \end{tabular}
-\caption{The bin-by-bin QCD background astimation for the \Zee\ CF $116 < m_{ee} < 150$~GeV analysis in percents.}
+\caption{The bin-by-bin QCD background estimation for the \Zee\ CF $116 < m_{ee} < 150$~GeV analysis in percents.}
 \label{tab:bkg_qcd_high_percents}
 \end{table}
 
