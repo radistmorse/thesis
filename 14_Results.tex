@@ -1,12 +1,12 @@
 \chapter{Results}
 \label{sec:Results}
 
-In this section the results of the cross-section calculations are presented. The results of the integral and differential cross-sections (as defined in Sec.~\ref{sec:ZeeCrossSec}) are shown together with uncertainties and theoretical predictions. There are two main types of the uncertainties: statistical and systematical, and whereas the statistical uncertainties are trivial to calculate, and depend only on the amount of the data in any given bin, the sources for the systematical uncertainties are much more numerous. The sources for the different systematical uncertainties are described throughout this thesis, but for the convenience the complete list of them that contributed to the final result is presented in Tab.~\ref{tab:Zee_unc_list_peak} for peak mass region and Tab.~\ref{tab:Zee_unc_list_high} for high mass region.
+In this section the results of the cross-section calculations are presented. The results of the integral and differential cross-sections (as defined in Sec.~\ref{sec:ZeeCrossSec}) are shown together with uncertainties and theoretical predictions. There are two main types of the uncertainties: statistical and systematical, and whereas the statistical uncertainties are trivial to calculate, and depend only on the amount of the data in any given bin, the sources for the systematical uncertainties are much more numerous. The sources for the different systematical uncertainties are described throughout this thesis, but for the convenience the complete list of them that contributed to the final result is presented in Tab.~\ref{tab:Zee_unc_list_peak} for peak mass region and in Tab.~\ref{tab:Zee_unc_list_high} for high mass region.
 
 \begin{table}
 \centering
 \begin{tabular}{l p{0.6cm}p{0.6cm}p{0.6cm}p{0.6cm}p{0.6cm}p{0.6cm}p{0.6cm}p{0.6cm}l}
-\hline
+\hline \hline
    & 1.20, & 1.40, & 1.60, & 1.80, & 2.00, & 2.20, & 2.40, & 2.80, & 3.20, \\
    & 1.40 & 1.60 & 1.80 & 2.00 & 2.20 & 2.40 & 2.80 & 3.20 & 3.60  \\
 \hline
@@ -29,7 +29,7 @@ Stat. Uncertainty (MC)        & 0.635 & 0.353 & 0.207 & 0.206 & 0.186 & 0.175 & 
 Stat. Uncertainty             & 1.763 & 1.019 & 0.730 & 0.595 & 0.580 & 0.499 & 0.339 & 0.494 & 1.227 \\
 \hline
 Tot. Syst. Uncertainty        & 3.540 & 3.107 & 2.797 & 3.084 & 3.426 & 2.707 & 3.480 & 5.515 & 7.368 \\
-\hline
+\hline \hline
 \end{tabular}
 \caption{The list of the uncertainties in percent for peak mass region.}
 \label{tab:Zee_unc_list_peak}
@@ -38,7 +38,7 @@ Tot. Syst. Uncertainty        & 3.540 & 3.107 & 2.797 & 3.084 & 3.426 & 2.707 & 
 \begin{table}
 \centering
 \begin{tabular}{l r r r r r r}
-\hline
+\hline \hline
    & \multicolumn{1}{l}{1.20,} & \multicolumn{1}{l}{1.60,} & \multicolumn{1}{l}{2.00,}
    & \multicolumn{1}{l}{2.40,} & \multicolumn{1}{l}{2.80,} & \multicolumn{1}{l}{3.20,}  \\
    & 1.60  & 2.00  & 2.40  & 2.80  & 3.20  & 3.60  \\
@@ -62,20 +62,42 @@ Stat. Uncertainty (MC)        & 1.619 & 1.156 & 0.981 & 0.930 & 1.716 & 3.892  \
 Stat. Uncertainty             & 6.845 & 5.213 & 4.023 & 3.886 & 5.291 & 14.533  \\
 \hline
 Tot. Syst. Uncertainty        & 11.044 & 10.576 & 14.109 & 21.221 & 15.594 & 13.012 \\
-\hline
+\hline \hline
 \end{tabular}
 \caption{The list of the uncertainties in percent for high mass region.}
 \label{tab:Zee_unc_list_high}
 \end{table}
-As the work that was done as part of this thesis contributed to the W,Z inclusive paper~\cite{lib:wz2011} the combined \Zee\ and \Zll\ results were taken from there. The theory comparison was only done for the combined \Zll\ results, and thus was, strictly speaking, outside of the scope of this thesis.
+As the work that was done as part of this thesis contributed to the W,Z inclusive paper~\cite{lib:wz2011} the combined \Zee\ and \Zll\ results were taken from there. The theory comparison that was done for the combined \Zll\ results was outside of the scope of this thesis.
 
-The double-differential were done in the rapidity and mass binning with three mass bins. The \Zee\ central-forward analysis contributed only to two of them: the peak mass ($66 < M_{ee} < 116$~GeV) and the high mass ($116 < M_{ee} < 150$~GeV) windows. Fig.~\ref{fig:res_zee_fid} shows the double-differential cross-section with statistical and systematical uncertainties, and Fig.~\ref{fig:res_zee_fid_norm} shows the comparison with the different MC simulations. The \Powheg\Pythia\ MC simulation was the one used as signal MC, while the others were used as sources for systematical uncertainties.
+The double-differential analyses were done in the rapidity and mass binning with three mass windows. The \Zee\ central-forward analysis contributed only to two of them: the peak mass ($66 < M_{ee} < 116$~GeV) and the high mass ($116 < M_{ee} < 150$~GeV) windows. Unlike the central-central analysis, the peak mass windows was not divided into additional bins. The analyses results were first calculated in the true experimental fiducial volume, which equals to the experimental phase space and is described in Tab.~\ref{tab:res_phase_space}. Fig.~\ref{fig:res_zee_fid} shows the double-differential cross-section with statistical and systematical uncertainties, and Fig.~\ref{fig:res_zee_fid_mc} shows the comparison with the different MC simulations. The \Powheg\Pythia\ MC simulation was the one used as signal MC, while the others were used as sources for systematical uncertainties.
+
+\begin{table}
+\centering
+\begin{tabular}{l l}
+\hline \hline
+Central electron & $p_T > 23$~GeV, \\
+\rule{0pt}{4ex}  & $|\eta| < 2.47$ \\
+                 & {\bf excluding} \\
+                 & $1.37 < |\eta| < 1.52$ \& $1.6 < |\eta| < 1.7$ \\
+\hline
+Forward electron & $p_T > 20$~GeV, \\
+\rule{0pt}{4ex}  & $2.5 < |\eta| < 4.9$ \\
+                 & {\bf excluding} \\
+                 & $3.16 < |\eta| < 3.35$ \\
+\hline
+Mass windows     & $66 < m_{ee} < 116$ \& $116 < m_{ee} < 150$ \\
+\hline \hline
+\end{tabular}
+\caption{The conditions of the experimental phase space.}
+\label{tab:res_phase_space}
+\end{table}
+
 
 \begin{figure}
 \center{
   \includegraphics[width=0.45\textwidth]{figures/ZeeCF_Mass_66_116.pdf}
   \includegraphics[width=0.45\textwidth]{figures/ZeeCF_Mass_116_150.pdf}
-  \caption{\Zee\ CF fiducial differential cross-section, as a function of absolute boson rapidity for peak mass (left) and high mass (right) regions together with statistical and systematic uncertainties.}
+  \caption{\Zee\ CF true experimental fiducial differential cross-section, as a function of absolute boson rapidity for peak mass (left) and high mass (right) regions together with statistical and systematic uncertainties.}
 \label{fig:res_zee_fid}}
 \end{figure}
 
@@ -83,16 +105,16 @@ The double-differential were done in the rapidity and mass binning with three ma
 \center{
 \includegraphics[width=0.45\textwidth]{figures/ZeeCF_Mass_66_116_MC.pdf}
 \includegraphics[width=0.45\textwidth]{figures/ZeeCF_Mass_116_150_MC.pdf}
-\caption{\Zee\ CF ficucial differential cross-section, as a function of absolute boson rapidity for peak mass (left) and high mass (right) regions compared to various MC simulations.}
-\label{fig:res_zee_fid_norm}}
+\caption{\Zee\ CF true experimental fiducial differential cross-section, as a function of absolute boson rapidity for peak mass (left) and high mass (right) regions compared to various MC simulations.}
+\label{fig:res_zee_fid_mc}}
 \end{figure}
 
-The same results in tabular form can be seen in Tabs.~\ref{tab:Zee_NBC_peak} and~\ref{tab:Zee_NBC_high}, where $N$ is the number of events in the bin, $B$ is the estimated number of the background events included in $N$, and $C$ is the genuinely experimental fiducial extrapolation factor, which represents the fraction of all the $Z$ boson that $N$ amounts to.
+The same results in tabular form can be seen in Tabs.~\ref{tab:Zee_NBC_peak} and~\ref{tab:Zee_NBC_high}, where $N$ is the number of events in the bin, $B$ is the estimated number of the background events included in $N$, and $C$ is the true experimental fiducial extrapolation factor, which represents the fraction of all the $Z$ boson that $N$ amounts to.
 
 \begin{table}
 \centering
 \begin{tabular}{lccc}
-\hline
+\hline \hline
     &   $N$   & $B \pm \delta B$  &  $C \pm \delta C$ \\
 \hline
 $1.20 < |y| <1.40$          & 4178       & 193.7      $\pm$ 19.7 & 0.381      $\pm$ 0.014 \\
@@ -104,7 +126,7 @@ $2.20 < |y| <2.40$          & 51372      & 1454.4     $\pm$ 77.6 & 0.429      $\
 $2.40 < |y| <2.80$          & 101004     & 2613.2     $\pm$ 267.5 & 0.440      $\pm$ 0.015 \\
 $2.80 < |y| <3.20$          & 47304      & 1104.4     $\pm$ 52.3 & 0.384      $\pm$ 0.021 \\
 $3.20 < |y| <3.60$          & 8453       & 126.6      $\pm$ 29.5 & 0.276      $\pm$ 0.020 \\
-\hline
+\hline \hline
 \end{tabular}
 \caption{Main components of the differential \Zee\ CF cross-section for peak mass region.}
 \label{tab:Zee_NBC_peak}
@@ -113,7 +135,7 @@ $3.20 < |y| <3.60$          & 8453       & 126.6      $\pm$ 29.5 & 0.276      $\
 \begin{table}
 \centering
 \begin{tabular}{lccc}
-\hline
+\hline \hline
     &   $N$   & $B \pm \delta B$  &  $C \pm \delta C$ \\
 \hline
 $1.20 < |y| <1.60$          & 1136       & 592.4      $\pm$ 54.8 & 0.552      $\pm$ 0.024 \\
@@ -122,18 +144,18 @@ $2.00 < |y| <2.40$          & 2006       & 737.4      $\pm$ 80.2 & 0.531      $\
 $2.40 < |y| <2.80$          & 1754       & 506.2      $\pm$ 48.6 & 0.515      $\pm$ 0.107 \\
 $2.80 < |y| <3.20$          & 659        & 120.7      $\pm$ 12.8 & 0.439      $\pm$ 0.068 \\
 $3.20 < |y| <3.60$          & 84         & 15.2       $\pm$ 8.3 & 0.348      $\pm$ 0.031 \\
-\hline
+\hline \hline
 \end{tabular}
 \caption{Main components of the differential \Zee\ CF cross-section for high mass region.}
 \label{tab:Zee_NBC_high}
 \end{table}
 
-In Tabs.~\ref{tab:Zee_peak} and~\ref{tab:Zee_high} the results of the cross-section as measured in the experimental fiducial volume can be found along with statistical, systematical and luminosity uncertainties.
+In Tabs.~\ref{tab:Zee_peak} and~\ref{tab:Zee_high} the results of the cross-section as measured in the true experimental fiducial volume can be found along with statistical, systematical and luminosity uncertainties.
 
 \begin{table}
 \centering
 \begin{tabular}{lc}
-\hline
+\hline \hline
 $1.20 < |y| <1.40$          & 5.715 $\pm$ 0.101 (stat) $\pm$ 0.207 (syst) $\pm$ 0.103 (lum) [pb]  \\
 $1.40 < |y| <1.60$          & 14.864 $\pm$ 0.151 (stat) $\pm$ 0.465 (syst) $\pm$ 0.268 (lum) [pb]  \\
 $1.60 < |y| <1.80$          & 28.200 $\pm$ 0.206 (stat) $\pm$ 0.792 (syst) $\pm$ 0.508 (lum) [pb]  \\
@@ -143,29 +165,39 @@ $2.20 < |y| <2.40$          & 63.598 $\pm$ 0.317 (stat) $\pm$ 1.717 (syst) $\pm$
 $2.40 < |y| <2.80$          & 61.087 $\pm$ 0.207 (stat) $\pm$ 2.126 (syst) $\pm$ 1.100 (lum) [pb]  \\
 $2.80 < |y| <3.20$          & 32.826 $\pm$ 0.162 (stat) $\pm$ 1.811 (syst) $\pm$ 0.591 (lum) [pb]  \\
 $3.20 < |y| <3.60$          & 8.313 $\pm$ 0.102 (stat) $\pm$ 0.614 (syst) $\pm$ 0.150 (lum) [pb]  \\
-\hline
+\hline \hline
 \end{tabular}
-\caption{Differential \Zee\ CF cross-section for the peak mass region, measured in the experimental fiducial volume together with uncertainties.}
+\caption{Differential \Zee\ CF cross-section for the peak mass region, measured in the true experimental fiducial volume together with uncertainties.}
 \label{tab:Zee_peak}
 \end{table}
 
 \begin{table}
 \centering
 \begin{tabular}{lc}
-\hline
+\hline \hline
 $1.20 < |y| <1.60$          & 0.271 $\pm$ 0.018 (stat) $\pm$ 0.030 (syst) $\pm$ 0.005 (lum) [pb]  \\
 $1.60 < |y| <2.00$          & 0.454 $\pm$ 0.023 (stat) $\pm$ 0.047 (syst) $\pm$ 0.008 (lum) [pb]  \\
 $2.00 < |y| <2.40$          & 0.680 $\pm$ 0.027 (stat) $\pm$ 0.095 (syst) $\pm$ 0.012 (lum) [pb]  \\
 $2.40 < |y| <2.80$          & 0.697 $\pm$ 0.027 (stat) $\pm$ 0.147 (syst) $\pm$ 0.013 (lum) [pb]  \\
 $2.80 < |y| <3.20$          & 0.367 $\pm$ 0.019 (stat) $\pm$ 0.057 (syst) $\pm$ 0.007 (lum) [pb]  \\
 $3.20 < |y| <3.60$          & 0.064 $\pm$ 0.009 (stat) $\pm$ 0.009 (syst) $\pm$ 0.001 (lum) [pb]  \\
-\hline
+\hline \hline
 \end{tabular}
-\caption{Differential \Zee\ CF cross-section for the high mass region, measured in the experimental fiducial volume together with uncertainties.}
+\caption{Differential \Zee\ CF cross-section for the high mass region, measured in the true experimental fiducial volume together with uncertainties.}
 \label{tab:Zee_high}
 \end{table}
 
-The comparison with the theoretical predictions was done for the combined \Zll\ results. Since the combination itself was outside of the scope of this thesis, it won't be described here. It is important to note, that \Zee central-forward data contributed only to the $|y| > 1.2$ part of the combined cross-section, and the last three bins $|y| > 2.4$ of it can be seen as purely \Zee\ central-forward. The combined cross-section itself can be seen in Fig.~\ref{fig:Zll}, while the comparison with the different theoretical predictions can be seen in Fig.~\ref{fig:Zll_theory}.
+For the comparison with the theoretical predictions, the results were extrapolated to the fiducial volume, which differs from the true experimental fiducial volume in inclusion of the crack regions. As a result, the values are about $\sim$20\% higher as in the true experimental one. Fig.~\ref{fig:res_zee_fid_th} shows the comparison to the theoretical predictions done with various PDF sets.
+
+\begin{figure}
+\center{
+\includegraphics[width=0.45\textwidth]{figures/ZeeCF_Mass_66_116_th.pdf}
+\includegraphics[width=0.45\textwidth]{figures/ZeeCF_Mass_116_150_th.pdf}
+\caption{\Zee\ CF extrapolated fiducial cross-section, as a function of absolute boson rapidity for peak mass (left) and high mass (right) regions compared to various theoretical predictions.}
+\label{fig:res_zee_fid_th}}
+\end{figure}
+
+The following results for the \Zll\ combined cross sections were taken from the W,Z inclusive paper~\cite{lib:wz2011}, as the combination of the results was outside of the scope of this thesis. The combination technique was described in Sec.~\ref{sec:ZeeCS_comb}. It is important to note, that \Zee\ central-forward data contributed only to the $|y| > 1.2$ part of the combined cross-section, and the last three bins $|y| > 2.4$ of it can be seen as purely \Zee\ central-forward. The combined cross-section itself can be seen in Fig.~\ref{fig:Zll}, while the comparison with the different theoretical predictions can be seen in Fig.~\ref{fig:Zll_theory}.
 
 \begin{figure}
 \center{

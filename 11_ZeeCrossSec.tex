@@ -1,9 +1,49 @@
 \chapter{\Zee\ cross section measurement}
 \label{sec:ZeeCrossSec}
 
-The measurement of the \Zee\ decay process is the main purpose of this work, and in this chapters the details of the methodology of this measurement would be discussed. The differential cross-sections are calculated using the Bayesian iterative unfolding with 3 iterations. The Bayesian unfolding is in some sense an evolution of the more primitive bin-by-bin unfolding, but the idea behind it is the same. But we will describe the unfolding methodology based on bin-by-bin, since it is more direct and is easier to explain.
+The measurement of the \Zee\ decay process is the main purpose of this work, and in this chapters the details of the methodology of this measurement would be discussed.
 
-The formulae for both integrated and differential cross-sections are:
+The ATLAS detector, like every other physical device, has its limitations, and the signal obtained from the detector is thus distorted. The process of estimating the results that would have been achieved on ideal detector based on the results from the real detector is called the unfolding process (also called "deconvolution" or "unsmearing" in mathematical literature), and is the one of the main stages of the calculating of the cross-section. The main idea of the unfolding is that if $f_\mathrm\mathrm{meas}(x)$ is the spectrum of a value measured from the real detector and $f_{ideal}(x)$ is the the spectrum that would have been measured on an ideal detector, then
+\begin{equation}
+f_\mathrm{meas}(x) = \int R(x|y) \, f_\mathrm{ideal}(y)dy
+\end{equation}
+where $R(x|y)$ is the detector response function. In case of binned distribution this equation can be written as
+\begin{equation}
+v^\mathrm{meas}_i = \sum_j R_{ij} \, v^\mathrm{ideal}_j \:\:\:\:\: i,j = 1, ... ,N
+\end{equation}
+where $v^\mathrm{meas}_i$ and $v^\mathrm{ideal}_i$ are the measured and ideal values accordingly. Generally speaking, the number of bins in $v^\mathrm{meas}$ and $v^\mathrm{ideal}$ spectra can be different, and the matrix $R_{ij}$ would be rectangular, but in ATLAS the same binning is used for both. The main task of unfolding is thus to determine the response matrix, and then invert it to produce the unfolding matrix:
+\begin{equation}
+v^\mathrm{ideal}_i = \sum_j R^{-1}_{ij} \, v^\mathrm{meas}_j \:\:\:\:\: i,j = 1, ... ,N
+\end{equation}
+This task is complicated by the fact that the measured values include various uncertainties, which we need to propagate through the unfolding process correctly.
+
+There are two methods of unfolding that are generally employed for the ATLAS data: the bin-by-bin unfolding, and the Bayesian unfolding~\cite{lib:zcs_unfolding}. There are several advantages and disadvantages to both methods, but the main difference in the results of the Bayesian and bin-by-bin unfoldings lies in two important factors: purity and stability. These two factors are calculated as follows:
+\begin{equation}
+P^{i} = \frac{N^{i}_{\text{rec\&gen}} }{ N^{i}_{\text{rec}} }\,, \; \;
+S^{i} = \frac{N^{i}_{\text{rec\&gen}} }{ N^{i}_{\text{gen}} }\,,
+\end{equation}
+where:
+\begin{itemize}
+\item {\bfseries $N^i_{\text{rec\&gen}}$} is the sum of event weights which were generated and reconstructed in bin $i$.
+\item {\bfseries $N^i_{\text{rec}}$} is the sum of event weights reconstructed in bin $i$.
+\item {\bfseries $N^i_{\text{gen}}$} is the sum of event weights generated in bin $i$.
+\end{itemize}
+
+The purity is thus a measure of in-migration, which shows the amount of foreign events reconstructed in the given bin, while the stability is a measure of the out-migration, which shows the amount of events that were reconstructed in other bins for every given bin. In terms of response matrix, the detector with high purity and stability will have a mostly diagonal matrix. This will allow for a use of a bin-by-bin unfolding which, dealing with every bin independently, will produce a diagonal matrix. But if the migration between bins is substantial, ignoring it will highly increase the uncertainties of the unfolded results, in which case the Bayesian unfolding becomes preferable. The results of the purity and stability studies for \Zee\ central-forward analysis suggested that the Bayesian unfolding would be more effective (see Fig.~\ref{fig:ZeeCS_purity_stability} for the exact values of the purity and stability of the 2011 \Zee\ central-forward analyses). In the following sections the methodology for both bin-by-bin and Bayesian unfoldings are shown. Also, the methodology of the result combination is explained, which mathematically is very close to unfolding, as it is the same inverse problem.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.45\textwidth]{figures/ZCF_purity_peak}
+  \includegraphics[width=0.45\textwidth]{figures/ZCF_stability_peak} \\
+  \includegraphics[width=0.45\textwidth]{figures/ZCF_purity_high}
+  \includegraphics[width=0.45\textwidth]{figures/ZCF_stability_high} \\
+  \caption{Purity (left) and stability (right) for the Z central-forward peak mass (top) and high mass (bottom) analyses.}
+  \label{fig:ZeeCS_purity_stability}
+\end{figure}
+
+\section{Bin-by-bin unfolding}
+
+As was said in the previous section, the bin-by-bin unfolding doesn't take into account the migration between bins, and works with every bin separately. The unfolded value can be then translated into the cross-section value, and the formulae for both integrated and differential cross-sections are:
 \begin{equation}
 \sigma_{tot} = \sigma_{Z} \times BR(\Zee) = \frac{N - B}{C \cdot E \cdot A \cdot L_{int}  \cdot \Gamma}\,,
 \end{equation}
@@ -33,29 +73,6 @@ where:
   \end{itemize}
 \end{itemize}
 
-The main difference in the results of the Bayesian and bin-by-bin unfoldings lies in two important factors: purity and stability. These two factors are calculated as follows:
-\begin{equation}
-P^{i} = \frac{N^{i}_{\text{rec\&gen}} }{ N^{i}_{\text{rec}} }\,, \; \;
-S^{i} = \frac{N^{i}_{\text{rec\&gen}} }{ N^{i}_{\text{gen}} }\,,
-\end{equation}
-where:
-\begin{itemize}
-\item {\bfseries $N^i_{\text{rec\&gen}}$} is the sum of event weights which were generated and reconstructed in bin $i$.
-\item {\bfseries $N^i_{\text{rec}}$} is the sum of event weights reconstructed in bin $i$.
-\item {\bfseries $N^i_{\text{gen}}$} is the sum of event weights generated in bin $i$.
-\end{itemize}
-
-The purity is thus a measure of in-migration, which shows the amount of foreign events reconstructed in the given bin, while the stability is a measure of the out-migration, which shows the amount of events that were reconstructed in other bins for every given bin. The relatively low values for purity and stability makes bin-by-bin unfolding biased and ineffective, as it won't take into account the migration between bins, and the results of the purity and stability studies for \Zee\ central-forward analysis suggested that the Bayesian unfolding would be more effective (see Fig.~\ref{fig:ZeeCS_purity_stability} for the exact values of the purity and stability of the 2011 \Zee\ central-forward analyses).
-
-\begin{figure}
-  \centering
-  \includegraphics[width=0.45\textwidth]{figures/ZCF_purity_peak}%
-  \includegraphics[width=0.45\textwidth]{figures/ZCF_stability_peak} \\
-  \includegraphics[width=0.45\textwidth]{figures/ZCF_purity_high}%
-  \includegraphics[width=0.45\textwidth]{figures/ZCF_stability_high} \\
-  \caption{Purity (left) and stability (right) for the Z central-forward peak mass (top) and high mass (bottom) analyses.}
-  \label{fig:ZeeCS_purity_stability}
-\end{figure}
 
 While calculating the $C$, $E$ and $A$ correction factors, there is a very important thing that must be taken into account, which is the QED final state radiation (FSR). The results of the MC generation are so-called {\itshape born level} leptons, which are the leptons before FSR. To simulate FSR there are two tools in use in the MC production chain: \Photos\, which is the main tool that is used, and \Sherpa\ which uses different FSR algorithm and is used for systematic uncertainties calculation. After the FSR simulation, the resulting final state leptons are called {\itshape bare leptons}. The bare leptons represent the result of the actual collision much closer than the born leptons, but because of the work of the clustering algorithms during reconstruction, bare leptons are impossible to reconstruct. To overcome this problem, the third level of FSR was introduced, which is {\itshape dressed leptons}. The dressed leptons are bare leptons with the inclusion of all FSR photons within the $\Delta R < 0.1$. The dressed leptons are the leptons that most closely represent the particles that are actually reconstructed by the reconstruction algorithms.
 
@@ -77,6 +94,14 @@ And for the bare and dressed levels the cross-sections are calculated with good 
 \end{split}
 \end{equation}
 
+In terms of unfolding matrix, the values $C$ calculated for each bin and corrected for the dressed level go into the diagonal positions of the $R^{-1}_{ij}$. The results unfolded with this matrix is called the {\itshape true experimental fiducial cross-section}. The additional extrapolation with the use of the matrix constructed from the values $E$ will produce the {\itshape extrapolated fiducial cross-section}, and finally with the values $A$ we will get the {\itshape common fiducial cross-section} which can be used for the combination. The results for all of these cross-sections can be seen in Sec.~\ref{sec:Results}
+
+\section{Bayesian (D'Agostini's) iterative unfolding}
+
+
+
+\tbu: BAYESIAN UNFOLDING
+\cite{lib:zcs_bayes}
 When it comes to Bayesian unfolding, all the coefficients mentioned above gets hidden inside the unfolding matrixes and are not observed directly. Yet we can see, that since the $A$ extrapolation coefficient deals with total cross-section, which we are not interested in, and that the $E$ coefficient is purely theoretical, and doesn't depend on experiment in any way, only on the set of the fiducial cuts that we apply. The only coefficient that can be regarded as a result of an experiment is thus the $C$ coefficient, which roughly represents the fraction of the total number of the $Z$ bosons produced, that got included in the analysis. For the 2011 \Zee\ CF analysis it was $\sim$42\% (see Sec.~\ref{sec:Results} for more details).
 
 The differential cross-section measurement was done in absolute rapidity binning, which allows the later combination of the CC and CF analysis results. The binning is shown in Tabs.~\ref{tab:ZeeCS_bins_peak} and~\ref{tab:ZeeCS_bins_high}. The mass binning for the double-differential CF analysis had only two bins: the peak-mass window $66 < m_{ee} < 116$~GeV and the high-mass window $116 < m_{ee} < 150$~GeV.
@@ -117,3 +142,6 @@ $3.20 < |y_{Z}| <3.60$\\
 \caption{Bins in $|y_{Z}|$ which are used for the \Zee\ CF analysis for high mass window ($116 < m_{ee} < 150$~GeV).}
 \label{tab:ZeeCS_bins_high}
 \end{table}
+
+\section{Combination of the several cross-sections}
+\label{sec:ZeeCS_comb}

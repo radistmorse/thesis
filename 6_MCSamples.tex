@@ -22,7 +22,7 @@ The simulation process takes a lot of time, with the most time-consuming process
 \section{MC generators used in ATLAS experiment}
 \label{sec:MC_gen}
 
-The first stage of the MC production is the simulation of the $pp$ collision itself. The simulation of this process is based on the standard model, and tries to account for every significant aspect of it. The core of the simulation is the calculation of the matrix element (ME) of the $pp$ interaction, which can be done in different orders. The simplest case is the leading order (LO), which in case of the $\Zee$ is the bare Drell-Yan diagram, with no loops or extra legs. The simulations in the leading order are not precise, and generally the next to leading order (NLO) or next to next to leading order (NNLO) are used instead, with one or two extra loops/legs respectively. The calculation of the matrix element in higher orders is very complex, and in order to increase the precision of the simulation the additional particles are simulated outside of the ME. Additional QCD particles are generated using the "parton shower" (PS) technique, which is to simulate the QCD radiation on every parton independently, using the formulas not unlike the ME. The PS technique is widely adopted and used in every MC generator. Additional QED radiation is generated in a similar way by the independent package named "Photos"~\cite{lib:photos}, with the similar technique. This package can be used in conjunction with other MC generators.
+The first stage of the MC production is the simulation of the $pp$ collision itself. The simulation of this process is based on the standard model, and tries to account for every significant aspect of it. The core of the simulation is the calculation of the matrix element (ME) of the $pp$ interaction, which can be done in different orders. The simplest case is the leading order (LO), which in case of the \Zee\ is the bare Drell-Yan diagram, with no loops or extra legs. The simulations in the leading order are not precise, and generally the next to leading order (NLO) or next to next to leading order (NNLO) are used instead, with one or two extra loops/legs respectively. The calculation of the matrix element in higher orders is very complex, and in order to increase the precision of the simulation the additional particles are simulated outside of the ME. Additional QCD particles are generated using the "parton shower" (PS) technique, which is to simulate the QCD radiation on every parton independently, using the formulas not unlike the ME. The PS technique is widely adopted and used in every MC generator. Additional QED radiation is generated in a similar way by the independent package named "Photos"~\cite{lib:photos}, with the similar technique. This package can be used in conjunction with other MC generators.
 
 Here is the list of the most noticeable MC generators used in ATLAS analyses:
 \begin{itemize}
@@ -72,7 +72,7 @@ Although the whole process of the production of the MC samples can be considered
 
 The output of the simulation stage is "hits", the 4D vertexes of energy deposits in sensitive areas of the detectors. The next stage is to simulate the work of the detector itself, or to convert the energy deposits into detector response, which are usually voltages on the read-out channels. This process is called "digitization", because its output is "digits" which the read-out channels provide. During this stage all features of the detector logic are simulated (e.g. electric noises or channel-dependent variations). This is done by the internal ATLAS digitization software, and because it requires an intimate knowledge of every particular sub-detector, parts of it are maintained by separate groups related to the respective sub-detectors.
 
-The last step in the production chain is the same for both MC and genuine data samples, as the digitization process aims to provide the same data as we get from the detector during production runs. During this step the responses from the detector are reconstructed into physical objects, which is done in two steps. First step is more on the technical side, during which the response from the trackers is reconstructed into tracks and the response from the calorimeters is reconstructed into clusters. The second stage is physical and depends on the analysis. During this stage the tracks and clusters are combined into the physical particles. The flavors of this stage of reconstruction include e/gamma, jet/EtMiss/tau, b tagging and muon. $\Zee$ analysis uses the first: e/gamma flavored reconstruction. This process is done using the internal ATLAS reconstruction software. More on the reconstruction process with respect to the real data from the detector is in Sec.~\ref{sec:Reconstruction}.
+The last step in the production chain is the same for both MC and genuine data samples, as the digitization process aims to provide the same data as we get from the detector during production runs. During this step the responses from the detector are reconstructed into physical objects, which is done in two steps. First step is more on the technical side, during which the response from the trackers is reconstructed into tracks and the response from the calorimeters is reconstructed into clusters. The second stage is physical and depends on the analysis. During this stage the tracks and clusters are combined into the physical particles. The flavors of this stage of reconstruction include e/gamma, jet/EtMiss/tau, b tagging and muon. \Zee\ analysis uses the first: e/gamma flavored reconstruction. This process is done using the internal ATLAS reconstruction software. More on the reconstruction process with respect to the real data from the detector is in Sec.~\ref{sec:Reconstruction}.
 
 The result of the reconstruction is the data stored in the special format called AOD (Analysis Data Object), which is also developed internally by ATLAS. AODs can be read by the ATLAS analysis framework, which gives easy access to all reconstructed objects.
 
@@ -82,7 +82,7 @@ The frozen showers system (FS) is a system that is designed to speed up the gean
 
 \begin{figure}
 \center{
-\includegraphics[width=1.0\textwidth]{figures/MC_FS_method.eps}
+\includegraphics[width=1.0\textwidth]{figures/MC_FS_method.png}
 \caption{Diagram showing the shower substitution of the low-energy particle, during the high-energy particle simulation.}
 \label{fig:MC_FS_method}}
 \end{figure}
@@ -102,14 +102,14 @@ The better way to handle this is to generate the library using the process simil
 
 \begin{figure}
 \center{
-\includegraphics[width=1.0\textwidth]{figures/MC_FS_stpoints.eps}
+\includegraphics[width=1.0\textwidth]{figures/MC_FS_stpoints.png}
 \caption{The first stage of the 2-staged library production: FS starting point generation}
 \label{fig:MC_FS_stpoints}}
 \end{figure}
 
 \begin{figure}
 \center{
-\includegraphics[width=0.75\textwidth]{figures/MC_FS_shower.eps}
+\includegraphics[width=0.75\textwidth]{figures/MC_FS_shower.png}
 \caption{The second stage of the 2-staged library production: the simulation of the shower}
 \label{fig:MC_FS_shower}}
 \end{figure}
@@ -129,14 +129,21 @@ When the particle with the proper parameters is found, it is then removed from t
 
 \begin{figure}
 \center{
-\includegraphics[width=1.0\textwidth]{figures/MC_FS_speedup.eps}
-\caption{The simulation result for single electrons with energy 1000~GeV. CPU speed-up can be seen in top right. \tbu A BETTER PLOT}
+\includegraphics[width=1.0\textwidth]{figures/MC_FS_compare.pdf}
+\caption{The comparison of the simulated detector response with Frozen Showers enabled and disabled (full simulation).}
+\label{fig:MC_FS_compare}}
+\end{figure}
+
+\begin{figure}
+\center{
+\includegraphics[width=1.0\textwidth]{figures/MC_FS_speedup.pdf}
+\caption{The simulation speed-up for single electrons with energy ranged from 100~GeV to 200~GeV in FCAL region.}
 \label{fig:MC_FS_speedup}}
 \end{figure}
 
 For the MC11c and MC11d campaigns, the data from which is used in this analysis, frozen showers system was enabled by default in FCAL. Several studies showed that the differences introduced by the FS is negligible compared to the differences between MC and data, while the simulation speedup was about 25\%. The smallness of the errors introduced by the FS compared to other fast simulation methods (most notably - FastCaloSim) leaded to the misunderstanding, when the simulation with the FS system enabled was called "full simulation" as opposed to other, less precise but faster methods, which were called "fast simulation". In this terminology, all of the MC samples used in this analysis are full simulations.
 
-The sample comparison of the default, non-accelerated MC samples with the samples with enabled frozen showers can be seen in Fig.~\ref{fig:MC_FS_speedup}. It can be seen that the speed-up is significant, while the results remain the same.
+The sample comparison of the default, non-accelerated MC samples with the samples with enabled frozen showers can be seen in Fig.~\ref{fig:MC_FS_compare}. It can be seen that the difference between frozen showers enabled and disabled (full simulation) is about 2\%, which is well within the statistical uncertainty. The simulation speed-up can be seen in Fig.~\ref{fig:MC_FS_speedup}. It can be seen that the CPU time for FS-enabled simulation does not depend on the electron energy, and is two to four times quicker than the full simulation. On higher energies the speed-up is even more significant, and FCAL region is the one region with the highest number of the high-energy particles.
 
 \section{MC samples used in analysis}
 \label{sec:MC_periods}
@@ -227,7 +234,7 @@ During this analysis the MC samples from both MC11c and MC11d campaigns were use
       $ZZ$ & 105986$^{\mathrm{d}}$ & \Herwig & 6.02 $\cdot$ 0.212 $\cdot 10^{-3}$ (7\%) &
       0.25 \\
 
-      \hline
+      \hline \hline
     \end{tabular}
     \caption{ Background Monte Carlo samples. The samples marked with $^{\mathrm{d}}$ were taken from the MC11d campaign, the others are from the MC11c. }
     \label{tab:MC_bg}
@@ -242,8 +249,8 @@ The MC samples have a number of known shortcomings, and some data distributions 
 \begin{itemize}
 \item \textbf{Pileup Reweighting} is based on the $\mu$ variable and aims to equalize the amount of pileup in MC and data. This is done using the \texttt{PileupReweighting} tool~\cite{lib:pileuptool, lib:pileupscale}. The difference between data and MC in pileup conditions can be seen in Fig.~\ref{fig:MC_pileup}.
 \item \textbf{Vertex Spread in $z$ Reweighting} is based on the $z$ component of the vertex and aims to decrease the spread of the beam spot in $z$-direction of MC, which is significantly smaller in data (for data $\sigma_z \approx 56$mm, while for narrow beam spot MC sample $\sigma_z = 75$mm and for wide beam spot $\sigma_z = 90$mm). The \texttt{VertexPositionReweightTool} is used for that. The effect of this correction can be seen in Fig.~\ref{fig:MC_zvtx}.
-\item \textbf{$Z$ Boson $p_T$ Reweighting} is applied to the $p_T$ distribution of the $Z$ bosons, which doesn't describe the data well in the MC signal generators used for this analysis. The results from ATLAS $Z$ $\phi^*$ and $\pt$ analyses~\cite{lib:Zphistar} were used for it, and it was done using the \texttt{BosonPtReweightingTool}.
-\item \textbf{$Z$ Boson Line Shape Reweighting} is the reweightings aimed to fix the fundamental shortcomings of the MC generators caused by the electroweak order not being high enough. This reweighting is done using the \texttt{LineShapeTool}. See~\cite{lib:lineshape} for details.
+\item \textbf{$Z$ Boson $p_T$ Reweighting} is applied to the $p_T$ distribution of the $Z$ bosons, which doesn't describe the data well in the MC signal generators used for this analysis. The results from ATLAS $Z$ $\phi^*$ and $\pt$ analyses~\cite{lib:Zphistar} were used for it, and it was done using the \texttt{BosonPtReweightingTool}. The differences between various MC generators in describing the $Z$ boson $p_T$ distribution is shown in Fig.~\ref{fig:MC_zpt}.
+\item \textbf{$Z$ Boson Line Shape Reweighting} is the reweightings aimed to fix the fundamental shortcomings of the MC generators caused by the electroweak order not being high enough. This reweighting is done using the \texttt{LineShapeTool}. See~\cite{lib:lineshape} for details. The effect of the reweighting can be seen in Fig.~\ref{fig:MC_lineshape}.
 \end{itemize}
 
 \begin{figure}
@@ -260,4 +267,18 @@ The MC samples have a number of known shortcomings, and some data distributions 
 \includegraphics[width=0.6\textwidth]{figures/MCrew_pileup.pdf}
 \caption{The comparison of the pileup conditions of the MC11c and 2011 data. The pileup conditions for different MC periods is also shown.}
 \label{fig:MC_pileup}}
+\end{figure}
+
+\begin{figure}
+\center{
+\includegraphics[width=0.6\textwidth]{figures/MCrew_zpt.pdf}
+\caption{The comparison of the $Z$ boson $p_T$ distribution for various MC generators. Distributions are normalized to arbitrary scale.}
+\label{fig:MC_zpt}}
+\end{figure}
+
+\begin{figure}
+\center{
+\includegraphics[width=0.8\textwidth]{figures/MCrew_lineshape.pdf}
+\caption{The effect of the LineShape reweighting in the $Z$ boson peak mass distribution.}
+\label{fig:MC_lineshape}}
 \end{figure}
