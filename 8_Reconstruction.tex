@@ -55,4 +55,11 @@ For 2011 the new set was introduced which was attuned more attuned to the data a
 
 To further suppress fake electron background, the isolation check is also used. The isolation check relies on Etcone variable, which is the sum of the energy in a cylinder surrounding the cluster, excluding the cluster itself. Although we use the cylinder, in a sense that it is a round shape with a constant $\Delta R$ where $\Delta R = \sqrt{\Delta\eta^{2} + \Delta\varphi^{2}}$, in real geometry it looks like a cone, that's why all the names of the isolation variables contain "cone".  The radius of the cylinder that was used is written in the name of the variable, so there are several of them, e.g. Etcone20, Etcone40, etc, where 20 or 40 means $\Delta R = 0.20 , 0.40$~\cite{lib:reco_iso}. The Etcone variable can use cluster $E_{t}$ as well as track $E_{t}$, and different isolation criteria use one or another or both. The said criteria is just the cut on the ratio of the Etcone energy to the cluster energy. If the ratio is low, we are dealing with the high-isolation electron. This is the best-case scenario. The higher values of the ratio means low-isolation electron, the high error in energy reconstruction is expected for this kind of electrons. The high value of the ratio means that the electron is most likely a fake: a misidentified muon or hadron jet with a mismatched track.
 
+\begin{figure}
+\center{
+\includegraphics[width=0.8\textwidth]{figures/REC_iso.pdf}
+\caption{A diagram showing the usual shape of EM and hadron showers, and how isolation cones cover these showers.}
+\label{fig:REC_iso}}
+\end{figure}
+
 For \Zee\ central-forward analysis, the isolation cuts named Iso98 for Etcone20 and Iso97 for Ptcone40 were used for the central electron. It allowed to reduce the background to the factor of 2, while still retaining the electron efficiency of 97-98\%.

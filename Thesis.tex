@@ -114,6 +114,7 @@
 \newcommand{\no}{\hfil \hskip 1em minus 1em\phantom{(\theequation)}%
             \hfilneg\cr\hfilneg\hskip 1em minus 1em\hfil}
 \newcommand{\ns}{\hfill\cr\hfill}
+\DeclareMathOperator*{\argmin}{arg\,min}
 
 \makeatletter
 \makeatother
@@ -154,7 +155,8 @@ collected at $\sqrt{s} = 7$~TeV}
 % turn of those nasty overfull and underfull hboxes
 \hbadness=10000
 \hfuzz=50pt
-
+\relpenalty=9999
+\binoppenalty=9999
 \hyphenation{Brems-strah-lung}
 %: --------------------------------------------------------------
 %:                  FRONT MATTER: dedications, abstract,..
@@ -291,6 +293,7 @@ Sed fringilla dignissim purus in luctus. Aenean tincidunt mi ut dui porttitor co
 
 \bibliographystyle{atlasBibStyleWithTitle}
 %\nocite{*}
+\thispagestyle{empty}
 \bibliography{Thesis}
 
 \newpage
