@@ -145,6 +145,50 @@ For the MC11c and MC11d campaigns, the data from which is used in this analysis,
 
 The sample comparison of the default, non-accelerated MC samples with the samples with enabled frozen showers can be seen in Fig.~\ref{fig:MC_FS_compare}. It can be seen that the difference between frozen showers enabled and disabled (full simulation) is about 2\%, which is well within the statistical uncertainty. The simulation speed-up can be seen in Fig.~\ref{fig:MC_FS_speedup}. It can be seen that the CPU time for FS-enabled simulation does not depend on the electron energy, and is two to four times quicker than the full simulation. On higher energies the speed-up is even more significant, and FCAL region is the one region with the highest number of the high-energy particles.
 
+Apart from the energy scale, another important feature of the simulated electrons is the shower shape variables which are used for electron identification. It is especially important for forward electrons, since with absence of the tracker information the shapes are the only discriminatory variables that help to identify the electrons (see Sec.~\ref{sec:Rec_elecID} for details). The comparison of the shower shape variables can be seen in Figs.~\ref{fig:MC_fs_shape1} to~\ref{fig:MC_fs_shape6}.
+
+\begin{figure}
+\center{
+\includegraphics[width=0.8\textwidth]{figures/fsshape_lambda_centre.pdf}
+\caption{The shower depth variable. The distance of the shower barycenter from the calorimeter front face measured along the shower axis.}
+\label{fig:MC_fs_shape1}}
+\end{figure}
+
+\begin{figure}
+\center{
+\includegraphics[width=0.8\textwidth]{figures/fsshape_f_max.pdf}
+\caption{Maximum cell energy variable. Fraction of the cluster energy in the most energetic cell.}
+\label{fig:MC_fs_shape2}}
+\end{figure}
+
+\begin{figure}
+\center{
+\includegraphics[width=0.8\textwidth]{figures/fsshape_lambda_2.pdf}
+\caption{Longitudinal second momentum. Second momentum of the distance of each cell to the shower center in the longitudinal direction ($\lambda_i$).}
+\label{fig:MC_fs_shape3}}
+\end{figure}
+
+\begin{figure}
+\center{
+\includegraphics[width=0.8\textwidth]{figures/fsshape_r_2.pdf}
+\caption{Transverse second momentum. Second momentum of the distance of each cell to the shower center in the transverse direction ($r_i$).}
+\label{fig:MC_fs_shape4}}
+\end{figure}
+
+\begin{figure}
+\center{
+\includegraphics[width=0.8\textwidth]{figures/fsshape_w_norm.pdf}
+\caption{Normalized lateral momentum. $w_\mathrm{norm} = \frac{w_2}{w_2+w_\mathrm{max}}$ where $w_2$ and $w_\mathrm{max}$ are second momenta of $r_i$ for different weights per cell.}
+\label{fig:MC_fs_shape5}}
+\end{figure}
+
+\begin{figure}
+\center{
+\includegraphics[width=0.8\textwidth]{figures/fsshape_lambda_norm.pdf}
+\caption{Normalized longitudinal momentum. $\lambda_\mathrm{norm} = \frac{\lambda_2}{\lambda_2+\lambda_\mathrm{max}}$ where $\lambda_2$ and $\lambda_\mathrm{max}$ are second momenta of $\lambda_i$ for different weights per cell.}
+\label{fig:MC_fs_shape6}}
+\end{figure}
+
 \section{MC samples used in analysis}
 \label{sec:MC_periods}
 

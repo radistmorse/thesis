@@ -114,7 +114,64 @@ The normalization procedure was made in several iterations, during which the bac
 \item if the new MC scalefactor differs from the previous by less then $0.1$\%, the template scalefactor is considered to be final, otherwise, the new iteration is made.
 \end{itemize}
 
-For the systematic uncertainties, several values were used as the threshold of the tail region. For the central values, the template $S_{1}$ with $E_{t}^{\mathrm{cone30}}$ was chosen, as the one with the clearer separation of the background-dominated bins, and the most stable fit. The resulting QCD background estimations can be seen in Figs.~\ref{fig:bkg_qcd} and in Tabs.~\ref{tab:bkg_qcd_peak_percents} and~\ref{tab:bkg_qcd_high_percents}.
+For the systematic uncertainties, several values were used as the threshold of the tail region. The results for peak region can be seen on Fig.~\ref{fig:qcd_peak_value}, where it can be seen that the estimations are consistent for wide range of thresholds. The thresholds drawn in red were excluded from the uncertainties estimation because the $\chi^2/N_\mathrm{DoF}$ for them outlaid for more than one standard deviation from the mean (as can be seen in Fig.~\ref{fig:qcd_peak_chi}). The Figs.~\ref{fig:qcd_high_value} and~\ref{fig:qcd_high_chi} show the similar results for high-mass region.
+
+\begin{figure}
+\center{
+\subfigure[$1.2 < |y_Z| < 1.4$] {\includegraphics[width=0.32\textwidth]{figures/bkg_qcd_peak_values_0}}
+\subfigure[$1.4 < |y_Z| < 1.6$] {\includegraphics[width=0.32\textwidth]{figures/bkg_qcd_peak_values_1}}
+\subfigure[$1.6 < |y_Z| < 1.8$] {\includegraphics[width=0.32\textwidth]{figures/bkg_qcd_peak_values_2}} \\
+\subfigure[$1.8 < |y_Z| < 2.0$] {\includegraphics[width=0.32\textwidth]{figures/bkg_qcd_peak_values_3}}
+\subfigure[$2.0 < |y_Z| < 2.2$] {\includegraphics[width=0.32\textwidth]{figures/bkg_qcd_peak_values_4}}
+\subfigure[$2.2 < |y_Z| < 2.4$] {\includegraphics[width=0.32\textwidth]{figures/bkg_qcd_peak_values_5}} \\
+\subfigure[$2.4 < |y_Z| < 2.8$] {\includegraphics[width=0.32\textwidth]{figures/bkg_qcd_peak_values_6}}
+\subfigure[$2.8 < |y_Z| < 3.2$] {\includegraphics[width=0.32\textwidth]{figures/bkg_qcd_peak_values_7}}
+\subfigure[$3.2 < |y_Z| < 3.6$] {\includegraphics[width=0.32\textwidth]{figures/bkg_qcd_peak_values_8}} \\
+\caption{Comparison of the estimated amount of the QCD background in peak region for various threshold values. The estimated uncertainty is shown in red dots.}
+\label{fig:qcd_peak_value}}
+\end{figure}
+
+\begin{figure}
+\center{
+\subfigure[$1.2 < |y_Z| < 1.4$] {\includegraphics[width=0.32\textwidth]{figures/bkg_qcd_peak_chi_0}}
+\subfigure[$1.4 < |y_Z| < 1.6$] {\includegraphics[width=0.32\textwidth]{figures/bkg_qcd_peak_chi_1}}
+\subfigure[$1.6 < |y_Z| < 1.8$] {\includegraphics[width=0.32\textwidth]{figures/bkg_qcd_peak_chi_2}} \\
+\subfigure[$1.8 < |y_Z| < 2.0$] {\includegraphics[width=0.32\textwidth]{figures/bkg_qcd_peak_chi_3}}
+\subfigure[$2.0 < |y_Z| < 2.2$] {\includegraphics[width=0.32\textwidth]{figures/bkg_qcd_peak_chi_4}}
+\subfigure[$2.2 < |y_Z| < 2.4$] {\includegraphics[width=0.32\textwidth]{figures/bkg_qcd_peak_chi_5}} \\
+\subfigure[$2.4 < |y_Z| < 2.8$] {\includegraphics[width=0.32\textwidth]{figures/bkg_qcd_peak_chi_6}}
+\subfigure[$2.8 < |y_Z| < 3.2$] {\includegraphics[width=0.32\textwidth]{figures/bkg_qcd_peak_chi_7}}
+\subfigure[$3.2 < |y_Z| < 3.6$] {\includegraphics[width=0.32\textwidth]{figures/bkg_qcd_peak_chi_8}} \\
+\caption{The $\chi^2/N_\mathrm{DoF}$ values for QCD background estimates in peak region with various threshold values. The red dots show one standard deviation.}
+\label{fig:qcd_peak_chi}}
+\end{figure}
+
+
+\begin{figure}
+\center{
+\subfigure[$1.2 < |y_Z| < 1.6$] {\includegraphics[width=0.32\textwidth]{figures/bkg_qcd_high_values_0}}
+\subfigure[$1.6 < |y_Z| < 2.0$] {\includegraphics[width=0.32\textwidth]{figures/bkg_qcd_high_values_1}}
+\subfigure[$2.0 < |y_Z| < 2.4$] {\includegraphics[width=0.32\textwidth]{figures/bkg_qcd_high_values_2}} \\
+\subfigure[$2.4 < |y_Z| < 2.8$] {\includegraphics[width=0.32\textwidth]{figures/bkg_qcd_high_values_3}}
+\subfigure[$2.8 < |y_Z| < 3.2$] {\includegraphics[width=0.32\textwidth]{figures/bkg_qcd_high_values_4}}
+\subfigure[$3.2 < |y_Z| < 3.6$] {\includegraphics[width=0.32\textwidth]{figures/bkg_qcd_high_values_5}} \\
+\caption{Comparison of the estimated amount of the QCD background in high-mass region for various threshold values. The estimated uncertainty is shown in red dots.}
+\label{fig:qcd_high__value}}
+\end{figure}
+
+\begin{figure}
+\center{
+\subfigure[$1.2 < |y_Z| < 1.6$] {\includegraphics[width=0.32\textwidth]{figures/bkg_qcd_high_chi_0}}
+\subfigure[$1.6 < |y_Z| < 2.0$] {\includegraphics[width=0.32\textwidth]{figures/bkg_qcd_high_chi_1}}
+\subfigure[$2.0 < |y_Z| < 2.4$] {\includegraphics[width=0.32\textwidth]{figures/bkg_qcd_high_chi_2}} \\
+\subfigure[$2.4 < |y_Z| < 2.8$] {\includegraphics[width=0.32\textwidth]{figures/bkg_qcd_high_chi_3}}
+\subfigure[$2.8 < |y_Z| < 3.2$] {\includegraphics[width=0.32\textwidth]{figures/bkg_qcd_high_chi_4}}
+\subfigure[$3.2 < |y_Z| < 3.6$] {\includegraphics[width=0.32\textwidth]{figures/bkg_qcd_high_chi_5}} \\
+\caption{The $\chi^2/N_\mathrm{DoF}$ values for QCD background estimates in high-mass region with various threshold values. The red dots show one standard deviation.}
+\label{fig:qcd_high__chi}}
+\end{figure}
+
+For the central values, the template $S_{1}$ with $E_{t}^{\mathrm{cone30}}$ was chosen, as the one with the clearer separation of the background-dominated bins, and the most stable fit. The resulting QCD background estimations can be seen in Figs.~\ref{fig:bkg_qcd} and in Tabs.~\ref{tab:bkg_qcd_peak_percents} and~\ref{tab:bkg_qcd_high_percents}.
 
 \begin{figure}
 \center{
