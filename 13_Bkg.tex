@@ -216,27 +216,55 @@ For the central values, the template $S_{1}$ with $E_{t}^{\mathrm{cone30}}$ was 
 \label{tab:bkg_qcd_high_percents}
 \end{table}
 
-The correctness of the background estimation can be seen by the means of the control plots, in which we can compare the amount of the data events that pass all the selection cuts with the luminosity-weighted amount of signal MC together with all sources of the background combined. In Fig.~\ref{fig:Sel_control_Z} the control plot for \Zee\ mass-distribution can be seen. Both peak and high mass regions are presented there. In Figs.~\ref{fig:Sel_control_elecC} and~\ref{fig:Sel_control_elecF} are the control plots for electron $p_T$ distributions for central and forward electrons respectively. In both cases the left plot represents the peak mass region, while the right plot represents the high mass region.
+The correctness of the background estimation can be seen by the means of the control plots, in which we can compare the amount of the data events that pass all the selection cuts with the luminosity-weighted amount of signal MC together with all sources of the background combined. In Figs.~\ref{fig:Sel_control_elecC} and~\ref{fig:Sel_control_elecF} are the control plots for electron $p_T$ distributions for central and forward electrons respectively. In Fig.~\ref{fig:Sel_control_ClustEta} the control plots for electron cluster $\eta$ can be seen (unlike the track $\eta$, which is available only in the central region where the tracker is present, that cluster $\eta$ is available for both central and forward regions). In Figs.~\ref{fig:Sel_control_BosY} and~\ref{fig:Sel_control_BosPt} the $Z$ boson distributions for boson rapidity and $p_T$ can be seen. All the plots are provided for peak mass and high mass regions separately. And finally in Fig.~\ref{fig:Sel_control_BosMass} the control plot for \Zee\ mass-distribution can be seen. Both peak and high mass regions are presented there.
 
 \begin{figure}
 \center{
-\includegraphics[width=0.6\textwidth]{figures/ZCF_control_BosMass.pdf}
-\caption{The comparison between data and MC for \Zee\ mass-distribution for both peak mass and high mass regions.}
-\label{fig:Sel_control_Z}}
-\end{figure}
-
-\begin{figure}
-\center{
-  \includegraphics[width=0.45\textwidth]{figures/ZCF_control_ElecPtC_peak.pdf}
-  \includegraphics[width=0.45\textwidth]{figures/ZCF_control_ElecPtC_high.pdf}
-  \caption{The comparison between data and MC for central electron $p_T$ distribution for peak mass (left) and high mass (right) regions.}
+  \subfigure[Peak mass]{\includegraphics[width=0.45\textwidth]{figures/ZCF_control_ElecPtC_peak.pdf}}
+  \subfigure[High mass]{\includegraphics[width=0.45\textwidth]{figures/ZCF_control_ElecPtC_high.pdf}}
+  \caption{The comparison between data and MC for central electron $p_T$ distribution for peak mass and high mass regions.}
 \label{fig:Sel_control_elecC}}
 \end{figure}
 
 \begin{figure}
 \center{
-  \includegraphics[width=0.45\textwidth]{figures/ZCF_control_ElecPtF_peak.pdf}
-  \includegraphics[width=0.45\textwidth]{figures/ZCF_control_ElecPtF_high.pdf}
-  \caption{The comparison between data and MC for forward electron $p_T$ distribution for peak mass (left) and high mass (right) regions.}
+  \subfigure[Peak mass]{\includegraphics[width=0.45\textwidth]{figures/ZCF_control_ElecPtF_peak.pdf}}
+  \subfigure[High mass]{\includegraphics[width=0.45\textwidth]{figures/ZCF_control_ElecPtF_high.pdf}}
+  \caption{The comparison between data and MC for forward electron $p_T$ distribution for peak mass and high mass regions.}
 \label{fig:Sel_control_elecF}}
+\end{figure}
+
+\begin{figure}
+\center{
+  \subfigure[Peak mass]{\includegraphics[width=0.4\textwidth]{figures/ZCF_control_ClustEta_peak.pdf}}
+  \raisebox{\height}{\includegraphics[width=0.1\textwidth]{figures/ZCF_control_legend.pdf}}
+  \subfigure[High mass]{\includegraphics[width=0.4\textwidth]{figures/ZCF_control_ClustEta_high.pdf}}
+  \caption{The comparison between data and MC for electron cluster $\eta$ for peak mass and high mass regions.}
+\label{fig:Sel_control_ClustEta}}
+\end{figure}
+
+\begin{figure}
+\center{
+  \subfigure[Peak mass]{\includegraphics[width=0.4\textwidth]{figures/ZCF_control_BosY_peak.pdf}}
+  \raisebox{\height}{\includegraphics[width=0.1\textwidth]{figures/ZCF_control_legend.pdf}}
+  \subfigure[High mass]{\includegraphics[width=0.4\textwidth]{figures/ZCF_control_BosY_high.pdf}}
+  \caption{The comparison between data and MC for $Z$ boson rapidity distribution for peak mass and high mass regions.}
+\label{fig:Sel_control_BosY}}
+\end{figure}
+
+
+\begin{figure}
+\center{
+  \subfigure[Peak mass]{\includegraphics[width=0.4\textwidth]{figures/ZCF_control_BosPt_peak.pdf}}
+  \raisebox{\height}{\includegraphics[width=0.1\textwidth]{figures/ZCF_control_legend.pdf}}
+  \subfigure[High mass]{\includegraphics[width=0.4\textwidth]{figures/ZCF_control_BosPt_high.pdf}}
+  \caption{The comparison between data and MC for $Z$ boson $p_T$ distribution for peak mass and high mass regions.}
+\label{fig:Sel_control_BosPt}}
+\end{figure}
+
+\begin{figure}
+\center{
+\includegraphics[width=0.6\textwidth]{figures/ZCF_control_BosMass.pdf}
+\caption{The comparison between data and MC for \Zee\ mass-distribution for both peak mass and high mass regions.}
+\label{fig:Sel_control_BosMass}}
 \end{figure}
