@@ -1,16 +1,11 @@
 \chapter{The ATLAS Experiment}
 \label{sec:ATLAS}
 
-The ATLAS detector is one of the two general purpose detectors on LHC, and is designed for probing for p-p and heavy ion collisions.
-This detector represents the work of a large collaboration of several thousand physicists, engineers and technicians over a period of fifteen years of dedicated design, development, fabrication, and installation. There are several fields in which the researches are currently going in ATLAS collaboration, including Z and W boson decay, studies of the Higgs boson, supersymmetry, study on B-mesons, and others. This broad spectrum of researches makes high demands on the detector's complexity and the precision of the different sub-systems.
+The ATLAS detector is one of the two general purpose detectors at the LHC, and is designed for probing for p-p and heavy ion collisions. This detector represents the work of a large collaboration of several thousand physicists, engineers and technicians over a period of fifteen years of dedicated design, development, fabrication, installation and operation. There are several fields in which the researches are currently going in ATLAS collaboration, including Z and W boson decay, studies of the Higgs boson, supersymmetry, study on B-mesons, and others. This broad spectrum of researches makes high demands on the detector's complexity and the precision of the different sub-systems.
 
 \section{Physics requirements and detector overview}
 \label{sec:ATLAS_overview}
-The ATLAS detector has a cylindrical shape, it is aligned along the beam line with the center situated at the interaction point.
-The coordinate system that is used to describe the detector follows its natural geometry. the interaction point is taken as an origin,
-while the $z$ axis is put along the beam pipe, making the $x$-$y$ plane transverse. The positive $x$-axis is defined to be pointing to the center
-of the LHC ring, and positive $y$-axis is defined to be pointing upwards. The direction on the $z$-axis is picked such as to form a right-handed coordinate system.
-The azimuthal angle $\varphi$ is measured as usual around the beam axis, and the polar angle $\theta$ is the angle from the beam axis.
+The ATLAS detector has a cylindrical shape, it is aligned along the beam line with the center situated at the interaction point. The coordinate system used to describe the detector follows its natural geometry: the interaction point is taken as an origin, while the $z$ axis is put along the beam pipe, making the $x$-$y$ plane transverse. The positive $x$-axis is defined to be pointing to the center of the LHC ring, and positive $y$-axis is defined to be pointing upwards. The direction on the $z$-axis is picked such as to form a right-handed coordinate system. The azimuthal angle $\varphi$ is measured as usual around the beam axis, and the polar angle $\theta$ is the angle from the $z-$ axis.
 
 \begin{figure}
 \center{
@@ -18,35 +13,33 @@ The azimuthal angle $\varphi$ is measured as usual around the beam axis, and the
 \caption{Overview of the ATLAS detector, with all the major sub-systems and the human-sized scale figures~\cite{lib:ATLASdet}.}
 \label{fig:ATLAS_overview}}
 \end{figure}
-It is important to note that this definition of rapidity is equivalent to the one used in the leading order theoretical predictions in Eq.~\ref{eq:theory_c-s}.
 
-The overview of the ATLAS detector is shown on the Fig.~\ref{fig:ATLAS_overview}. The main detector sub-systems can be seen there: the innermost is the tracker, then goes the EM calorimeters, then the hadronic calorimeters, and finally the muon spectrometers. There is also a magnet system, which is not a detector by itself, but is essential to the functioning of the whole system. All of the sub-detectors are briefly described below.
+The overview of the ATLAS detector is shown in the Figure~\ref{fig:ATLAS_overview}. The main detector sub-systems can be seen there: the innermost is the tracker, then goes the EM calorimeters, the hadronic calorimeters, and finally the muon spectrometers. There is also a magnet system, which is not a detector by itself, but is essential to the functioning of the whole system. All of the sub-detectors are briefly described below.
 
 \begin{itemize}
-\item The tracker (also called "the inner detector") records the tracks of the particles and is used to determine the charge and momentum.
+\item The tracker (also called "the inner detector") records the tracks of the charged particles and is used to determine the charge and momentum.
 \item The EM calorimeters identify and measure the energy of EM particles: electrons, positrons and photons.
 \item The hadronic calorimeters measure the energy of hadrons.
 \item The muon spectrometers identify and measure the energy, momentum and charge of the muons.
 \end{itemize}
 
-Based on their physical properties, different particles behave differently in these sub-detectors. The reconstruction of the particles rely heavily on the traces that particles leave or do not leave in different parts of the detector.
+Based on their physical properties, different particles behave differently in these sub-detectors. The reconstruction of the particles rely heavily on the traces that particles leave in different parts of the detector.
 
 \begin{itemize}
-\item {\bfseries Photons}, unless converted to the electrons, do not leave tracks in the tracker. Stop in the EM calorimeter and leave a cluster of the deposited energy in it.
+\item {\bfseries Photons}, unless converted to the electrons, do not leave tracks in the tracker. Stop in the EM calorimeter and leave a narrow distinctive EM cluster of the deposited energy in it (the difference between EM and hadronic clusters can be seen in Figure~\ref{fig:REC_iso}).
 \item {\bfseries Electrons} leave a track in the tracker, in the EM calorimeter behave similarly to photons: leave cluster with similar shape and properties.
-\item {\bfseries Charged mesons and protons} leave a track in the tracker, leave a cluster deep in the EM calorimeter, which can be distinguished from the EM particles, stop in the hadronic calorimeter, leaving a cluster in it.
-\item {\bfseries Neutral mesons and neutrons} do not leave a track, leave a cluster deep in the EM calorimeter, do not propagate to the hadronic calorimeter.
+\item {\bfseries Charged mesons and protons} leave a track in the tracker, leave a hadronic cluster in the EM calorimeter, which can be distinguished from the EM particles, stop in the hadronic calorimeter and possibly leaving a cluster in it.
+\item {\bfseries Neutral mesons and neutrons} do not leave a track, leave a cluster in the EM calorimeter, distinguished by a relatively long decay time.
 \item {\bfseries Muons} leave a track, leave a recognizable cluster in the calorimeters, which is associated with the so-called "minimum ionizing particles" (MIP), propagate further to the muon chambers and usually are not stopped by the detector.
-\item {\bfseries Neutrinos} do not interact with the detector, and leave it without any traces. Are identified by the missing $E_{t}$.
+\item {\bfseries Neutrinos} do not interact with the detector, and leave it without any traces. Are identified by the missing transverse energy.
 \end{itemize}
 
-Most of the particles that we study are short-lived, and do not interact even with the innermost parts of the detector. What we detect and record are the decay products of the said particles.
+$Z$-bosons are short-lived, and do not interact even with the innermost parts of the detector. What we detect and record are the decay products of the said particles.
 
 \section{Tracking}
 \label{sec:ATLAS_tracker}
 
-Because of the very high number of the events per second, the density of the tracks inside the inner detector is also very high. We are getting approximately 1000 particles
-from the collision point every 25 ns within the central eta region which we need to record. To achieve the needed momentum and vertex resolution, high-precision measurements must be made with fine detector granularity. The tracker of the ATLAS detector consists of pixel and silicon microstrip (SCT) trackers, and the Transition Radiation Tracker (TRT). Combined they provide these features.
+Because of the very high number of the events per second, the density of the tracks inside the inner detector is also very high. There are approximately 1000 particles from the collision point every 25 ns within the central eta region. To achieve the desired momentum and vertex resolution, high-precision measurements must be made with fine detector granularity. The tracker of the ATLAS detector consists of pixel and silicon microstrip (SCT) trackers, and the Transition Radiation Tracker (TRT). Combined they provide these features.
 
 \begin{figure}
 \center{
@@ -55,20 +48,18 @@ from the collision point every 25 ns within the central eta region which we need
 \label{fig:ATLAS_tracker}}
 \end{figure}
 
-The layout of the tracker is illustrated in Fig.~\ref{fig:ATLAS_tracker}. Its
-basic parameters are summarized in Tab.~\ref{tab:ATLAS_tracker}. The magnetic field with the intensity of $2T$ generated by the central solenoid covers most of the tracker: it extends over a length of $5.3 m$ with a diameter of $2.5 m$. The precision tracking detectors (pixels and SCT) cover the region
-$|\eta|<2.5$. As can be seen on the picture, in the central area they are arranged in concentric cylinders along the beam axis, while in the end-cap regions they are arranged in form of discs perpendicular to the beam. The highest granularity is achieved around the interaction point using silicon pixel detectors. The pixel layers are
+The layout of the tracker is illustrated in Figure~\ref{fig:ATLAS_tracker}. Its basic parameters are summarized in Tab.~\ref{tab:ATLAS_tracker}. The magnetic field with the intensity of $2$~T generated by the central solenoid covers most of the tracker: it extends over a length of $5.3$~m with a diameter of $2.5$~m. The precision tracking detectors (pixels and SCT) cover the region $|\eta|<2.5$. As can be seen on the picture, they are arranged in concentric cylinders along the beam axis in the central area, while in the end-cap regions they are arranged in form of discs perpendicular to the beam. The highest granularity is achieved around the interaction point using silicon pixel detectors. The pixel layers are
 segmented in $\varphi$ and $z$ with typically three pixel layers crossed by each track. All pixel sensors
-are identical and have a minimum pixel size in $R-\varphi \times z-\varphi$ of $50 \times 400 \mu m^2$. The intrinsic accuracy
-in the central region are $10 \mu m$ $(\varphi)$ and $115$ $\mu m$ $(z)$ and in the end-cap regions are $10 \mu m$ $(\varphi)$ and $115 \mu m$ $(R)$.
+are identical and have a minimum pixel size in $R-\varphi \times z-\varphi$ of $50 \times 400$~$\mu$m$^2$. The intrinsic accuracy
+in the central region are $10$~$\mu$m $(\varphi)$ and $115$~$\mu$m $(z)$ and in the end-cap regions are $10$~$\mu$m $(\varphi)$ and $115$~$\mu$m $(R)$.
 The pixel detector has approximately 80.4 million readout channels. For the SCT, eight strip layers
 (four space points) are crossed by each track. In the central region, this detector uses small-angle
-($40 mrad$) stereo strips to measure both coordinates, with one set of strips in each layer parallel to
-the beam direction, measuring $R-\varphi$. They consist of two $6.4 cm$ long daisy-chained sensors with
-a strip pitch of $80 \mu m$. In the end-cap region, the detectors have a set of strips running radially and
-a set of stereo strips at an angle of $40 mrad$. The mean pitch of the strips is also approximately
-$80 \mu m$. The intrinsic accuracy per module in the barrel are $17 \mu m$ $(\varphi)$ and $580 \mu m$ $(z)$ and in
-the disks are $17 \mu m$ $(\varphi)$ and $580 \mu m$ $(R)$. The total number of readout channels in the SCT is
+($40$~mrad) stereo strips to measure both coordinates, with one set of strips in each layer parallel to
+the beam direction, measuring $R-\varphi$. They consist of two $6.4$~cm long daisy-chained sensors with
+a strip pitch of $80$~$\mu$m. In the end-cap region, the detectors have a set of strips running radially and
+a set of stereo strips at an angle of $40$~mrad. The mean pitch of the strips is also approximately
+$80$~$\mu$m. The intrinsic accuracy per module in the barrel are $17$~$\mu$m $(\varphi)$ and $580$~$\mu$m $(z)$ and in
+the disks are $17$~$\mu$m $(\varphi)$ and $580$~$\mu$m $(R)$. The total number of readout channels in the SCT is
 approximately 6.3 million.
 
 \begin{table}
@@ -96,9 +87,9 @@ $2*9$ disks & Sensitive end-cap & $275$&$R$&$560$ & $839$&$|z|$&$2735$ \\
 \label{tab:ATLAS_tracker}
 \end{table}
 
-A large number of hits (typically 36 per track) is provided by the 4 mm diameter straw tubes
-of the TRT, which enables track-following up to $|\eta|=2.0$. The TRT only provides $R-\varphi$ information, for which it has an intrinsic accuracy of $130 \mu m$ per straw. In the central region, the straws are
-parallel to the beam axis and are $144 cm$ long, with their wires divided into two halves, approximately at $\eta = 0$. In the end-cap region, the $37 cm$ long straws are arranged radially in wheels. The
+A large number of hits (typically 36 per track) is provided by the $4$~mm diameter straw tubes
+of the TRT, which enables track-following up to $|\eta|=2.0$. The TRT only provides $R-\varphi$ information, for which it has an intrinsic accuracy of $130$~$\mu$m per straw. In the central region, the straws are
+parallel to the beam axis and are $144$~cm long, with their wires divided into two halves, approximately at $\eta = 0$. In the end-cap region, the $37$~cm long straws are arranged radially in wheels. The
 total number of TRT readout channels is approximately 351 thousands.
 
 The combination of precision trackers close to interaction point with the TRT at a larger radius gives very
@@ -108,7 +99,7 @@ point compared to the silicon is compensated by the large number of measurements
 measured track length.
 The inner detector system provides tracking measurements in a range matched by the precision measurements of the electromagnetic calorimeter. The electron identification capabilities
 are enhanced by the detection of transition-radiation photons in the xenon-based gas mixture of
-the straw tubes. The semiconductor trackers also allow impact parameter measurements and vertexing for heavy-flavor and $\tau$-lepton tagging. The secondary vertex measurement performance is enhanced by the innermost layer of pixels, at a radius of about $5 cm$.
+the straw tubes. The semiconductor trackers also allow impact parameter measurements and vertexing for heavy-flavor and $\tau$-lepton tagging. The secondary vertex measurement performance is enhanced by the innermost layer of pixels, at a radius of about $5$~cm.
 
 
 \section{EM calorimeters}
@@ -123,11 +114,11 @@ the straw tubes. The semiconductor trackers also allow impact parameter measurem
 
 
 The EM calorimeter is divided into a barrel (central) part ($|\eta| < 1.475$) and two end-cap components
-($1.375 < |\eta| < 3.2$), each housed in their own cryostat. The position of the central solenoid in
+($1.375 < |\eta| < 3.2$), each housed in its own cryostat. The position of the central solenoid in
 front of the EM calorimeter demands optimization of the material in order to achieve the desired calorimeter
 performance. As a consequence, the central solenoid and the LAr calorimeter
 share a common vacuum vessel, thereby eliminating two vacuum walls. The barrel calorimeter
-consists of two identical half-barrels at positive and negative etas, separated by a small gap (4 mm) at z = 0. Each end-cap
+consists of two identical half-barrels at positive and negative $z$, separated by a small gap ($4$~mm) at $z = 0$. Each end-cap
 calorimeter is mechanically divided into two coaxial wheels: an outer wheel covering the region
 $1.375 < |\eta| < 2.5$, and an inner wheel covering the region $2.5 < |\eta| < 3.2$. The EM calorimeter is
 a lead-LAr detector with accordion-shaped kapton electrodes and lead absorber plates over its full
@@ -149,10 +140,10 @@ The tile calorimeter is placed directly outside the EM calorimeter envelope. Its
 central barrel covers the region $|\eta| < 1.0$, and its two extended barrels cover the range $0.8 < |\eta| < 1.7$. It is a
 sampling calorimeter using steel as an absorber and scintillating tiles as active material. Both
 barrel and extended barrels are divided azimuthally into 64 modules. Radially, the tile calorimeter
-extends from an inner radius of 2.28 m to an outer radius of 4.25 m. It is segmented in depth in three
-layers, approximately 1.5, 4.1 and 1.8 interaction lengths ($\lambda$) thick for the barrel and 1.5, 2.6, and
-3.3 $\lambda$ for the extended barrel. The total detector thickness at the outer edge of the tile-instrumented
-region is 9.7 $\lambda$ at $\eta=0$. Two sides of the scintillating tiles are read out by wavelength shifting
+extends from an inner radius of $2.28$~m to an outer radius of $4.25$~m. It is segmented in depth in three
+layers, approximately $1.5$, $4.1$ and $1.8$ interaction lengths ($\lambda$) thick for the barrel and $1.5$, $2.6$, and
+$3.3$~$\lambda$ for the extended barrel. The total detector thickness at the outer edge of the tile-instrumented
+region is $9.7$~$\lambda$ at $\eta=0$. Two sides of the scintillating tiles are read out by wavelength shifting
 fibers into two separate photomultiplier tubes. In $\eta$, the readout cells built by grouping fibers into
 the photomultipliers are pseudo-projective towards the interaction region.
 
@@ -164,11 +155,11 @@ thereby overlapping with the forward calorimeter. Similarly, the HEC $\eta$ rang
 that of the tile calorimeter ($|\eta| < 1.7)$ by extending to $|\eta| = 1.5$. Each wheel is built from 32
 identical wedge-shaped modules, assembled with fixtures at the periphery and at the central bore.
 Each wheel is divided into two segments in depth, for a total of four layers per end-cap. The wheels
-closest to the interaction point are built from 25 mm parallel copper plates, while those further away
-use 50 mm copper plates (for all wheels the first plate is half-thickness). The outer radius of the
-copper plates is 2.03 m, while the inner radius is 0.475 m (except in the overlap region with the
-forward calorimeter where this radius becomes 0.372 m). The copper plates are interleaved with
-8.5 mm LAr gaps, providing the active medium for this sampling calorimeter.
+closest to the interaction point are built from $25$~mm parallel copper plates, while those further away
+use $50$~mm copper plates (for all wheels the first plate is half-thickness). The outer radius of the
+copper plates is $2.03$~m, while the inner radius is $0.475$~m (except in the overlap region with the
+forward calorimeter where this radius becomes $0.372$~m). The copper plates are interleaved with
+$8.5$~mm LAr gaps, providing the active medium for this sampling calorimeter.
 
 \section{Forward calorimeters}
 \label{sec:ATLAS_FCAL}
@@ -178,7 +169,7 @@ The forward calorimeter (FCAL) covers the biggest eta range ($3.1 < |\eta| < 4.9
 It is integrated into the end-cap cryostats, as this provides
 clear benefits in terms of uniformity of the calorimetric coverage as well as
 reduced radiation background levels in the muon spectrometer. In order to reduce the amount of
-neutron albedo in the inner detector cavity, the front face of the FCAL is recessed by about 1.2 m
+neutron albedo in the inner detector cavity, the front face of the FCAL is recessed by about $1.2$~m
 with respect to the EM calorimeter front face. This severely limits the depth of the calorimeter
 and therefore calls for a high-density design. The FCAL is approximately 10 interaction lengths
 deep, and consists of three modules in each end-cap: the first, made of copper, is optimized for
@@ -186,7 +177,7 @@ electromagnetic measurements, while the other two, made of tungsten, measure pre
 energy of hadronic interactions. Each module consists of a metal matrix, with regularly spaced
 longitudinal channels filled with the electrode structure consisting of concentric rods and tubes
 parallel to the beam axis. The LAr in the gap between the rod and the tube is the sensitive medium.
-This geometry allows for excellent control of the gaps, which are as small as 0.25 mm in the first
+This geometry allows for excellent control of the gaps, which are as small as $0.25$~mm in the first
 section, in order to avoid problems due to ion buildup.
 
 \section{Muon spectrometers}
@@ -200,7 +191,7 @@ section, in order to avoid problems due to ion buildup.
 \end{figure}
 
 
-The conceptual layout of the muon spectrometer is shown in Fig.~\ref{fig:ATLAS_muon_chambers}. This system is based on the magnetic
+The conceptual layout of the muon spectrometer is shown in Figure~\ref{fig:ATLAS_muon_chambers}. This system is based on the magnetic
 deflection of muon tracks in the large superconducting air-core toroid magnets, instrumented with
 separate trigger and high-precision tracking chambers. Over the range $|\eta| < 1.4$, magnetic bending
 is provided by the large barrel toroid. For $1.6 < |\eta| < 2.7$, muon tracks are bent by two smaller
@@ -228,13 +219,13 @@ perpendicular to the beam, also in three layers.
 
 
 ATLAS features a unique hybrid system of four large superconducting magnets. This magnetic
-system is 22 m in diameter and 26 m in length, with a stored energy of 1.6~GJ. This systems covers the volume approximately 12,000 m3 (defined as the region in which the field exceeds 50 mT), and engulfs all of the four main layers of detectors (as seen on Fig.~\ref{fig:ATLAS_overview}). The spatial arrangement of the coil wingdings is shown in Fig.~\ref{fig:ATLAS_magnets}. The ATLAS magnet system consists of:
+system is $22$~m in diameter and $26$~m in length, with a stored energy of $1.6$~GJ. This systems covers the volume approximately $12000$~m$^3$ (defined as the region in which the field exceeds $50$~mT), and engulfs all of the four main layers of detectors (as seen on Figure~\ref{fig:ATLAS_overview}). The spatial arrangement of the coil wingdings is shown in Figure~\ref{fig:ATLAS_magnets}. The ATLAS magnet system consists of:
 
 \begin{itemize}
-\item a solenoid, which is aligned on the beam axis and provides a 2 T axial magnetic field for the inner detector, while minimizing the radiative thickness in front of the
+\item a solenoid, which is aligned with the beam axis and provides a $2$~T axial magnetic field for the inner detector, while minimizing the radiative thickness in front of the
 barrel electromagnetic calorimeter;
 \item a barrel toroid and two end-cap toroids, which produce a
-toroidal magnetic field of approximately 0.5 T and 1 T for the muon detectors in the central
+toroidal magnetic field of approximately $0.5$~T and $1$~T for the muon detectors in the central
 and end-cap regions, respectively.
 \end{itemize}
 
@@ -248,6 +239,6 @@ and end-cap regions, respectively.
 \label{fig:ATLAS_trigger}}
 \end{figure}
 
-The readout system of the ATLAS detector is closely connected with the online trigger system, which consists of two trigger layers (the so-called L1 trigger and L2 trigger), and one event filter~\cite{lib:trigger}. The frequency at which LHC delivers bunch collisions is by design 40 MHz (every 25 ns), although throughout 2011 data taking it was 20 MHz (every 50 ns). It is physically impossible to reconstruct and record every of these 40 millions events per second. And what's more important, only a fraction of these events contain the actual $pp$ collision, so most of the events would be useless even if we managed to record them all. The gradual system of triggers makes an on-the-fly decision whether the event has an actual $pp$ collision or not. The L1 trigger works on the frequency of LHC bunches crossing. This trigger is fully hardware, so it takes a decision in a matter of nanoseconds during the time while the signal from the detectors travels the cables to the readout drivers (RODs). The L1 triggers makes only the rough assumptions about the event, which is it calculates the rough amount of energy deposited in the parts of the calorimeters and muon chambers, and finds so-called "regions of interest" (ROIs), which it passes to the next level trigger, to get a closer look at. The next level trigger is already software based, it is called the L2 trigger, it works on the frequency of 60 KHz and makes its decision while the event is stored in a read-out buffer (ROB). Its output event rate is 5 KHz. The final stage is an event filter which outputs the events at the average rate of 400 Hz. At this rate the events are saved to the output streams. The L2 trigger and the event filter are also collectively called the High Level Trigger (HLT), since they study the event much deeply then the L1 trigger, and work on reconstructed event, rather then the deposited energy, which is what the L1 trigger do. The precision of the L1 trigger is 1 GeV and it only measures the total amount of the deposited $E_{t}$ in the calorimeter towers. The L2 trigger attempts a partial reconstruction of the event in ROIs which are passed down from the L1 trigger as well as track reconstruction, and the event filter does the full event reconstruction in these regions.
+The readout system of the ATLAS detector is closely connected with the online trigger system, which consists of two trigger layers (the so-called L1 trigger and L2 trigger), and one event filter~\cite{lib:trigger}. The frequency at which LHC delivers bunch collisions is by design $40$~MHz (every $25$~ns), although throughout 2011 data taking it was $20$~MHz (every $50$~ns). It is physically impossible to reconstruct and record every of these 40 millions events per second. And what's more important, only a fraction of these events contain the hard scattering $pp$ collision, so most of the events would be useless even if we managed to record them all. The gradual system of triggers makes an on-the-fly decision whether the event has an actual $pp$ collision or not. The L1 trigger works on the frequency of LHC bunches crossing. This trigger is fully hardware, so it takes a decision in a matter of nanoseconds during the time while the signal from the detectors travels the cables to the readout drivers (RODs). The L1 triggers makes only the rough assumptions about the event. It calculates the rough amount of energy deposited in the parts of the calorimeters and muon chambers, and determines so-called "regions of interest" (ROIs), which are passed to the next level trigger, to get a closer look at. The next level trigger is called the L2 trigger and is software based. It provides the rate of events up to $60$~KHz and makes its decision while the event is stored in a read-out buffer (ROB). Its output event rate is $5$~KHz. The final stage is an event filter which outputs the events at the average rate of $400$~Hz. At this rate the events are saved to the output streams. The L2 trigger and the event filter are also collectively called the High Level Trigger (HLT), since they study the event much deeper then the L1 trigger, and work on reconstructed event, rather then the deposited energy, which is what the L1 trigger do. The precision of the L1 trigger is $500$~MeV and it only measures the total amount of the deposited \et\ in the calorimeter towers (and consequently, the amount of missing \et). The L2 trigger attempts a partial reconstruction of the event in ROIs which are passed down from the L1 trigger as well as track reconstruction, and the event filter does the full event reconstruction in these regions.
 
 The full reconstruction of the filtered event is then done by the large on-site computer farm, and then stored by the use of the data acquisition system (DAQ).

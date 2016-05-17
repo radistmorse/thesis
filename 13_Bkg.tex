@@ -1,7 +1,7 @@
 \chapter{Background estimation}
 \label{sec:Bkg}
 
-As was described in Sec.~\ref{sec:Selection}, the selection phase is designed to suppress the background events (i.e. not \Zee\ events) while keeping the signal events. But even with all the cuts applied, some of the background events still pass all of them. In order to get the correct results, we need to estimate the number of the background events in our selection.
+As was described in Section~\ref{sec:Selection}, the selection phase is designed to suppress the background events (i.e. not \Zee\ events) while keeping the signal events. But even with all the cuts applied, some of the background events still pass all of them. In order to get the correct results, we need to estimate the number of the background events in our selection.
 
 The background events come in two flavors: the electroweak (EW) background and the QCD background. The difference from the analysis point of view is in that we can directly predict the amount of the EW background based on the MC simulation (except for two components which will be discussed later), while the QCD background we have to estimate, using so-called fits based on the indirect data. Both of these methods will be described here.
 
@@ -13,18 +13,18 @@ The electroweak background is largely dominated by the \Wenu\ events, where the 
 
 For the \Wenu\ evaluation three selections were used, all of them in two mass windows around mass peak: $66 < m_{ee} < 80$~GeV and $100 < m_{ee} < 150$~GeV, but two of them also have an additional cuts:
 \begin{itemize}
-\item $E_{t}^{miss} > 25$~GeV;
-\item $E_{t}^{miss} > 25$~GeV, $M_{t} > 50$~GeV.
+\item $\et^{miss} > 25$~GeV;
+\item $\et^{miss} > 25$~GeV, $M_{t} > 50$~GeV.
 \end{itemize}
-These three selections were used to normalize the \Wenu\ background in high bins of $E_{t}^{miss} > 70$~GeV. Since both this and QCD backgrounds use the same method of fitting to data, they interfere with each-other. But since the fitting is done in different parts of the phase space, they correlate very little with each-other, and so only one additional iteration is required to obtain valid results. The fitted background can be seen in Fig.~\ref{fig:bkg_wenu}.
+These three selections were used to normalize the \Wenu\ background in high bins of $\et^{miss} > 70$~GeV. Since both this and QCD backgrounds use the same method of fitting to data, they interfere with each-other. But since the fitting is done in different parts of the phase space, they correlate very little with each-other, and so only one additional iteration is required to obtain valid results. The fitted background can be seen in Figure~\ref{fig:bkg_wenu}.
 
 \begin{figure}
 \center{
 \subfigure[Mass window] {\includegraphics[width=0.32\textwidth]{figures/bkg_wenu_1.pdf}}
-\subfigure[Mass window, $E_{t}^{miss}$]  {\includegraphics[width=0.32\textwidth]{figures/bkg_wenu_2.pdf}}
-\subfigure[Mass window, $E_{t}^{miss}$, $M_{t}$] {\includegraphics[width=0.32\textwidth]{figures/bkg_wenu_3.pdf}}
+\subfigure[Mass window, $\et^{miss}$]  {\includegraphics[width=0.32\textwidth]{figures/bkg_wenu_2.pdf}}
+\subfigure[Mass window, $\et^{miss}$, $M_{t}$] {\includegraphics[width=0.32\textwidth]{figures/bkg_wenu_3.pdf}}
 
-\caption{The data-fitting of the \Wenu\ background with various selections. (a) Mass window selection, (b) Mass window and $E_{t}^{miss} > 25$~GeV, (c) Mass window, $E_{t}^{miss} > 25$~GeV and $M_{t} > 50$~GeV.}
+\caption{The data-fitting of the \Wenu\ background with various selections. (a) Mass window selection, (b) Mass window and $\et^{miss} > 25$~GeV, (c) Mass window, $\et^{miss} > 25$~GeV and $M_{t} > 50$~GeV.}
 \label{fig:bkg_wenu}}
 \end{figure}
 
@@ -69,9 +69,9 @@ All other electroweak backgrounds are simply scaled to the theoretically predict
 
 The QCD background is the name for the multi-jet hadronic background. Since it's nearly impossible to simulate all the multitude of the hadronic processes with even remote accuracy. There are two methods to evaluate the amount of the multi-jet background. The first one is by using the theoretical functions to evaluate the form of the background. Usually the convolution of the Crystal Ball and the Breit-Wigner functions is used with the use of the RooFit framework~\cite{lib:bkg_roofit}. The second method is more precise and is usually used when the data samples are large enough to provide the adequate statistical error, and consist of constructing the background template (i.e. the form) from the data itself, by using the cut inversion: several cuts in the selection chain (usually the most basic ones) are inverted to provide the sample of the background events with the most "signal-like" signature. The amount of such events is usually very limited, but the total amount of the 2011 data allows us to use this method, which is otherwise better than the theoretical predictions of the RooFit method.
 
-In both cases, after the template is constructed, it is normalized to the data, which is done by using the discriminatory variable. This variable shows how much background there is in any particular bin, to distinguish background-dominated bins from the signal-dominated bins. For the \Zee\ CF analysis the discriminatory variable was the isolation of the central electron cluster $E_{t}^{\mathrm{cone30}}$. This variable showed the best results among the other tested, but since it is used in the default analysis selection, it can't be used directly, and the background was normalized to the selection without the isolation cuts, and then scaled accordingly.
+In both cases, after the template is constructed, it is normalized to the data, which is done by using the discriminatory variable. This variable shows how much background there is in any particular bin, to distinguish background-dominated bins from the signal-dominated bins. For the \Zee\ CF analysis the discriminatory variable was the isolation of the central electron cluster $\et^{\mathrm{cone30}}$. This variable showed the best results among the other tested, but since it is used in the default analysis selection, it can't be used directly, and the background was normalized to the selection without the isolation cuts, and then scaled accordingly.
 
-The background template is constructed based on the three selections: the one with the default cuts, with the default cuts and relaxed track and cluster isolation, and with the default cuts and relaxed cluster isolation only. For all selection the cut inversion included some of the electron tight ID criteria. See Tab.~\ref{tab:bkg_qcd_samples}. To calculate the systematic uncertainties for the background additional selections must be constructed. These selections must take into account the way the background is scaled: it is matched to the data in high-$E_{t}^{\mathrm{cone30}}$ bin, and the isolation cuts are not applied. See Tab.~\ref{tab:bkg_qcd_unc_samples} for the list.
+The background template is constructed based on the three selections: the one with the default cuts, with the default cuts and relaxed track and cluster isolation, and with the default cuts and relaxed cluster isolation only. For all selection the cut inversion included some of the electron tight ID criteria. See Tab.~\ref{tab:bkg_qcd_samples}. To calculate the systematic uncertainties for the background additional selections must be constructed. These selections must take into account the way the background is scaled: it is matched to the data in high-$\et^{\mathrm{cone30}}$ bin, and the isolation cuts are not applied. See Tab.~\ref{tab:bkg_qcd_unc_samples} for the list.
 
 \begin{table}
 \centering
@@ -79,7 +79,7 @@ The background template is constructed based on the three selections: the one wi
     & Cut inversion  &   Base selection    & expected bkg  \\ \hline
 default & FwdTight, Tight++ & Default  & isolated \\
 $S_1$   & FwdTight, Tight++ & Default w/o calo and track iso & all \\
-$S_2$   & FwdTight, Tight++ & Default w/o calo iso       & $P_{t}^{\mathrm{cone}}$ isolated\\
+$S_2$   & FwdTight, Tight++ & Default w/o calo iso       & $\pt^{\mathrm{cone}}$ isolated\\
 \hline \hline
 \end{tabular}
 \caption{Event selections for QCD background estimation.}
@@ -113,8 +113,16 @@ The normalization procedure was made in several iterations, during which the bac
 \item the scaled template (i.e. the QCD background) is subtracted from the data together with the electroweak background, and the remaining events are compared to signal MC to determine the new scalefactor for the MC: $s_{\mathrm{sig}} = \frac{N_{\mathrm{data}} - (s_{\mathrm{temp}} \cdot N_{\mathrm{temp}} + N_{\mathrm{EWbkg}})}{N_{\mathrm{sig.MC}}}$, where all the variables are the same, only integrated over all bins, not only the tail bins;
 \item if the new MC scalefactor differs from the previous by less then $0.1$\%, the template scalefactor is considered to be final, otherwise, the new iteration is made.
 \end{itemize}
+For the central values, the template $S_{1}$ with $\et^{\mathrm{cone30}}$ was chosen, as the one with the clearer separation of the background-dominated bins, and the most stable fit. On Figure~\ref{fig:bkg_qcd_control} the distribution of the background estimation over the discriminatory variable can be seen together with the boundaries of the tail region that was used for scaling.
 
-For the systematic uncertainties, several values were used as the threshold of the tail region. The results for peak region can be seen on Fig.~\ref{fig:qcd_peak_value}, where it can be seen that the estimations are consistent for wide range of thresholds. The thresholds drawn in red were excluded from the uncertainties estimation because the $\chi^2/N_\mathrm{DoF}$ for them outlaid for more than one standard deviation from the mean (as can be seen in Fig.~\ref{fig:qcd_peak_chi}). The Figs.~\ref{fig:qcd_high_value} and~\ref{fig:qcd_high_chi} show the similar results for high-mass region.
+\begin{figure}
+\center{
+\includegraphics[width=0.65\textwidth]{figures/bkg_qcd_1.pdf}
+\caption{The control plot for the QCD background estimation. Also showing the tail region for the $\et^\mathrm{cone30}/\et$ discriminatory variable.}
+\label{fig:bkg_qcd_control}}
+\end{figure}
+
+For the systematic uncertainties, several values were used as the threshold of the tail region. The results for peak region can be seen on Figure~\ref{fig:qcd_peak_value}, where it can be seen that the estimations are consistent for wide range of thresholds. The thresholds drawn in red were excluded from the uncertainties estimation because the $\chi^2/N_\mathrm{DoF}$ for them outlaid for more than one standard deviation from the mean (as can be seen in Figure~\ref{fig:qcd_peak_chi}). The Figures~\ref{fig:qcd_high_value} and~\ref{fig:qcd_high_chi} show the similar results for high-mass region.
 
 \begin{figure}
 \center{
@@ -156,7 +164,7 @@ For the systematic uncertainties, several values were used as the threshold of t
 \subfigure[$2.8 < |y_Z| < 3.2$] {\includegraphics[width=0.32\textwidth]{figures/bkg_qcd_high_values_4}}
 \subfigure[$3.2 < |y_Z| < 3.6$] {\includegraphics[width=0.32\textwidth]{figures/bkg_qcd_high_values_5}} \\
 \caption{Comparison of the estimated amount of the QCD background in high-mass region for various threshold values. The estimated uncertainty is shown in red dots.}
-\label{fig:qcd_high__value}}
+\label{fig:qcd_high_value}}
 \end{figure}
 
 \begin{figure}
@@ -168,17 +176,17 @@ For the systematic uncertainties, several values were used as the threshold of t
 \subfigure[$2.8 < |y_Z| < 3.2$] {\includegraphics[width=0.32\textwidth]{figures/bkg_qcd_high_chi_4}}
 \subfigure[$3.2 < |y_Z| < 3.6$] {\includegraphics[width=0.32\textwidth]{figures/bkg_qcd_high_chi_5}} \\
 \caption{The $\chi^2/N_\mathrm{DoF}$ values for QCD background estimates in high-mass region with various threshold values. The red dots show one standard deviation.}
-\label{fig:qcd_high__chi}}
+\label{fig:qcd_high_chi}}
 \end{figure}
 
-For the central values, the template $S_{1}$ with $E_{t}^{\mathrm{cone30}}$ was chosen, as the one with the clearer separation of the background-dominated bins, and the most stable fit. The resulting QCD background estimations can be seen in Figs.~\ref{fig:bkg_qcd} and in Tabs.~\ref{tab:bkg_qcd_peak_percents} and~\ref{tab:bkg_qcd_high_percents}.
+The resulting QCD background estimations can be seen in Figure~\ref{fig:bkg_qcd_result} and in Tabs.~\ref{tab:bkg_qcd_peak_percents} and~\ref{tab:bkg_qcd_high_percents}.
 
 \begin{figure}
 \center{
 \subfigure[$66 < m_{ee} < 116$~GeV] {\includegraphics[width=0.45\textwidth]{figures/bkg_qcd_peak.pdf}}
 \subfigure[$116 < m_{ee} < 150$~GeV]  {\includegraphics[width=0.45\textwidth]{figures/bkg_qcd_high.pdf}}
 \caption{The QCD background estimation for the \Zee\ central-forward analysis, (a) for peak mass and (b) for high mass.}
-\label{fig:bkg_qcd}}
+\label{fig:bkg_qcd_result}}
 \end{figure}
 
 \begin{table}
@@ -216,13 +224,13 @@ For the central values, the template $S_{1}$ with $E_{t}^{\mathrm{cone30}}$ was 
 \label{tab:bkg_qcd_high_percents}
 \end{table}
 
-The correctness of the background estimation can be seen by the means of the control plots, in which we can compare the amount of the data events that pass all the selection cuts with the luminosity-weighted amount of signal MC together with all sources of the background combined. In Figs.~\ref{fig:Sel_control_elecC} and~\ref{fig:Sel_control_elecF} are the control plots for electron $p_T$ distributions for central and forward electrons respectively. In Fig.~\ref{fig:Sel_control_ClustEta} the control plots for electron cluster $\eta$ can be seen (unlike the track $\eta$, which is available only in the central region where the tracker is present, that cluster $\eta$ is available for both central and forward regions). In Figs.~\ref{fig:Sel_control_BosY} and~\ref{fig:Sel_control_BosPt} the $Z$ boson distributions for boson rapidity and $p_T$ can be seen. All the plots are provided for peak mass and high mass regions separately. And finally in Fig.~\ref{fig:Sel_control_BosMass} the control plot for \Zee\ mass-distribution can be seen. Both peak and high mass regions are presented there.
+The correctness of the background estimation can be seen by the means of the control plots, in which we can compare the amount of the data events that pass all the selection cuts with the luminosity-weighted amount of signal MC together with all sources of the background combined. In Figures~\ref{fig:Sel_control_elecC} and~\ref{fig:Sel_control_elecF} are the control plots for electron \pt\ distributions for central and forward electrons respectively. In Figure~\ref{fig:Sel_control_ClustEta} the control plots for electron cluster $\eta$ can be seen (unlike the track $\eta$, which is available only in the central region where the tracker is present, that cluster $\eta$ is available for both central and forward regions). In Figures~\ref{fig:Sel_control_BosY} and~\ref{fig:Sel_control_BosPt} the $Z$ boson distributions for boson rapidity and \pt\ can be seen. All the plots are provided for peak mass and high mass regions separately. And finally in Figure~\ref{fig:Sel_control_BosMass} the control plot for \Zee\ mass-distribution can be seen. Both mass regions are presented there.
 
 \begin{figure}
 \center{
   \subfigure[Peak mass]{\includegraphics[width=0.45\textwidth]{figures/ZCF_control_ElecPtC_peak.pdf}}
   \subfigure[High mass]{\includegraphics[width=0.45\textwidth]{figures/ZCF_control_ElecPtC_high.pdf}}
-  \caption{The comparison between data and MC for central electron $p_T$ distribution for peak mass and high mass regions.}
+  \caption{The comparison between data and MC for central electron \pt\ distribution for peak mass and high mass regions.}
 \label{fig:Sel_control_elecC}}
 \end{figure}
 
@@ -230,7 +238,7 @@ The correctness of the background estimation can be seen by the means of the con
 \center{
   \subfigure[Peak mass]{\includegraphics[width=0.45\textwidth]{figures/ZCF_control_ElecPtF_peak.pdf}}
   \subfigure[High mass]{\includegraphics[width=0.45\textwidth]{figures/ZCF_control_ElecPtF_high.pdf}}
-  \caption{The comparison between data and MC for forward electron $p_T$ distribution for peak mass and high mass regions.}
+  \caption{The comparison between data and MC for forward electron \pt\ distribution for peak mass and high mass regions.}
 \label{fig:Sel_control_elecF}}
 \end{figure}
 
@@ -258,7 +266,7 @@ The correctness of the background estimation can be seen by the means of the con
   \subfigure[Peak mass]{\includegraphics[width=0.4\textwidth]{figures/ZCF_control_BosPt_peak.pdf}}
   \raisebox{\height}{\includegraphics[width=0.1\textwidth]{figures/ZCF_control_legend.pdf}}
   \subfigure[High mass]{\includegraphics[width=0.4\textwidth]{figures/ZCF_control_BosPt_high.pdf}}
-  \caption{The comparison between data and MC for $Z$ boson $p_T$ distribution for peak mass and high mass regions.}
+  \caption{The comparison between data and MC for $Z$ boson \pt\ distribution for peak mass and high mass regions.}
 \label{fig:Sel_control_BosPt}}
 \end{figure}
 

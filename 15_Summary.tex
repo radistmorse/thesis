@@ -1,26 +1,10 @@
 \chapter{Summary}
 \label{sec:Summary}
 
-This thesis represented the results of the \Zee\ central-forward analysis based on the $4.6 \mathrm{fb}^{-1}$ of the data collected on the ATLAS detector of the LHC during the 2011 year.
+This thesis represented the results of the \Zee\ central-forward cross-section measurement based on the $4.6 \mathrm{fb}^{-1}$ of the data collected on the ATLAS detector of the LHC during the 2011 year.
 
-The brief description of the ATLAS detector was given, together with the trigger and DAQ systems. The luminosity of the data was defined and described. The data collected during the 2011 year was listed and described.
+In order to get these results some technical solutions were developed for both ATLAS software infrastructure and the analysis software itself. For the ATLAS software the Frozen Showers system was developed. This system reduced the amount of time needed for the Monte Carlo simulation by about 25\% while introducing a small error that was well within the uncertainties introduced by the technical limitations of the detector. The Frozen Shower system was enabled by default in all the Monte Carlo samples starting with the 2011 for all the analyses. The MC samples used in this analysis were also produced with Frozen Showers enabled.
 
-The full production chain of the Monte Carlo generators was described with the special focus on the Frozen Showers system which allowed for the simulation speed-up for $\sim$25\%. This system was developed as part of this thesis and was enabled by default for FCAL since the MC11c campaign. The advantages of this system were described.
+For the analysis software the new TTree system was developed that was used for data storage. This system reduced the amount of space needed for data samples from terabytes to gigabytes and subsequently allowed to launch the analysis software on local machines and reduced the time needed for the analysis. With the TTree input the ZeeD software was able to process 1000 events per second which makes a couple of hours for the whole dataset, instead of several days that the same task would take while on the GRID reading from the raw AODs. The analysis presented in this thesis was done using the TTree system.
 
-The reconstruction techniques for the e/gamma  channel were described for both central and forward particles, and the strong and weak sides of several reconstruction algorithms were discussed. The identification criteria were listed and discussed, as well as the isolation, and the impact to the reconstruction efficiency of them was given.
-
-The selection criteria for the analysis was given, and the cutflow was shown, depicting the relative and absolute efficiency of each and every cut.
-
-Several unfolding techniques for the cross-section calculation were described, and advantages and disadvantages of each of them were shown.
-
-The ZeeD software was described, and it was shown how it can be used not only for the cross-section measurements, but also for the efficiency measurements, and systematic error estimation. The TTree system, that was developed as part of this thesis and allowed for the great speed-up of the analysis process, was also described.
-
-The calibration procedure was described, and the impact of the fast simulation systems was discussed. This impact was found to be negligible.
-
-The ways of the efficiency calculations were described, both for forward and (when applicable) to the central electrons. The results of the trigger efficiency, reconstruction and identification efficiencies, and the isolation efficiency were shown together with systematic and total error estimations.
-
-Several methods of the background estimation were shown, and the results of both electroweak and QCD backgrounds were presented together with the systematic and total errors.
-
-And finally, the results of the \Zee\ central-forward cross sections were shown in single and double-differential forms, together with error estimations and comparison to the theory predictions.
-
-The resulting cross-section can be used in combination with the \Zee\ central-central cross section and muon channel cross-section for the PDF fits.
+The different stages of the analysis included the identification of the electrons, finding of the boson candidates, filtering of the \Zee\ events based on several criteria (cuts), estimating of the background and the unfolding. Each stage was described in a separate chapter, presenting its impact on the result and the possible sources of the uncertainties it adds. The resulting double-differential \Zee\ central-forward cross-section  together with all sources of uncertainties was presented. This cross-section agrees well with the results of \Zee\ central-central and \Zmm\ analyses, and in combination with them allows for a calculation of PDF fits.

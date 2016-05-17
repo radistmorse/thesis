@@ -1,9 +1,9 @@
 \chapter{\Zee\ cross section measurement}
 \label{sec:ZeeCrossSec}
 
-The measurement of the \Zee\ decay process is the main purpose of this work, and in this chapters the details of the methodology of this measurement would be discussed.
+The measurement of the \Zee\ production cross-section is the main purpose of this work, and the details of the methodology of the measurement are discussed in this chapter.
 
-The ATLAS detector, like every other physical device, has its limitations, and the signal obtained from the detector is thus distorted. The process of estimating the results that would have been achieved on ideal detector based on the results from the real detector is called the unfolding process (also called "deconvolution" or "unsmearing" in mathematical literature), and is the one of the main stages of the calculating of the cross-section. The main idea of the unfolding is that if $f_\mathrm\mathrm{meas}(x)$ is the spectrum of a value measured from the real detector and $f_{ideal}(x)$ is the the spectrum that would have been measured on an ideal detector, then
+The ATLAS detector, like every other physical device, has its limitations, and the signal obtained from the detector is thus distorted. The process of estimating the results that would have been achieved with an ideal detector based on the results using the real detector is called the unfolding process (also called "deconvolution" or "unsmearing" in mathematical literature), and is the one of the most important stages of the measurement of the cross-section. The main idea of the unfolding is that if $f_\mathrm{meas}(x)$ is the spectrum of a value measured using the real detector and $f_\mathrm{ideal}(x)$ is the the spectrum that would have been measured with an ideal detector, then
 \begin{equation}
 f_\mathrm{meas}(x) = \int R(x|y) \, f_\mathrm{ideal}(y)dy
 \end{equation}
@@ -11,13 +11,13 @@ where $R(x|y)$ is the detector response function. In case of binned distribution
 \begin{equation}
 v^\mathrm{meas}_i = \sum_j R_{ij} \, v^\mathrm{ideal}_j \:\:\:\:\: i,j = 1, ... ,N
 \end{equation}
-where $v^\mathrm{meas}_i$ and $v^\mathrm{ideal}_i$ are the measured and ideal values accordingly. Generally speaking, the number of bins in $v^\mathrm{meas}$ and $v^\mathrm{ideal}$ spectra can be different, and the matrix $R_{ij}$ would be rectangular, but in ATLAS the same binning is used for both. The main task of unfolding is thus to determine the response matrix, and then to produce the unfolding matrix based on it. The easiest solution would be to just invert the response matrix:
+where $v^\mathrm{meas}_i$ and $v^\mathrm{ideal}_i$ are the measured and ideal values accordingly. Generally speaking, the number of bins in $v^\mathrm{meas}$ and $v^\mathrm{ideal}$ spectra can be different, and the matrix $R_{ij}$ would be rectangular, but in this analysis the same binning is used for both. The main task of unfolding is to determine the response matrix, and then to calculate the unfolding matrix based on it. The easiest solution would be to just invert the response matrix:
 \begin{equation}
 v^\mathrm{ideal}_i = \sum_j R^{-1}_{ij} \, v^\mathrm{meas}_j \:\:\:\:\: i,j = 1, ... ,N
 \end{equation}
-which is not always the best choice, because it produces the very large uncertainties in case of limited statistics. The task of propagating the systematic uncertainties through the unfolding process also must be solved.
+which is not always the best choice, because it produces very large distortions in case of limited statistics. The task of propagating the systematic uncertainties through the unfolding process also must be solved.
 
-There are two methods of unfolding that are generally employed for the ATLAS data: the bin-by-bin unfolding, and the Bayesian unfolding~\cite{lib:zcs_unfolding}. There are several advantages and disadvantages to both methods, but the main difference in the results of the Bayesian and bin-by-bin unfoldings lies in two important factors: purity and stability. These two factors are calculated as follows:
+There are two methods of unfolding that are usually employed by ATLAS analysis groups: the bin-by-bin correction, and the Bayesian unfolding~\cite{lib:zcs_unfolding}. There are several advantages and disadvantages in both methods, but the main criteria of the preference of the Bayesian or bin-by-bin unfolding lies in two important factors: purity and stability. These two factors are calculated as follows:
 \begin{equation}
 P^{i} = \frac{N^{i}_{\text{rec\&gen}} }{ N^{i}_{\text{rec}} }\,, \; \;
 S^{i} = \frac{N^{i}_{\text{rec\&gen}} }{ N^{i}_{\text{gen}} }\,,
@@ -29,7 +29,7 @@ where:
 \item {\bfseries $N^i_{\text{gen}}$} is the sum of event weights generated in bin $i$.
 \end{itemize}
 
-The purity is thus a measure of in-migration, which shows the amount of foreign events reconstructed in the given bin, while the stability is a measure of the out-migration, which shows the amount of events that were reconstructed in other bins for every given bin. In terms of response matrix, the detector with high purity and stability will have a mostly diagonal matrix. This will allow for a use of a bin-by-bin unfolding which, dealing with every bin independently, will produce a diagonal matrix. But if the migration between bins is substantial, ignoring it will highly increase the uncertainties of the unfolded results, in which case the Bayesian unfolding becomes preferable. The results of the purity and stability studies for \Zee\ central-forward analysis suggested that the Bayesian unfolding would be more effective (see Fig.~\ref{fig:ZeeCS_purity_stability} for the exact values of the purity and stability of the 2011 \Zee\ central-forward analyses). In the following sections the methodology for both bin-by-bin and Bayesian unfoldings are shown. Also, the methodology of the result combination is explained, which mathematically is very close to unfolding, as it is the same inverse problem.
+The purity is thus a measure of in-migration, which shows the amount of foreign events reconstructed in the given bin, while the stability is a measure of the out-migration, which shows the amount of events that were reconstructed in other bins for every given bin. In terms of response matrix, the distribution with high purity and stability will have a mostly diagonal matrix. This will warrant for a use of a bin-by-bin unfolding. This method, dealing with every bin independently, will produce a diagonal matrix. But if the migrations between bins are substantial, ignoring it will highly increase the distortions in the unfolded results, in which case the Bayesian unfolding becomes preferable. The results of the purity and stability studies for the \Zee\ central-forward analysis suggested that the Bayesian unfolding would be more effective (see Figure~\ref{fig:ZeeCS_purity_stability} for the exact values of the purity and stability of the 2011 \Zee\ central-forward analyses). In the following sections the methodology for both bin-by-bin and Bayesian unfoldings are shown. Also, the methodology of the result combination is explained, which mathematically is very close to unfolding, as it is the same inverse problem.
 
 \begin{figure}
   \centering
@@ -41,7 +41,8 @@ The purity is thus a measure of in-migration, which shows the amount of foreign 
   \label{fig:ZeeCS_purity_stability}
 \end{figure}
 
-The differential cross-section measurement was done in absolute rapidity binning, which allows the later combination of the CC and CF analysis results. The binning is shown in Tabs.~\ref{tab:ZeeCS_bins_peak} and~\ref{tab:ZeeCS_bins_high}. The mass binning for the double-differential CF analysis had only two bins: the peak-mass window $66 < m_{ee} < 116$~GeV and the high-mass window $116 < m_{ee} < 150$~GeV.
+The differential cross-section measurement was done in absolute rapidity binning.
+The binning is the same for CC and CF analyses in the region that is covered with both of them, which allows for the easy combination of the results. The binning is shown in Tabs.~\ref{tab:ZeeCS_bins_peak} and~\ref{tab:ZeeCS_bins_high}. The mass binning for the double-differential CF analysis had only two bins: the peak-mass window $66 < m_{ee} < 116$~GeV and the high-mass window $116 < m_{ee} < 150$~GeV.
 
 \begin{table}
 \centering
@@ -81,39 +82,40 @@ $3.20 < |y_{Z}| <3.60$\\
 \end{table}
 
 \section{Bin-by-bin unfolding}
+\label{sec:ZCS_bbb_unf}
 
-As was said in the previous section, the bin-by-bin unfolding doesn't take into account the migration between bins, and works with every bin separately. The unfolded value can be then translated into the cross-section value, and the formulae for both integrated and differential cross-sections are:
+The bin-by-bin unfolding doesn't take into account the migrations between bins, and works with every bin separately. The unfolded value can be then translated into the cross-section value, and the formulae for both integrated and differential cross-sections are:
 \begin{equation}
 \sigma_{tot} = \sigma_{Z} \times BR(\Zee) = \frac{N - B}{C \cdot E \cdot A \cdot L_{int}  \cdot \Gamma}\,,
 \end{equation}
 where:
 \begin{itemize}
 \item {\bfseries $N$} is the number of candidate events measured in data.
-\item {\bfseries $B$} is the number of background events (see Sec.~\ref{sec:Bkg} for further information on the background estimation).
-\item {\bfseries $L_{int}$} is the integrated luminosity corresponding to the run.
-\item {\bfseries $\Gamma$} is the bin width for differential measurements. Measurements in rapidity quantities $\eta$ and $y$ are done in absolute binning as final value, i.e. $N$ is summed over positive and negative bin and $\Gamma$ is doubled.
-\item $C$, $E$, and $A$ are efficiency-acceptance corrections calculated from (binned) sum of weights of MC events generated or reconstructed with various cuts applied. They take the uncorrected event yield in steps to different levels:
-  \begin{itemize}
-  \item The \textit{genuinely experimental fiducial volume in each channel} as defined by the individual cuts is reached after dividing by
-    \begin{equation}
-      C = \frac{N_\mathrm{MC, rec}}{N_\mathrm{MC, gen, cutexp}}\,.
-    \end{equation}
-    $C$ is corrected for any discrepancy in the electron efficiencies between data and MC as described in Sec.~\ref{sec:Efficiency}. Here the sum of weights of MC events generated after experimental fiducial acceptance cuts ($N_\mathrm{MC, gen, cutexp}$) and the sum of weights of MC events after simulation, reconstruction and experimental selection ($N_\mathrm{MC, rec}$) enter.
-  \item The \textit{common fiducial volume} is a small theoretical extrapolation designed to unify the fiducial volumes of different flavors of \Zll\ analyses. Since the electrons and muons are detected by the different parts of the ATLAS detector, these particles are detected in different parts of the kinematic space. The EM calorimeters that detect electrons have a coverage of $|\eta| < 5.2$, while muon chambers have $|\eta| < 2.4$. These differences in the kinematic coverage makes combining the results of the corresponding analyses a challenge, which resulted in intruduction of the common fiducial volume which covers both kinematic spaces.
-    \begin{equation}
-      E = \frac{N_\mathrm{MC, gen, cutexp}}{N_\mathrm{MC, gen, cutfid}}\,.
-    \end{equation}
-    Here the sum of weights of MC events generated after common fiducial acceptance cuts ($N_\mathrm{MC, gen, cutfid}$) enters.
-  \item \textit{Total cross sections} are reached by a larger theoretical extrapolation
-    \begin{equation}
-      A = \frac{N_\mathrm{MC, gen, cutfid}}{N_\mathrm{MC, gen, all}}\,.
-    \end{equation}
-    Here the total sum of weights of MC events generated before any acceptance cuts except $m_{ee}$ ($N_\mathrm{MC, gen, all}$) enters.
-  \end{itemize}
+\item {\bfseries $B$} is the number of background events (see Section~\ref{sec:Bkg} for further information on the background estimation).
+\item {\bfseries $L_{int}$} is the integrated luminosity corresponding to the dataset.
+\item {\bfseries $\Gamma$} is the bin width for differential measurements. Measurements in rapidity quantities $\eta$ and $y$ are done in absolute binning as final value, therefore $\Gamma$ for them is doubled.
+\item $C$, $E$, and $A$ are efficiency-acceptance corrections calculated from (binned) sum of weights of MC events generated or reconstructed with analysis cuts applied. They take the uncorrected event yield in steps to different levels:
+\begin{itemize}
+\item The coefficient for a \textit{genuinely experimental fiducial volume in each channel} as defined by the individual cuts is reached after dividing by
+\begin{equation}
+  C = \frac{N_\mathrm{MC, rec}}{N_\mathrm{MC, gen, cutexp}}\,.
+\end{equation}
+$C$ is corrected for any discrepancy in the electron efficiencies between data and MC as described in Section~\ref{sec:Efficiency}. Here the sum of weights of MC events generated after experimental fiducial acceptance cuts ($N_\mathrm{MC, gen, cutexp}$) and the sum of weights of MC events after simulation, reconstruction and experimental selection ($N_\mathrm{MC, rec}$) enter.
+\item The coefficient for a \textit{common fiducial volume} is a theoretical extrapolation designed to unify the fiducial volumes of different flavors of \Zll\ analyses. Since the electrons and muons are detected by the different parts of the ATLAS detector, these particles are detected in different parts of the kinematic space. The EM calorimeters that detect electrons have a coverage of $|\eta| < 5.2$, while muon chambers have $|\eta| < 2.4$. These differences in the kinematic coverage makes combination of the results of corresponding analyses a big challenge. Therefore the common fiducial volume covering both kinematic spaces is introduced.
+\begin{equation}
+  E = \frac{N_\mathrm{MC, gen, cutexp}}{N_\mathrm{MC, gen, cutfid}}\,.
+\end{equation}
+Here the sum of weights of MC events generated after common fiducial acceptance cuts ($N_\mathrm{MC, gen, cutfid}$) enters.
+\item The coefficient for a \textit{total cross sections} is calculated by a larger theoretical extrapolation
+\begin{equation}
+  A = \frac{N_\mathrm{MC, gen, cutfid}}{N_\mathrm{MC, gen, all}}\,.
+\end{equation}
+Here the total sum of weights of MC events generated before any acceptance cuts except $m_{ee}$ ($N_\mathrm{MC, gen, all}$) enters.
+\end{itemize}
 \end{itemize}
 
 
-While calculating the $C$, $E$ and $A$ correction factors, there is a very important thing that must be taken into account, which is the QED final state radiation (FSR). The results of the MC generation are so-called {\itshape born level} leptons, which are the leptons before FSR. To simulate FSR there are two tools in use in the MC production chain: \Photos\, which is the main tool that is used, and \Sherpa\ which uses different FSR algorithm and is used for systematic uncertainties calculation. After the FSR simulation, the resulting final state leptons are called {\itshape bare leptons}. The bare leptons represent the result of the actual collision much closer than the born leptons, but because of the work of the clustering algorithms during reconstruction, bare leptons are impossible to reconstruct. To overcome this problem, the third level of FSR was introduced, which is {\itshape dressed leptons}. The dressed leptons are bare leptons with the inclusion of all FSR photons within the $\Delta R < 0.1$. The dressed leptons are the leptons that most closely represent the particles that are actually reconstructed by the reconstruction algorithms.
+While calculating the $C$, $E$ and $A$ correction factors, the QED final state radiation (FSR) must be taken into account. The results of the MC generation are so-called {\itshape born level} leptons, which are the leptons before the FSR. To simulate FSR there are two tools in use in the MC production chain: \Photos\, which is the default tool used, and \Sherpa\ which uses another FSR algorithm and is used for systematic uncertainties evaluation. After the FSR simulation, the resulting final state leptons are called {\itshape bare leptons}. The bare leptons represent the result of the actual collision much closer than the born leptons, but because of the work of the clustering algorithms during reconstruction, bare leptons are impossible to reconstruct. To overcome this problem, another level of FSR was introduced, which is {\itshape dressed leptons}. The dressed leptons are bare leptons with the inclusion of all FSR photons within the $\Delta R < 0.1$. The dressed leptons are the leptons that most closely represent the particles that are actually reconstructed by the reconstruction algorithms.
 
 The calculation of the correction factors is always done on the born level, because the simulation on the born level is the best from the theoretical point of view (the FSR simulation is very approximate). The $C$, $E$ and $A$ then look like this:
 \begin{equation}
@@ -133,26 +135,27 @@ And for the bare and dressed levels the cross-sections are calculated with good 
 \end{split}
 \end{equation}
 
-In terms of unfolding matrix, the values $C$ calculated for each bin and corrected for the dressed level go into the diagonal positions of the $R^{-1}_{ij}$. The results unfolded with this matrix is called the {\itshape true experimental fiducial cross-section}. The additional extrapolation with the use of the matrix constructed from the values $E$ will produce the {\itshape extrapolated fiducial cross-section}, and finally with the values $A$ we will get the {\itshape common fiducial cross-section} which can be used for the combination. The results for all of these cross-sections can be seen in Sec.~\ref{sec:Results}
+In terms of unfolding matrix, the values $C$ calculated in each bin and corrected to the dressed level go into the diagonal positions of the $R^{-1}_{ij}$. The results unfolded with this matrix is called the {\itshape true experimental fiducial cross-section}. The additional extrapolation using the matrix constructed from the values $E$ will produce the {\itshape extrapolated fiducial cross-section}, and finally with the values $A$ we will get the {\itshape common fiducial cross-section} which can be used for the combination. The results for all of these cross-sections can be seen in Section~\ref{sec:Results}
 
 \section{Bayesian (D'Agostini's) iterative unfolding}
+\label{sec:ZCS_bay_unf}
 
-The so-called Bayesian unfolding differs from the bin-to-bin unfolding in that it scales all the bins in a single pass, so the correlations between the different bins, as well as migrations, is better described. It is named after the Bayesian theorem for the conditional probability, which in case of cross-section unfolding can be presented as this:
+The so-called Bayesian unfolding differs from the bin-to-bin unfolding in that it scales all the bins in a single pass, so the correlations between the different bins, as well as migrations, is better described. It is named after the Bayesian theorem for the conditional probability, which in case of cross-section unfolding can be presented as
 \begin{equation}
 P(C_i|E) = \frac{P(E|C_i) \, P(C_i)}{\sum\limits_l P(E|C_l) \, P(C_l)}
 \end{equation}
-where $C_i$ and $E$ are the {\itshape cause} and {\itshape effect}, where the effect would be an observed event reconstructed within a certain bin, and the causes are the true events that happen in the certain bin. $P(C_i)$ is then the initial probability of the event to happen within the certain bin, and $P(E|C_i)$ is the conditional probability of said event to produce the effect (reconstructed particles). The formula may appear useless, as the initial probabilities $P(C_i)$ that participate in it are actually the very thing we are trying to calculate. But in reality, the values can be derived with the increasing number of observations, provided no assumptions were made on the values a priori. This iterative method of unfolding was developed by G. D'Agonini in 1995 and was since widely used by many experiments~\cite{lib:zcs_bayes}. The conditional probabilities $P(E|C_i)$ can be derived from MC simulations, and are constant throughout the observations (iterations). The different types of MCs, though, can provide different values for those probabilities, and hence must be used to determine the boundaries of systematic uncertainties.
+where $C_i$ and $E$ are the {\itshape cause} and {\itshape effect}, where the effect would be an observed event reconstructed within certain bin, and the causes are the true events that happen in the certain bin. $P(C_i)$ is then the initial probability of the event to happen within the certain bin, and $P(E|C_i)$ is the conditional probability of said event to produce the effect (reconstructed particles). The formula may appear useless, as the initial probabilities $P(C_i)$ that participate in it are actually the very thing we are trying to calculate. But in reality, the values can be derived with the increasing number of observations, provided no assumptions were made on the values a priori. This iterative method of unfolding was developed by G. D'Agonini in 1995 and was since widely used by many experiments~\cite{lib:zcs_bayes}. The conditional probabilities $P(E|C_i)$ can be derived from MC simulations, and are constant throughout the observations (iterations). The different types of MC generators, though, can provide different values for those probabilities, and hence must be used to determine the boundaries of systematic uncertainties.
 
 To describe the unfolding method, lets assume $n(E)$ the number of observed events with the effect $E$, and
 \begin{equation}
 \hat{n}(C_i) = n(E) \, P(C_i|E)
 \end{equation}
-is the true number of events with the cause $C_i$ that caused this effect. But as every cause $C_i$ can have several effects $E_j$, and the Bayesian formula holds for each of them, the probability $P(C_i|E_j)$ can be calculated as
+is the true number of events with the cause $C_i$ that caused this effect. Since every cause $C_i$ can have several effects $E_j$, and the Bayesian formula holds for each of them, the probability $P(C_i|E_j)$ can be calculated as
 \begin{equation}
 P(C_i|E_j) = \frac{P(E_j|C_i) \, P_0(C_i)}{\sum\limits_l P(E_j|C_l) \, P_0(C_l)} \,.
 \label{eq:zcf_p_ci_ej}
 \end{equation}
-Here the initial probability $P(C_i)$ was replaced with $P_0(C_i)$ to emphasize on the iterative nature of the method, which will be discussed later. Also it can be noted that $\sum_i P_0(C_i) = 1$ by definition, and $\sum_i P(C_i|E_j) = 1$ meaning that each effect must be produce by some cause. On the other hand, $\sum_j P(E_j|C_i)$ can be less than one, because a cause may produce no effect whatsoever, and hence this sum shows the efficiency of detecting the cause $C_i$ in any possible effect
+Here the initial probability $P(C_i)$ was replaced with $P_0(C_i)$ to emphasize on the iterative nature of the method, which will be discussed later. Also it can be noted that $\sum_i P_0(C_i) = 1$ by definition, and $\sum_i P(C_i|E_j) = 1$ meaning that each effect must be produced by some cause. On the other hand, $\sum_j P(E_j|C_i)$ can be less than one, because a cause may produce no effect whatsoever, and hence this sum shows the efficiency of detecting the cause $C_i$ in any possible effect
 \begin{equation}
 \epsilon_i = \sum\limits_j P(E_j|C_i) \,.
 \end{equation}
@@ -161,7 +164,7 @@ With this, the true number of events can be estimated as
 \hat{n}(C_i) = \frac{1}{\epsilon_i} \, \sum\limits_j n(E_j) \, P(C_i|E_j)\;\;\; \epsilon_i \neq 0\,, \;\;\;
 \hat{N}_\mathrm{true} = \sum\limits_i \hat{n}(C_i)
 \end{equation}
-where $P(C_i|E_j)$ is calculated from Eq.~\ref{eq:zcf_p_ci_ej}. From here, the values for the unfolding matrix can be calculated as
+where $P(C_i|E_j)$ is calculated from Eq.~(\ref{eq:zcf_p_ci_ej}). From here, the values for the unfolding matrix can be calculated as
 \begin{equation}
 P(C_i) = \frac{\hat{n}(C_i)}{\hat{N}_\mathrm{true}}\,.
 \end{equation}
@@ -174,7 +177,7 @@ The iterative unfolding procedure then goes as follows:
 \end{enumerate}
 The optimal number of the iterations depends on the statistical errors of the initial data. With infinite statistics, the number of iteration is not restricted by anything, and sufficiently big number of iteration will produce the true distribution with any precision. But for finite number of events, the number of iteration should be relatively small, as in the extreme case of infinite iterations, the resulting unfolding matrix equals to the inverted detector response matrix, which defies the whole purpose of the Bayesian method. But because of the quick convergence, even the first iteration results in the distribution which is close to the true. Usually, two to three iterations are chosen for the data unfolding.
 
-For the uncertainty propagation the ToyMC method is used (see Sec.~\ref{sec:ZeeD_toymc}).
+For the uncertainty propagation the ToyMC method is used (see Section~\ref{sec:ZeeD_toymc}).
 
 \section{Combination of the several cross-sections}
 \label{sec:ZeeCS_comb}
@@ -218,7 +221,7 @@ where $k$ runs over all bins, $s$ runs over all sources of the systematic uncert
 + \sum\limits_{k_1} \sum\limits_{k_2} (b_{k_1} - b_{s,\mathrm{ave}})(b_{k_2} - b_{s,\mathrm{ave}})(A'_S)_{k_{1}k_{2}} + \chi^2_0\,.
 \end{gathered}
 \end{equation}
-The values $\vec{\vphantom b\smash{\mu}}_\mathrm{ave}$, $\vec{b}_\mathrm{ave}$ and the matrix $A'_S$ can be found from the minimization of the Eq.~\ref{eq:chi2_sum_multi} with respect to the variables $m_k$ and $b_s$, which can be expressed in the form of partial derivatives $\partial\chi^2_\mathrm{sum}/\partial m_k = 0$, $\partial\chi^2_\mathrm{sum}/\partial b_s = 0$ or in the matrix form
+The values $\vec{\vphantom b\smash{\mu}}_\mathrm{ave}$, $\vec{b}_\mathrm{ave}$ and the matrix $A'_S$ can be found from the minimization of the Eq.~(\ref{eq:chi2_sum_multi}) with respect to the variables $m_k$ and $b_s$, which can be expressed in the form of partial derivatives $\partial\chi^2_\mathrm{sum}/\partial m_k = 0$, $\partial\chi^2_\mathrm{sum}/\partial b_s = 0$ or in the matrix form
 \begin{equation}
 \left( \begin{array}{cc} \vphantom{\vec{b}}  A_M & A_{SM} \\ \vphantom{\vec{b}}(A_{SM})^T & A_S \end{array} \right)
 \left( \begin{array}{c}  \vphantom{\vec{b}}\vec{\mu}_\mathrm{ave} \\ \vec{b}_\mathrm{ave} \end{array} \right)
