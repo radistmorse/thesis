@@ -49,20 +49,20 @@ In the current analysis \Herwig\ was used to provide the parton showering for ot
 
 The part of Monte Carlo simulation which represents \Zee\ events is called "signal MC". The signal MC is the main component of all the simulated MC. Its samples are used for the data unfolding (deconvolution), which is the process that aims to translate the number of reconstructed events into the true number of events in each bin. The unfolding procedure is described in Section~\ref{sec:ZeeCrossSec}. As well as Standard Model itself, the MC generators have parameters which can't be theoretically predicted, and should be found empirically. This process is called "MC tuning", and is done separately for every experiment, because the tune which will describe well one experiment won't fit for other. The tunes used in ATLAS are described in~\cite{lib:MC_tune1, lib:MC_tune2}.
 
-The other important part of MC customization is the PDF set. The definition of the PDF can be seen in Section~\ref{sec:TH_PDF}. The PDF sets used in the current analyses are dicribed in~\cite{lib:MC_pdfct10, lib:MC_pdfcteq6l1}.
+The other important part of MC customization is the PDF set. The definition of the PDF can be seen in Section~\ref{sec:TH_PDF}. The PDF sets used in the current analyses are CT10 NLO for the matrix element and CTEQ6L1 for the showering. They are decribed in~\cite{lib:MC_pdfct10, lib:MC_pdfcteq6l1}.
 
 \subsection{Background MC}
 
 The part of Monte Carlo simulation which represents different processes which can be misinterpreted as \Zee\ is called "background MC". There are several background processes that can be simulated using MC, and most of them (all but one) are electroweak processes, that is why the background MC is also called an "electroweak background" as opposed to the "multi-jet background" (or "QCD background") which is the background from the multi-jet hadronic processes, which cannot be reliably simulated.
 
-We use seven different types of backgrond MCs.
+We use seven different types of backgrond MCs:
 \begin{itemize}
-\item \Wenu, the decay of $W$ boson into an electron and a neutrino. Can be misinterpreted as $Z$ decay if another electron is reconstructed in the same event, most notably, when a jet is misinterpreted as an electron (a "fake electron").
-\item \Wtau, the decay of $W$ boson into a tau and a neutrino. Can be misinterpreted if tau decays into electron, and another unrelated electron is reconstructed as in the previous case.
-\item \Ztau, the decay of $Z$ boson into two taus. Can be misinterpreted if at least one tau decays into electron, and another electron is reconstructed. The case of both tau decaying into electrons and $Z$ boson constructed from them is also possible, since the mass window is wide enough for that.
+\item \Wenu, the decay of a $W$ boson into an electron and a neutrino. This process can be misinterpreted as $Z$ decay if another electron is reconstructed in the same event, most notably, when a jet is misinterpreted as an electron (a "fake electron").
+\item \Wtau, the decay of a $W$ boson into a $\tau$-lepton and a neutrino. Can be misinterpreted if the $\tau$-lepton decays into an electron, and another unrelated electron is reconstructed, as in the previous case.
+\item \Ztau, the decay of $Z$ boson into two $\tau$-leptons. Can be misinterpreted if at least one tau decays into electron, and another electron is reconstructed. The case of both tau decaying into electrons and $Z$ boson constructed from them is also possible, since the mass window is wide enough for that.
 \item \ttbar\ events, which have lots of decay modes, and thus can be misinterpreted as almost anything, including \Zee. The most common case is \ttbar\ decaying into $W^{+}W^{-}\antibar{b}$, and thus falling into the $WW$ category.
 \item $WW$, can be misinterpreted if both bosons decay into $e\nu$.
-\item $WZ$, and $ZZ$ events. In our analysis we filter such events, and thus misinterpretation of e.g. $WZ$ event as \Zee\ event is a background event for us.
+\item $WZ$, and $ZZ$ events. Although such events contain genuine $Z$ bosons, our analysis requires to exclude them. So the misinterpretation of either of them as a single $Z$ event (by losing the extra electrons, or with a non-leptonic decays) is a background for us.
 \end{itemize}
 
 \section{MC simulation process in ATLAS}
@@ -72,7 +72,7 @@ Although the whole process of the production of the MC samples can be considered
 
 The next stage is to simulate the work of the detector itself, or to convert the energy deposits into detector response, which are usually voltages in the read-out channels. This process is called "digitization", because its output are "digits" that are provided by the read-out channels. During this stage all features of the detector logic are simulated (e.g. electronic noises or channel-dependent variations). This is done by the internal ATLAS digitization software, and because it requires an ultimate knowledge of every particular sub-detector, parts of it are maintained by separate groups related to the respective sub-detectors.
 
-The last step in the production chain is the reconstruction. It is the same for both MC and experimental data samples, as the digitization process aims to provide the same data as we get from the detector during production runs. During this step the responses from the detector are reconstructed into physical objects, which is done in two steps. In the first step the response from the trackers is reconstructed as tracks and the response from the calorimeters is reconstructed as clusters. During the second stage the tracks and clusters are combined into the physical particles. The second stage differs between several so-called "flavors" of the analysis, implementing various reconstruction algorithms for them. The flavors of this stage of reconstruction include e/gamma, jet/EtMiss/tau, b tagging, and muon. \Zee\ analysis uses the first: e/gamma reconstruction. This process is done using the internal ATLAS reconstruction software. More on the reconstruction process with respect to the real data from the detector is in Section~\ref{sec:Reconstruction}.
+The last step in the production chain is the reconstruction. It is the same for both MC and experimental data samples, as the digitization process aims to provide the same data as we get from the detector during production runs. During this step the responses from the detector are reconstructed into physical objects, which is done in two steps. In the first step the response from the trackers is reconstructed as tracks and the response from the calorimeters is reconstructed as clusters. During the second stage the tracks and clusters are combined into the physical particles. The second stage differs between several so-called "flavors" of the analysis, implementing various reconstruction algorithms for them. The flavors of this stage of reconstruction include e/gamma, jet/EtMiss/tau, b tagging, and muon. \Zee\ analysis uses the first: e/gamma reconstruction. This process is done using the internal ATLAS reconstruction software. More on the reconstruction process with respect to the real data from the detector is described in Section~\ref{sec:Reconstruction}.
 
 The results of the reconstruction are stored in the special format called AOD (Analysis Data Object), which is also developed internally by ATLAS. AODs can be read by the ATLAS analysis framework, which gives easy access to all reconstructed objects.
 
@@ -94,36 +94,59 @@ The processes of the library generation (and tuning) and the production use of t
 \subsubsection{FS library generation}
 \label{sec:MC_FS_gen}
 
-The library is the set of the showers simulated from the low-energy particles of the same (needed) type. The library should be able to provide the shower for any particle of this type within the determined energy bounds and inside the corresponding sub-detector. Thus, the showers populating the library should also be generated with all the possible energies and in all of the sub-detectors volume. To do this we need to generate the low-energy particles (as during the generation stage described in Section~\ref{sec:MC_gen}) with different energies and different vertexes that covers continuously both volume and energy range.
+The library is the set of the showers simulated from the low-energy particles of the same type (electron, photon, etc.). The library should be able to provide the shower for any particle of this type within the determined energy bounds and inside the corresponding sub-detector. Thus, the showers populating the library should also be generated with all the possible energies and in all of the sub-detectors volume. To do this we need to generate the low-energy particles (as during the generation stage described in Section~\ref{sec:MC_gen}) with different energies and different vertexes that covers continuously both volume and energy range.
 
-The easiest way to do it is to use a particles gun: a tool that can create a particle of arbitrary type, momentum and vertex. This way we will get a library uniformly populated by particles in every part of its kinematic space. This approach has two major disadvantages. First, it reduces the quality of the simulation. As we can't match all of the particle parameters while searching for the suitable shower within the library (it will take too much time and require the libraries of enormous sizes), we disregard some of them and introduce large bins on some others. Because of that the matched shower can have substantially different properties then the required particle. The second problem is the oversized library. During the production simulations the libraries corresponding to some part of the kinematic space (e.g. with the lowest energy of $0-10 MeV$ as opposed to $500-1000 MeV$) are requested more often than others. This makes some showers overused and some other underused, making the results of the simulation worse and introducing the redundant memory footprint.
+The easiest way to do it is to use a so-called "particles gun": a tool that can create a particle of arbitrary type, momentum and vertex. This way we will get a library uniformly populated by particles in every part of its kinematic space. This approach has two major disadvantages. First, it reduces the quality of the simulation. As we can't match all of the particle parameters while searching for the suitable shower within the library (it will take too much time and require the libraries of enormous sizes), we disregard some of them and introduce large bins on some others. Because of that the matched shower can have substantially different properties than the required particle. The second problem is the oversized library. During the production simulations the libraries corresponding to some part of the kinematic space (e.g. with the lowest energy of $0-10$~MeV as opposed to $500-1000$~MeV) are requested more often than others. This makes some showers overused and some other underused, making the results of the simulation worse and introducing the redundant memory footprint.
 
-The better way to handle this is to generate the library using the processes similar to the usual MC production chain. It is called a two-staged library generation. The first stage is to conduct the normal simulation of the MC samples, but on much lesser scale, only hundreds of events are required. During the simulation, every time when a low-energy particle is requested to be fast-simulated using FS, the parameters of this low-energy particle are saved as a starting point for the shower. As the starting points tend to be clustered tightly around the track of the initial high-energy particle, only the fraction of the initial starting points is used for library generation in order to rarify them and get a more even coverage of the detector's volume. The sample coverage of all the EM calorimeters in ATLAS detector can be seen in Figure~\ref{fig:MC_FS_stpoints}. The second stage is the simulation itself. During this stage the starting points are taken one-by-one and simulated using the standard simulation infrastructure, producing the showers, which in turn go to the final library. The density distribution of the simulated hits within the shower can be seen in Figure~\ref{fig:MC_FS_shower}
+The better way to handle this is to generate the library using the processes similar to the usual MC production chain. It is called a two-staged library generation. The first stage is to conduct the normal simulation of the MC samples, but on much lesser scale: only hundreds of events are required. During the simulation, every time when a low-energy particle is requested to be fast-simulated using FS, the parameters of this low-energy particle are saved as a starting point for the shower. As the starting points tend to be clustered tightly around the track of the initial high-energy particle, only the fraction of the initial starting points is used for library generation in order to rarify them and get a more even coverage of the detector's volume. The sample coverage of all the EM calorimeters in ATLAS detector can be seen in Figure~\ref{fig:MC_FS_stpoints}. It can be seen that most of the starting points are in the border regions of the calorimeters, while the central regions are considerably less occupied. It also can be seen that the starting point distribution depends on $\eta$ more than on any other geometry variable, which justifies the choosing of it as the main geometry variable for the library binning. The second stage is the simulation itself. During this stage the starting points are taken one-by-one and simulated using the standard simulation infrastructure, producing the showers, which in turn go to the final library. The density distribution of the simulated hits within the shower can be seen in Figure~\ref{fig:MC_FS_shower}. It can be seen the the shower is distributed mostly along the direction of the initial particle. It is important to note, that the scale of this plot in that direction is twice than that of the lateral directions, so in reality the shower is even more stretched along that line.
 
 \begin{figure}
 \center{
 \includegraphics[width=1.0\textwidth]{figures/MC_FS_stpoints.png}
-\caption{The first stage of the 2-staged library production: FS starting point generation}
+\caption{The first stage of the 2-staged library production: FS starting point generation. Every dot represents the starting point of a shower, the outlines of the different calorimeters can be easily seen.}
 \label{fig:MC_FS_stpoints}}
 \end{figure}
 
 \begin{figure}
 \center{
 \includegraphics[width=0.75\textwidth]{figures/MC_FS_shower.png}
-\caption{The second stage of the 2-staged library production: the simulation of the shower}
+\caption{The second stage of the 2-staged library production: the simulation of the shower. Every dot represents the hit, which is the energy deposit within the active material of the calorimeter. The scale of shower direction is twice than that of the lateral spread.}
 \label{fig:MC_FS_shower}}
 \end{figure}
 
+\begin{table}
+\centering
+\begin{tabular}{l|r}
+\hline
+\hline
+\multicolumn{2}{c}{The general frozen showers parameters} \\
+\hline
+Detectors used            & FCAL1, FCAL2, FCAL3 \\
+Type of the particle      & photons, electrons, neutrons \\
+Energy range              &  $E_{\gamma}<10$~MeV,  $E_{e}<1000$~MeV,  $T_n<100$~MeV \\
+Containment requirement   & $\Delta E_{shower} > 98\%$\\
+\hline
+\multicolumn{2}{c}{The library post-processing parameters} \\
+\hline
+Generation clustering cutoff & $(\Delta R_{cluster})^{2} < 25$ mm\\
+Generation truncation cutoff & $R_{hit}^{2} < 50000$ mm, $\Delta E_{shower} < 1\%$\\
+\hline
+\hline
+\end{tabular}
+\caption{Main parameters used for the frozen shower libraries in FCAL }
+\label{tab:MC_FS_params}
+\end{table}
+
 This way of library generation solves all the problems mentioned above. The bin population problem does not occur because we produce the showers based on the physical MC samples, and the resulting size of each kinematic bin is in direct dependence of the number of times this bin is used. This allows to reduce the size of the library and yet make a bigger diversity.
 
-The post-processing stage consists of merging of the adjacent hits and of removing the far-standing hits that won't contribute to the reconstructed cluster anyway. Also, during this stage the size of the shower is calculated. It is used for containment check during the production (the check that the substitution shower is geometrically fully contained within the target detector volume).
+The post-processing stage consists of merging of the adjacent hits and of removing the far-standing hits that won't contribute to the reconstructed cluster anyway. Also, during this stage the size of the shower is calculated. It is used for containment check during the production (the check that the substitution shower is geometrically fully contained within the target detector volume). The post-processing parameters can be found in Table~\ref{tab:MC_FS_params}.
 
 The tuning of the library can then be applied manually in order to make the results of the FS simulation closer to the standard simulation (also called "full simulation") or data. As this is a process that can't be (as of yet) done automatically, it requires lots of time and effort.
 
 \subsubsection{FS production use}
 \label{sec:MC_FS_prod}
 
-During the production run the simulation software checks constantly if any particle agree with the fast-simulation criteria, which is the energy range (should be low enough) and the sub-detector containment (the particle should be far enough from the edges of the sub-detector volume for shower to fit within). The containment check is energy-dependent, because the sizes of the showers grow with energy, and the more energetic particles should be further from the edges in order for shower to fit.
+During the production run the simulation software checks constantly if any particle agree with the fast-simulation criteria, which is the energy range (should be low enough) and the sub-detector containment (the particle should be far enough from the edges of the sub-detector volume for shower to fit within). The exact values of the aplicable ranges can be seen in Table~\ref{tab:MC_FS_params}. The containment check is energy-dependent, because the sizes of the showers grow with energy, and the more energetic particles should be further from the edges in order for shower to fit.
 
 When the particle with the proper parameters is found, it is then removed from the simulation and replaced with the shower. Before the deposition, the shower is scaled to fully correspond to the particle in energy.
 

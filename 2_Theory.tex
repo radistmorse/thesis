@@ -6,7 +6,7 @@ In this section the theoretical basis for the measurements are explained. First 
 \section{The Standard Model}
 \label{sec:theory_SM}
 
-The Standard Model is a theoretical foundation of the modern particle physics. It described all currently-known particles and three out of four currently-known types of interactions (weak, strong, and electromagnetic, excluding gravity). It was developed during the last fifty years and made several predictions on the nature of particles and interactions, all of which were confirmed experimentally by the present time. Among its predictions are quarks and gluons (first confirmed in mid 1970s), vector bosons (confirmed in 1983), top-quark (confirmed in 1995), and $\tau$-neutrino (confirmed in 2000). The last to-date update to the Standard Model was made in 2002 with the theoretical explanation of neutrino oscillations, which was confirmed to be true with the T2K experiment in july 2013. The most recently confirmed major prediction of the Standard Model was the existence of the Higgs boson, which was confirmed in january 2013.
+The Standard Model of particle physics is a theoretical foundation of the modern particle physics. It described all currently-known particles and three out of four currently-known types of interactions (weak, strong, and electromagnetic, excluding gravity). It was developed during the last fifty years and made several predictions on the nature of particles and interactions, all of which were confirmed experimentally by the present time. Among its predictions are quarks and gluons (confirmed by multiple indirect observations during the 1970s), vector bosons (confirmed in 1983~\cite{lib:theory_qed_wz}), top-quark (confirmed in 1995~\cite{lib:theory_qcd_top}), and $\tau$-neutrino (confirmed in 2000~\cite{lib:theory_qed_tau_nu}). The last to-date update to the Standard Model was made in 2002 with the theoretical explanation of neutrino oscillations~\cite{lib:theory_qed_nu_oscill_th}, which was confirmed to be true with the T2K experiment in july 2013~\cite{lib:theory_qed_nu_oscill_ex}. The most recently confirmed major prediction of the Standard Model was the existence of the Higgs boson, which was confirmed in january 2013.
 
 The main ingredients of the Standard Model are:
 \begin{itemize}
@@ -158,7 +158,7 @@ Every parton within the hadron carries some amount of it's energy. So in order t
 \label{fig:THEORY_PDF}}
 \end{figure}
 
-The PDF is a function which allows to find the probability density of finding the given parton in the given hadron with a given momentum. In the collision experiments the most interest represent the proton PDFs which are constructed based on the experimental data from the $ep$, $pp$ and $\antibar{p}$ scattering. The proton PDFs depend on two parameters: "$Q^{2}$" and "Bjorken $x$" (or just "$x$"). The $Q^{2}$ is the energy scale of the collision process, and $x$ represents the momentum fraction of the proton that the interacting parton holds. The constructed PDFs are only applicable for the certain range of $Q^{2}$ and $x$, which depends on the range coverage of the data they were based on. The coverage of the kinematic plane in $Q^{2}$ and $x$ of various experiments is shown in Figure~\ref{fig:THEORY_PDF}. The red stripe in the middle is the W and Z boson production in ATLAS. It can be seen that the $Q^{2}$ is very narrow, because these analyses only cover a mass window of $46 < M < 150$~GeV (and even less so in case of central-forward analysis), while the $x$ coverage is quite large. As it can be seen on the plot, the $x$ parameters is tied to the boson rapidity, which in turn translates to the pseudorapidity of the decay products (which are electrons, in case of \Zee). The rapidity $y$ and pseudorapidity $\eta$ are defined as:
+The PDF is a function which allows to find the probability density of finding the given parton in the given hadron with a given momentum. In the collision experiments the most interest represent the proton PDFs which are constructed based on the experimental data from the $ep$, $pp$ and $\antibar{p}$ scattering. The proton PDFs depend on two parameters: "$Q^{2}$" and "Bjorken $x$" (or just "$x$"). The $Q^{2}$ corresponds to the energy scale of the collision process, and $x$ represents the momentum fraction of the proton that the interacting parton holds. The constructed PDFs are only applicable for the certain range of $Q^{2}$ and $x$, which depends on the range coverage of the data they were based on. The coverage of the kinematic plane in $Q^{2}$ and $x$ of various experiments is shown in Figure~\ref{fig:THEORY_PDF}. The red stripe in the middle is the W and Z boson production in ATLAS. It can be seen that the $Q^{2}$ is very narrow, because these analyses only cover a mass window of $46 < M < 150$~GeV (and even less so in case of central-forward analysis), while the $x$ coverage is quite large. As it can be seen on the plot, the $x$ parameters is tied to the boson rapidity, which in turn translates to the pseudorapidity of the decay products (which are electrons, in case of \Zee). The rapidity $y$ and pseudorapidity $\eta$ are defined as:
 \begin{equation}
 \begin{gathered}
 y = \frac{1}{2} \log \left(\frac{E+p_z}{E-p_z}\right)\,, \\
@@ -169,11 +169,11 @@ The $y$ coverage of the \Zee\ central-central analysis (as well as \Zmm\ and \We
 
 The coverage of the PDFs can be increased by the use of the evolution equations, such as DGLAP. To accurately predict the results of hadron scattering the set of 13 different PDFs is required, one for each of the 12 quarks ($\bar{t}$, $\bar{b}$, $\bar{c}$, $\bar{s}$, $\bar{u}$, $\bar{d}$, $d$, $u$, $s$, $c$, $b$, $t$) and one for the gluons. The color of the partons can't be determined, so the PDFs are integrated over this degree of freedom. The PDFs for $t$ and $\bar{t}$ are set to zero because of the high mass of the top quark. The PDFs for $b$, $\bar{b}$, $c$ and $\bar{c}$ are only non-zero for $Q^{2} \gg (m_{b})^{2}$.
 
-Sets of PDFs are released by several groups, who utilize similar fitting techniques and are based on the experimental data. Among recent releases can be noted these of the CTEQ collaboration~\cite{lib:MC_pdfct10}, the MSTW group~\cite{lib:MC_pdfmstw1, lib:MC_pdfmstw2} (who also released the MMHT PDF set~\cite{lib:MC_pdfmmht}), the ABM group~\cite{lib:MC_pdfabm}. They provide the sets for different levels of radiative corrections and also $\alpha_{S}(M_{Z})$ determinations. The HERAPDF group not only released the sets, but also opened their fitting framework for other experiments in order to produce a global fits~\cite{lib:MC_pdfhera}. The NNPDF group used a neural network approach to determine the PDFs with unbiased parameterization~\cite{lib:MC_nnpdf1, lib:MC_nnpdf2, lib:MC_nnpdf3}. The sets are distributed with the LHAPDF software~\cite{lib:lhapdf}, which represents the full compendium of PDF sets calculated and validated by this time. The biggest contributions to the PDF collection were done by the Tevatron and HERA experiments.
+Sets of PDFs are released by several groups, who utilize similar fitting techniques and are based on the experimental data. Among recent releases can be noted these of the CTEQ collaboration~\cite{lib:MC_pdfct10}, the MSTW group~\cite{lib:MC_pdfmstw1, lib:MC_pdfmstw2} (who also released the MMHT PDF set~\cite{lib:MC_pdfmmht}), the ABM group~\cite{lib:MC_pdfabm}. They provide the sets for different levels of radiative corrections and also $\alpha_{S}(M_{Z})$ determinations. The HERAPDF group not only released the sets, but also opened their fitting framework for other experiments in order to produce a global fits~\cite{lib:MC_pdfhera}. The NNPDF group used a neural network approach to determine the PDFs with unbiased parameterization~\cite{lib:MC_nnpdf1, lib:MC_nnpdf2, lib:MC_nnpdf3}. The sets are distributed with the LHAPDF software~\cite{lib:lhapdf}, which represents the full compendium of PDF sets calculated and validated by this time. Most significant contributions to the PDF collection were done by the Tevatron and HERA experiments.
 
 \section{$pp$ collisions and Z boson production}
 
-The proton-proton collisions are the ones that take place in LHC. At low energies, the $pp$ collision looks like elastic scattering of two charged particles. But on the at LHC energies, all collisions are deep inelastic, which means that the internal structure of the proton starts to play a key role.
+The proton-proton collisions are the ones that take place at the LHC. At low energies, the $pp$ collision looks like elastic scattering of two charged particles. But on the energies achievable in the LHC, the predominant processes are deep inelastic, which means that the internal structure of the proton starts to play a key role.
 
 \begin{figure}
 \center{
@@ -197,14 +197,14 @@ To properly calculate a theoretical prediction for such a process, the PDFs must
 
 \section{Theoretical predictions for the \Zee\ cross-section}
 
-There are several processes in $pp$-collisions where the events can be clearly filtered from the background. The \Wenu\ and \Zee\ decays are the examples of such processes. The reason for this is because their decays have resonance in LHC, which outstands on the mass-spectrum from the others, like $J/\Psi$, $Y$, and di-boson decays. The electrons and the muons are the particles that undergo reconstruction and identification with best efficiencies, and the aforementioned decays have no hadronization phase which would result in jets, which have large resolution and scale errors. The cross-sections of leptonic processes can thus be measured with high precision.
+There are several processes in $pp$-collisions where the events can be clearly filtered from the background. The \Wenu\ and \Zee\ decays are the examples of such processes. \Zll\ decay process in particular is widely used to test the various aspects of the standard model, since the decay is purely leptonic, and also can be easily theoretically predicted. The $M_Z$ is calculated to a very high precision, as well as $\Gamma_Z$. ATLAS detector has a very good resolution for electrons, photons and muons, and the reconstruction of these particles has very good efficiency. Also, the \Zee\ Drell-Yan process has a resonance in LHC, which helps to filter the events.
 
 While the \Zll\ measurement can be used for several things, including the determination of $\alpha$ constant and forward-backward asymmetry, the main application for the measured cross-section itself would be the PDF fits. The theoretical prediction for the cross-section of the Drell-Yan \Zgee\ process at LO is as follows~\cite{lib:theory_Z-c-s}:
 \begin{equation}
 \label{eq:theory_c-s}
 \frac{d^{2}\sigma}{dM_{ee}dy} = \frac{4\pi\alpha^{2}(M_{ee})}{9}2M_{ee}\cdot P(M_{ee})\cdot\Phi(x_{1},x_{2},M^{2}_{ee})\,.
 \end{equation}
-Here $M_{ee}$ is the mass of the boson, $y$ is the boson rapidity, $P(M)$ is the propagator term and $\Phi(x_{1},x_{2},M^{2}_{ee})$ - the parton distribution function depending on the $x$ parameter of both quark and antiquark. This cross-section is a sum of contribution from both $Z$ and $\gamma^*$ process as well as their interference. For the photon process the propagator and the PDF are given as
+Here $M_{ee}$ is the mass of the boson, $y$ is the boson rapidity, $P(M_{ee})$ is the propagator term and $\Phi(x_{1},x_{2},M^{2}_{ee})$ - the parton distribution function depending on the $x$ parameter of both quark and antiquark. This cross-section is a sum of contribution from both $Z$ and $\gamma^*$ process as well as their interference. For the photon process the propagator and the PDF are given as
 
 \begin{equation}
 P_{\gamma}(M_{ee}) = \frac{1}{M^{4}_{ee}}\,,\,\;\Phi_{\gamma} = \sum_{q} e^{2}_{q} F_{\qqbar} \,.
@@ -220,7 +220,7 @@ P_{Z\gamma}(M_{ee}) = \frac{k_{Z} \cdot v_{e} \cdot (M_{ee}^{2} - M_{Z}^{2})}{M_
 k_{Z} = \frac{1}{4\sin^{2}\theta_W\cos^{2}\theta_W} \,, \,\; \cos\theta_W = \frac{M_{W}}{M_{Z}} \,,
 \end{gathered}
 \end{equation}
-Where $\theta_{W}$ - a weak mixing angle. The contribution of this component is proportional to the vector coupling of the electron $v_{e}$, which is close to zero, so the contribution is also suppressed.
+Where $\theta_{W}$ is a weak mixing angle, $M$ is the mass, and $\Gamma$ is the width of the Breit-Wigner distribution, which corresponds to the width of the mass peak. The contribution of this component is proportional to the vector coupling of the electron $v_{e}$, which is close to zero, so the contribution is also suppressed.
 
 And finally for the \Zee\ process itself the terms are as follows:
 
@@ -229,7 +229,7 @@ P_{Z}(M_{ee}) = \frac{k^{2}_{Z} \cdot (v^{2}_{e} + a^{2}_{e})}{(M^{2}_{ee} - M^{
 \Phi_{Z} = \sum_{q} (v^{2}_{q} + a^{2}_{q}) F_{\qqbar} \,.
 \end{equation}
 
-As it is seen from this, the PDFs are included in the cross-section formula as a direct factor, so the double-differential cross section can be directly used in PDF fits.
+As it is seen from (\ref{eq:theory_c-s}), the PDFs are included in the cross-section formula as a direct factor, so the double-differential cross section can be directly used in PDF fits.
 
 \begin{figure}
 \center{
@@ -238,7 +238,7 @@ As it is seen from this, the PDFs are included in the cross-section formula as a
 \label{fig:THEORY_Zcs}}
 \end{figure}
 
-All the cross-sections can be seen together on Figure~\ref{fig:THEORY_Zcs}. The cross-section for \Zee\ process is higher then that of \gee\ only around the peak region, starting from $\sim$66~GeV up to $\sim$150~GeV. The region is divided into two: the peak region ($66 - 116$~GeV) and the high mass region ($116 - 150$~GeV). The boundary between the regions is picked in such a way that the Z boson mass was at the center of the peak region.
+All the cross-sections can be seen together on Figure~\ref{fig:THEORY_Zcs}. The cross-section for \Zee\ process is higher than that of \gee\ only around the peak region, starting from $\sim$66~GeV up to $\sim$150~GeV. The region is divided into two: the peak region ($66 - 116$~GeV) and the high mass region ($116 - 150$~GeV). The boundary between the regions is picked in such a way that the Z boson mass was at the center of the peak region.
 
 
 \begin{figure}
