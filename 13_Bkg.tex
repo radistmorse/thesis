@@ -3,7 +3,7 @@
 
 As was described in Section~\ref{sec:Selection}, the selection phase is designed to suppress the background events (i.e. not \Zee\ events) while keeping the signal events. But even with all the cuts applied, some of the background events still pass all of them. In order to get the correct results, we need to estimate the number of the background events in our selection.
 
-The background events come in two flavors: the electroweak (EW) background and the QCD background. The difference from the analysis point of view is in that we can directly predict the amount of the EW background based on the MC simulation (except for two components which will be discussed later), while the QCD background we have to estimate, using so-called fits based on the indirect data. Both of these methods will be described here.
+The background events can be distinguished into two types: the electroweak (EW) background and the QCD background. The difference from the analysis point of view is that we can directly predict the amount of the EW background based on the MC simulation (except for two components which will be discussed later), while the QCD background we have to estimate, using so-called fits based on the indirect data. Both of these methods will be described here.
 
 \section{Electroweak background}
 
@@ -14,7 +14,7 @@ The electroweak background is largely dominated by the \Wenu\ events, where the 
 For the \Wenu\ evaluation three selections were used, all of them in two mass windows around mass peak: $66 < m_{ee} < 80$~GeV and $100 < m_{ee} < 150$~GeV, but two of them also have an additional cuts:
 \begin{itemize}
 \item $\et^{miss} > 25$~GeV;
-\item $\et^{miss} > 25$~GeV, $M_{t} > 50$~GeV.
+\item $\et^{miss} > 25$~GeV, $\et > 50$~GeV.
 \end{itemize}
 These three selections were used to normalize the \Wenu\ background in high bins of $\et^{miss} > 70$~GeV. Since both this and QCD backgrounds use the same method of fitting to data, they interfere with each-other. But since the fitting is done in different parts of the phase space, they correlate very little with each-other, and so only one additional iteration is required to obtain valid results. The fitted background can be seen in Figure~\ref{fig:bkg_wenu}.
 
@@ -22,9 +22,9 @@ These three selections were used to normalize the \Wenu\ background in high bins
 \center{
 \subfigure[Mass window] {\includegraphics[width=0.32\textwidth]{figures/bkg_wenu_1.pdf}}
 \subfigure[Mass window, $\et^{miss}$]  {\includegraphics[width=0.32\textwidth]{figures/bkg_wenu_2.pdf}}
-\subfigure[Mass window, $\et^{miss}$, $M_{t}$] {\includegraphics[width=0.32\textwidth]{figures/bkg_wenu_3.pdf}}
+\subfigure[Mass window, $\et^{miss}$, $\et$] {\includegraphics[width=0.32\textwidth]{figures/bkg_wenu_3.pdf}}
 
-\caption{The data-fitting of the \Wenu\ background with various selections. (a) Mass window selection, (b) Mass window and $\et^{miss} > 25$~GeV, (c) Mass window, $\et^{miss} > 25$~GeV and $M_{t} > 50$~GeV.}
+\caption{The data-fitting of the \Wenu\ background with various selections. (a) Mass window selection, (b) Mass window and $\et^{miss} > 25$~GeV, (c) Mass window, $\et^{miss} > 25$~GeV and $\et > 50$~GeV.}
 \label{fig:bkg_wenu}}
 \end{figure}
 
@@ -67,9 +67,9 @@ All other electroweak backgrounds are simply scaled to the theoretically predict
 
 \section{QCD background}
 
-The QCD background is the name for the multi-jet hadronic background. Since it's nearly impossible to simulate all the multitude of the hadronic processes with even remote accuracy. There are two methods to evaluate the amount of the multi-jet background. The first one is by using the theoretical functions to evaluate the form of the background. Usually the convolution of the Crystal Ball and the Breit-Wigner functions is used with the use of the RooFit framework~\cite{lib:bkg_roofit}. The second method is more precise and is usually used when the data samples are large enough to provide the adequate statistical error, and consist of constructing the background template (i.e. the form) from the data itself, by using the cut inversion: several cuts in the selection chain (usually the most basic ones) are inverted to provide the sample of the background events with the most "signal-like" signature. The amount of such events is usually very limited, but the total amount of the 2011 data allows us to use this method, which is otherwise better than the theoretical predictions of the RooFit method.
+The QCD background is the name for the multi-jet hadronic background. Since it's nearly impossible to simulate all the multitude of the hadronic processes with even remote accuracy, the MC simulation as was used for the EW background is not an option. The shape and the amount of the QCD background should be estimated through other means. There are two methods to evaluate the shape of the multi-jet background. The first one is by using the theoretical functions. Usually the convolution of the Crystal Ball and the Breit-Wigner functions is used with the use of the RooFit framework~\cite{lib:bkg_roofit}. The second method is more precise and is usually used when the data samples are large enough to provide the adequate statistical error, and consist of constructing the background template (i.e. the form) from the data itself, by using the cut inversion: several cuts in the selection chain (usually the most basic ones) are inverted to provide the sample of the background events with the most "signal-like" signature. The amount of such events is usually very limited, but the total amount of the 2011 data allows us to use this method, which is otherwise better than the theoretical predictions of the RooFit method.
 
-In both cases, after the template is constructed, it is normalized to the data, which is done by using the discriminatory variable. This variable shows how much background there is in any particular bin, to distinguish background-dominated bins from the signal-dominated bins. For the \Zee\ CF analysis the discriminatory variable was the isolation of the central electron cluster $\et^{\mathrm{cone30}}$. This variable showed the best results among the other tested, but since it is used in the default analysis selection, it can't be used directly, and the background was normalized to the selection without the isolation cuts, and then scaled accordingly.
+In both cases, after the template (shape) is constructed, it is normalized to the data, which is basically the estimation of the background amount. This is done by using the discriminatory variable. This variable shows how much background there is in any particular bin, to distinguish background-dominated bins from the signal-dominated bins. For the \Zee\ CF analysis the discriminatory variable was the isolation of the central electron cluster $\et^{\mathrm{cone30}}$. This variable showed the best results among the other tested, but since it is used in the default analysis selection, it can't be used directly, and the background was normalized to the selection without the isolation cuts, and then scaled accordingly.
 
 The background template is constructed based on the three selections: the one with the default cuts, with the default cuts and relaxed track and cluster isolation, and with the default cuts and relaxed cluster isolation only. For all selection the cut inversion included some of the electron tight ID criteria. See Tab.~\ref{tab:bkg_qcd_samples}. To calculate the systematic uncertainties for the background additional selections must be constructed. These selections must take into account the way the background is scaled: it is matched to the data in high-$\et^{\mathrm{cone30}}$ bin, and the isolation cuts are not applied. See Tab.~\ref{tab:bkg_qcd_unc_samples} for the list.
 
@@ -122,7 +122,7 @@ For the central values, the template $S_{1}$ with $\et^{\mathrm{cone30}}$ was ch
 \label{fig:bkg_qcd_control}}
 \end{figure}
 
-For the systematic uncertainties, several values were used as the threshold of the tail region. The results for peak region can be seen on Figure~\ref{fig:qcd_peak_value}, where it can be seen that the estimations are consistent for wide range of thresholds. The thresholds drawn in red were excluded from the uncertainties estimation because the $\chi^2/N_\mathrm{DoF}$ for them outlaid for more than one standard deviation from the mean (as can be seen in Figure~\ref{fig:qcd_peak_chi}). The Figures~\ref{fig:qcd_high_value} and~\ref{fig:qcd_high_chi} show the similar results for high-mass region.
+For the systematic uncertainties, several values were used as the threshold of the tail region. The results for peak region can be seen on Figure~\ref{fig:qcd_peak_value}, where it can be seen that the estimations are consistent for a wide range of thresholds. The thresholds drawn in red were excluded from the uncertainties estimation because the $\chi^2/N_\mathrm{DoF}$ for them outlaid for more than one standard deviation from the mean (as can be seen in Figure~\ref{fig:qcd_peak_chi}). The Figures~\ref{fig:qcd_high_value} and~\ref{fig:qcd_high_chi} show the similar results for high-mass region.
 
 \begin{figure}
 \center{

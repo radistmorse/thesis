@@ -100,6 +100,8 @@ The easiest way to do it is to use a so-called "particles gun": a tool that can 
 
 The better way to handle this is to generate the library using the processes similar to the usual MC production chain. It is called a two-staged library generation. The first stage is to conduct the normal simulation of the MC samples, but on much lesser scale: only hundreds of events are required. During the simulation, every time when a low-energy particle is requested to be fast-simulated using FS, the parameters of this low-energy particle are saved as a starting point for the shower. As the starting points tend to be clustered tightly around the track of the initial high-energy particle, only the fraction of the initial starting points is used for library generation in order to rarify them and get a more even coverage of the detector's volume. The sample coverage of all the EM calorimeters in ATLAS detector can be seen in Figure~\ref{fig:MC_FS_stpoints}. It can be seen that most of the starting points are in the border regions of the calorimeters, while the central regions are considerably less occupied. It also can be seen that the starting point distribution depends on $\eta$ more than on any other geometry variable, which justifies the choosing of it as the main geometry variable for the library binning. The second stage is the simulation itself. During this stage the starting points are taken one-by-one and simulated using the standard simulation infrastructure, producing the showers, which in turn go to the final library. The density distribution of the simulated hits within the shower can be seen in Figure~\ref{fig:MC_FS_shower}. It can be seen the the shower is distributed mostly along the direction of the initial particle. It is important to note, that the scale of this plot in that direction is twice than that of the lateral directions, so in reality the shower is even more stretched along that line.
 
+The library generated with the latter method contains the showers evenly distributed throughout the whole kinematic plane. The sample coverage can be seen in Figure~\ref{fig:MC_FS_library}. The distribution of the library density follows the natural occurrence of the showers during the production simulation, with lower-energy showers being more common than the higher-energy ones. The coarse $\eta$-binning ensures that the appropriate shower will be found for every particle in this kinematic region.
+
 \begin{figure}
 \center{
 \includegraphics[width=1.0\textwidth]{figures/MC_FS_stpoints.png}
@@ -112,6 +114,13 @@ The better way to handle this is to generate the library using the processes sim
 \includegraphics[width=0.75\textwidth]{figures/MC_FS_shower.png}
 \caption{The second stage of the 2-staged library production: the simulation of the shower. Every dot represents the hit, which is the energy deposit within the active material of the calorimeter. The scale of shower direction is twice than that of the lateral spread.}
 \label{fig:MC_FS_shower}}
+\end{figure}
+
+\begin{figure}
+\center{
+\includegraphics[width=0.75\textwidth]{figures/MC_FS_library.png}
+\caption{The diagram showing the population of the FCAL library for electrons over $\eta$-energy kinematic plane. The color scale shows not the density of the showers, but rather the energy responce, i.e. the amount of energy registered by the calorimeter versus the initial energy of the starting point. The density of the showers can be derived from the amount of the purple zero-level, which means "no showers present in this region". It can be seen that the average response of the calorimeter is about 2\% and also that the lower-energy bins are much more populated than the higher-energy bins.}
+\label{fig:MC_FS_library}}
 \end{figure}
 
 \begin{table}
@@ -153,14 +162,14 @@ When the particle with the proper parameters is found, it is then removed from t
 \begin{figure}
 \center{
 \includegraphics[width=1.0\textwidth]{figures/MC_FS_compare.pdf}
-\caption{The comparison of the simulated detector response with Frozen Showers enabled and disabled (full simulation).}
+\caption{The comparison of the simulated detector response with Frozen Showers enabled and disabled (full simulation). This is the single electron event simulation in FCAL region at energies 100-200~GeV.}
 \label{fig:MC_FS_compare}}
 \end{figure}
 
 \begin{figure}
 \center{
 \includegraphics[width=1.0\textwidth]{figures/MC_FS_speedup.pdf}
-\caption{The simulation speed-up for single electrons with energy ranged from 100~GeV to 200~GeV in FCAL region.}
+\caption{The simulation speed-up for single electrons events in FCAL region with energies 100-200~GeV.}
 \label{fig:MC_FS_speedup}}
 \end{figure}
 
@@ -168,47 +177,47 @@ For the MC11c and MC11d campaigns, the data from which is used in this analysis,
 
 The sample comparison of the default, non-accelerated MC samples with the samples with enabled frozen showers can be seen in Figure~\ref{fig:MC_FS_compare}. It can be seen that the difference between frozen showers enabled and disabled (full simulation) is about 2\%, which is well within the statistical uncertainty. The simulation speed-up can be seen in Figure~\ref{fig:MC_FS_speedup}. It can be seen that the CPU time for FS-enabled simulation is almost independent of the electron energy, and is two to three times quicker than the full simulation. On higher energies the speed-up is even more significant, and FCAL region is the one region with the highest number of the high-energy particles.
 
-Apart from the energy scale, another important feature of the simulated electrons is the shower shape variables which are used for electron identification. It is especially important for forward electrons, since with absence of the tracker information the shapes are the only discriminatory variables that help to identify the electrons (see Section~\ref{sec:Rec_elecID} for details). The comparison of the shower shape variables can be seen in Figures~\ref{fig:MC_fs_shape1} to~\ref{fig:MC_fs_shape6}. All plots are shown in arbitrary scale with the two plots containing the same number of electrons.
+Apart from the energy scale, another important feature of the simulated electrons is the shower shape variables which are used for electron identification. It is especially important for forward electrons, since with absence of the tracker information the shapes are the only discriminatory variables that help to identify the electrons (see Section~\ref{sec:Rec_elecID} for details). The full list of the shower shape variables can be found in Tab.~\ref{tab:rec_showershapes} in Section~\ref{sec:Rec_elecID}. The comparison of the shower shape variables can be seen in Figures~\ref{fig:MC_fs_shape1} to~\ref{fig:MC_fs_shape6}. All plots are shown in arbitrary scale with the two plots containing the same number of electrons.
 
 \begin{figure}
 \center{
 \includegraphics[width=0.8\textwidth]{figures/fsshape_lambda_centre.pdf}
-\caption{The shower depth variable. The distance of the shower barycenter from the calorimeter front face measured along the shower axis. The scale is arbitrary.}
+\caption{The shower depth variable. The distance of the shower barycenter from the calorimeter front face measured along the shower axis. Single electron events in FCAL region at 500~GeV. The scale is arbitrary.}
 \label{fig:MC_fs_shape1}}
 \end{figure}
 
 \begin{figure}
 \center{
 \includegraphics[width=0.8\textwidth]{figures/fsshape_f_max.pdf}
-\caption{Maximum cell energy variable. Fraction of the cluster energy in the most energetic cell. The scale is arbitrary.}
+\caption{Maximum cell energy variable. Fraction of the cluster energy in the most energetic cell. Single electron events in FCAL region at 500~GeV. The scale is arbitrary.}
 \label{fig:MC_fs_shape2}}
 \end{figure}
 
 \begin{figure}
 \center{
 \includegraphics[width=0.8\textwidth]{figures/fsshape_lambda_2.pdf}
-\caption{Longitudinal second momentum. Second momentum of the distance of each cell to the shower center in the longitudinal direction ($\lambda_i$). The scale is arbitrary.}
+\caption{Longitudinal second momentum. Second momentum of the distance of each cell to the shower center in the longitudinal direction ($\lambda_i$). Single electron events in FCAL region at 500~GeV. Single electron events in FCAL region at 500~GeV. The scale is arbitrary.}
 \label{fig:MC_fs_shape3}}
 \end{figure}
 
 \begin{figure}
 \center{
 \includegraphics[width=0.8\textwidth]{figures/fsshape_r_2.pdf}
-\caption{Transverse second momentum. Second momentum of the distance of each cell to the shower center in the transverse direction ($r_i$). The scale is arbitrary.}
+\caption{Transverse second momentum. Second momentum of the distance of each cell to the shower center in the transverse direction ($r_i$). Single electron events in FCAL region at 500~GeV. The scale is arbitrary.}
 \label{fig:MC_fs_shape4}}
 \end{figure}
 
 \begin{figure}
 \center{
 \includegraphics[width=0.8\textwidth]{figures/fsshape_w_norm.pdf}
-\caption{Normalized lateral momentum. $w_\mathrm{norm} = \frac{w_2}{w_2+w_\mathrm{max}}$ where $w_2$ and $w_\mathrm{max}$ are second momenta of $r_i$ for different weights per cell. The scale is arbitrary.}
+\caption{Normalized lateral momentum. $w_\mathrm{norm} = \frac{w_2}{w_2+w_\mathrm{max}}$ where $w_2$ and $w_\mathrm{max}$ are second momenta of $r_i$ for different weights per cell. Single electron events in FCAL region at 500~GeV. The scale is arbitrary.}
 \label{fig:MC_fs_shape5}}
 \end{figure}
 
 \begin{figure}
 \center{
 \includegraphics[width=0.8\textwidth]{figures/fsshape_lambda_norm.pdf}
-\caption{Normalized longitudinal momentum. $\lambda_\mathrm{norm} = \frac{\lambda_2}{\lambda_2+\lambda_\mathrm{max}}$ where $\lambda_2$ and $\lambda_\mathrm{max}$ are second momenta of $\lambda_i$ for different weights per cell. The scale is arbitrary.}
+\caption{Normalized longitudinal momentum. $\lambda_\mathrm{norm} = \frac{\lambda_2}{\lambda_2+\lambda_\mathrm{max}}$ where $\lambda_2$ and $\lambda_\mathrm{max}$ are second momenta of $\lambda_i$ for different weights per cell. Single electron events in FCAL region at 500~GeV. The scale is arbitrary.}
 \label{fig:MC_fs_shape6}}
 \end{figure}
 
@@ -236,7 +245,7 @@ During this analysis the MC samples from both MC11c and MC11d campaigns were use
 
       \hline
     \end{tabular}
-    \caption{Signal Monte Carlo samples. The sample marked with $^{\mathrm{d}}$ was taken from the MC11d campaign, the others are from the MC11c.}
+    \caption{Signal Monte Carlo samples. The sample marked with $^{\mathrm{d}}$ was taken from the MC11d campaign, the others are from the MC11c. The third column represents the filter ratio for the sample, and shows how much raw data corresponds to an event in this sample. The number in brackets is the theoretically predicted uncertainty. The fourth column shows the number of events in the sample.}
     \label{tab:MC_periods}
   \end{center}
 \end{table}
@@ -303,7 +312,7 @@ During this analysis the MC samples from both MC11c and MC11d campaigns were use
 
       \hline \hline
     \end{tabular}
-    \caption{ Background Monte Carlo samples. The samples marked with $^{\mathrm{d}}$ were taken from the MC11d campaign, the others are from the MC11c. }
+    \caption{ Background Monte Carlo samples. The samples marked with $^{\mathrm{d}}$ were taken from the MC11d campaign, the others are from the MC11c. The third column represents the filter ratio for the sample, and shows how much raw data corresponds to an event in this sample. The number in brackets is the theoretically predicted uncertainty. The fourth column shows the number of events in the sample.}
     \label{tab:MC_bg}
   \end{center}
 \end{table}
@@ -338,7 +347,7 @@ The MC samples have a number of known shortcomings, and some data distributions 
 \begin{figure}
 \center{
 \includegraphics[width=0.6\textwidth]{figures/MCrew_zpt.pdf}
-\caption{The comparison of the $Z$ boson \pt\ distribution for various MC generators. Distributions are normalized to arbitrary scale.}
+\caption{The comparison of the shapes of $Z$ boson \pt\ distribution for various MC generators. Distributions are normalized to arbitrary scale.}
 \label{fig:MC_zpt}}
 \end{figure}
 

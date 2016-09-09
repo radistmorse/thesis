@@ -3,17 +3,17 @@
 
 The measurement of the \Zee\ production cross-section is the main purpose of this work, and the details of the methodology of the measurement are discussed in this chapter.
 
-The ATLAS detector, like every other physical device, has its limitations, and the signal obtained from the detector is thus distorted. The process of estimating the results that would have been achieved with an ideal detector based on the results using the real detector is called the unfolding process (also called "deconvolution" or "unsmearing" in mathematical literature), and is the one of the most important stages of the measurement of the cross-section. The main idea of the unfolding is that if $f_\mathrm{meas}(x)$ is the spectrum of a value measured using the real detector and $f_\mathrm{ideal}(x)$ is the the spectrum that would have been measured with an ideal detector, then
+The ATLAS detector, like every other physical device, has its limitations, and the signal obtained from the detector is thus distorted. The process of estimating the results that would have been achieved with an ideal detector based on the results using the real detector is called the unfolding process (also called "deconvolution" or "unsmearing" in mathematical literature), and is the one of the most important stages of the measurement of the cross-section. The main idea of the unfolding is that if $f_\mathrm{meas}(x)$ is the spectrum of a value measured using the real detector and $f_\mathrm{truth}(x)$ is the the spectrum that would have been measured with an ideal detector, then
 \begin{equation}
-f_\mathrm{meas}(x) = \int R(x|y) \, f_\mathrm{ideal}(y)dy
+f_\mathrm{meas}(x) = \int R(x|y) \, f_\mathrm{truth}(y)dy
 \end{equation}
 where $R(x|y)$ is the detector response function. In case of binned distribution this equation can be written as
 \begin{equation}
-v^\mathrm{meas}_i = \sum_j R_{ij} \, v^\mathrm{ideal}_j \:\:\:\:\: i,j = 1, ... ,N
+v^\mathrm{meas}_i = \sum_j R_{ij} \, v^\mathrm{truth}_j \:\:\:\:\: i,j = 1, ... ,N
 \end{equation}
-where $v^\mathrm{meas}_i$ and $v^\mathrm{ideal}_i$ are the measured and ideal values accordingly. Generally speaking, the number of bins in $v^\mathrm{meas}$ and $v^\mathrm{ideal}$ spectra can be different, and the matrix $R_{ij}$ would be rectangular, but in this analysis the same binning is used for both. The main task of unfolding is to determine the response matrix, and then to calculate the unfolding matrix based on it. The easiest solution would be to just invert the response matrix:
+where $v^\mathrm{meas}_i$ and $v^\mathrm{truth}_i$ are the measured and ideal values accordingly. Generally speaking, the number of bins in $v^\mathrm{meas}$ and $v^\mathrm{truth}$ spectra can be different, and the matrix $R_{ij}$ would be rectangular, but in this analysis the same binning is used for both. The main task of unfolding is to determine the response matrix, and then to calculate the unfolding matrix based on it. The easiest solution would be to just invert the response matrix:
 \begin{equation}
-v^\mathrm{ideal}_i = \sum_j R^{-1}_{ij} \, v^\mathrm{meas}_j \:\:\:\:\: i,j = 1, ... ,N
+v^\mathrm{truth}_i = \sum_j R^{-1}_{ij} \, v^\mathrm{meas}_j \:\:\:\:\: i,j = 1, ... ,N
 \end{equation}
 which is not always the best choice, because it produces very large distortions in case of limited statistics. The task of propagating the systematic uncertainties through the unfolding process also must be solved.
 
@@ -29,7 +29,7 @@ where:
 \item {\bfseries $N^i_{\text{gen}}$} is the sum of event weights generated in bin $i$.
 \end{itemize}
 
-The purity is thus a measure of in-migration, which shows the amount of foreign events reconstructed in the given bin, while the stability is a measure of the out-migration, which shows the amount of events that were reconstructed in other bins for every given bin. In terms of response matrix, the distribution with high purity and stability will have a mostly diagonal matrix. This will warrant for a use of a bin-by-bin unfolding. This method, dealing with every bin independently, will produce a diagonal matrix. But if the migrations between bins are substantial, ignoring it will highly increase the distortions in the unfolded results, in which case the Bayesian unfolding becomes preferable. The results of the purity and stability studies for the \Zee\ central-forward analysis suggested that the Bayesian unfolding would be more effective (see Figure~\ref{fig:ZeeCS_purity_stability} for the exact values of the purity and stability of the 2011 \Zee\ central-forward analyses). In the following sections the methodology for both bin-by-bin and Bayesian unfoldings are shown. Also, the methodology of the result combination is explained, which mathematically is very close to unfolding, as it is the same inverse problem.
+The purity is thus a measure of in-migration, which shows the amount of foreign events reconstructed in the given bin, while the stability is a measure of the out-migration, which shows the amount of events that were reconstructed in other bins for every given bin. In terms of response matrix, the distribution with high purity and stability will have a mostly diagonal matrix. This will warrant for a use of a bin-by-bin unfolding. This method, dealing with every bin independently, will produce a diagonal matrix. But if the migrations between bins are substantial, ignoring it will highly increase the distortions in the unfolded results, in which case the Bayesian unfolding becomes preferable. The results of the purity and stability studies for the \Zee\ central-forward analysis suggested that the Bayesian unfolding would be more effective (see Figure~\ref{fig:ZeeCS_purity_stability} for the exact values of the purity and stability of the 2011 \Zee\ central-forward analyses). In the following sections the methodology for both bin-by-bin and Bayesian unfoldings are shown. Also, the methodology of the result combination is explained, which mathematically is very close to unfolding, as it is the same inverse problem (when the same distribution is measured with several partially independent methods, their combination becomes a complicated task).
 
 \begin{figure}
   \centering
@@ -37,7 +37,7 @@ The purity is thus a measure of in-migration, which shows the amount of foreign 
   \includegraphics[width=0.45\textwidth]{figures/ZCF_stability_peak} \\
   \includegraphics[width=0.45\textwidth]{figures/ZCF_purity_high}
   \includegraphics[width=0.45\textwidth]{figures/ZCF_stability_high} \\
-  \caption{Purity (left) and stability (right) for the Z central-forward peak mass (top) and high mass (bottom) analyses.}
+  \caption{Purity (left) and stability (right) for the Z central-forward peak mass (top) and high mass (bottom) analyses. The plots were made using the \Zee\ MC samples with standard CF analysis cuts.}
   \label{fig:ZeeCS_purity_stability}
 \end{figure}
 
@@ -84,7 +84,7 @@ $3.20 < |y_{Z}| <3.60$\\
 \section{Bin-by-bin unfolding}
 \label{sec:ZCS_bbb_unf}
 
-The bin-by-bin unfolding doesn't take into account the migrations between bins, and works with every bin separately. The unfolded value can be then translated into the cross-section value, and the formulae for both integrated and differential cross-sections are:
+The bin-by-bin unfolding doesn't take into account the migrations between bins, and works with every bin separately. The unfolded value can be translated into the cross-section value, and the formulae for both integrated and differential cross-sections are:
 \begin{equation}
 \sigma_{tot} = \sigma_{Z} \times BR(\Zee) = \frac{N - B}{C \cdot E \cdot A \cdot L_{int}  \cdot \Gamma}\,,
 \end{equation}
@@ -144,7 +144,7 @@ The so-called Bayesian unfolding differs from the bin-to-bin unfolding in that i
 \begin{equation}
 P(C_i|E) = \frac{P(E|C_i) \, P(C_i)}{\sum\limits_l P(E|C_l) \, P(C_l)}
 \end{equation}
-where $C_i$ and $E$ are the {\itshape cause} and {\itshape effect}, where the effect would be an observed event reconstructed within certain bin, and the causes are the true events that happen in the certain bin. $P(C_i)$ is then the initial probability of the event to happen within the certain bin, and $P(E|C_i)$ is the conditional probability of said event to produce the effect (reconstructed particles). The formula may appear useless, as the initial probabilities $P(C_i)$ that participate in it are actually the very thing we are trying to calculate. But in reality, the values can be derived with the increasing number of observations, provided no assumptions were made on the values a priori. This iterative method of unfolding was developed by G. D'Agonini in 1995 and was since widely used by many experiments~\cite{lib:zcs_bayes}. The conditional probabilities $P(E|C_i)$ can be derived from MC simulations, and are constant throughout the observations (iterations). The different types of MC generators, though, can provide different values for those probabilities, and hence must be used to determine the boundaries of systematic uncertainties.
+where $C_i$ and $E$ are the {\itshape cause} and {\itshape effect}, where the effect would be an observed event reconstructed within certain bin, and the causes are the true events that happen in the certain bin. $P(C_i)$ is then the initial probability of the event to happen within the certain bin, and $P(E|C_i)$ is the conditional probability of said event to produce the effect (reconstructed particles). The formula may appear useless, as the initial probabilities $P(C_i)$ that participate in it are actually the very thing we are trying to calculate. But as it was found, the values can be derived with the increasing number of observations, provided no assumptions were made on the values a priori. This iterative method of unfolding was developed by G. D'Agostini in 1995~\cite{lib:zcs_bayes} and was since widely used by many experiments. The conditional probabilities $P(E|C_i)$ can be derived from MC simulations, and are constant throughout the observations (iterations). The different types of MC generators, though, can provide different values for those probabilities, and hence must be used to determine the boundaries of systematic uncertainties.
 
 To describe the unfolding method, lets assume $n(E)$ the number of observed events with the effect $E$, and
 \begin{equation}
