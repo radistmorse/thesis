@@ -14,7 +14,7 @@
 \usepackage{csquotes}
 \MakeOuterQuote{"}
 
-\renewcommand{\chaptername}{Chapter} % uncomment to print only "1" not "Chapter 1"
+\renewcommand{\chaptername}{Chapter}
 
 \newcommand{\dd}{\partial}
 
@@ -166,7 +166,7 @@ collected at $\sqrt{s} = 7$~TeV}
 \newcommand{\double}{0.385}
 
 \begin{document}
-\linenumbers
+%\linenumbers
 \hypersetup{linktocpage}
 %\input definitions
 
@@ -226,13 +226,12 @@ collected at $\sqrt{s} = 7$~TeV}
 \begin{tabular}{ll}
 Gutachter der Dissertation: & PD.~Dr.~Alexandre Glazov \\
                             & PD.~Dr.~Johannes Haller \\
-                           % & Prof.~Dr.~Stefan~S\"oldner-Rembold \\
     \\
 Gutachter der Disputation:  & PD.~Dr.~Alexandre Glazov \\
-							& Prof.~Dr.~Johannes Haller \\
+							              & PD.~Dr.~Johannes Haller \\
 
     \\
-Datum der Disputation: & I wonder that myself \\
+Datum der Disputation: & 1 Dezember 2016 \\
 \\
 Vorsitzender des Pr\"ufungsausschusses: & Prof.~Dr.~Someone1 \\
 Vorsitzender des Promotionsausschusses: & Prof.~Dr.~Someone2 \\
@@ -248,7 +247,7 @@ Hiermit erkla\"are ich an Eides statt, dass ich die vorliegende Dissertationssch
 I hereby declare, on oath, that I have written the present dissertation by my own and have not used other than the acknowledged resources and aids.
 
 \vspace{2cm}
-\hspace{0.6\textwidth} Hamburg, 18/12/2015
+\hspace{0.6\textwidth} Hamburg, 03/10/2016
 
 %: ----------------------- abstract ------------------------
 
@@ -302,11 +301,16 @@ In Zuge dieser Arbeit wurde die sogennante Frozen Showers Simulationsmethode ent
 \include{14_Results}
 \include{15_Summary}
 
+\newpage
+\phantomsection
+\begin{tiny}
+  \listoffigures
+\end{tiny}
 
 
+\newpage
+\phantomsection
 \bibliographystyle{atlasBibStyleWithTitle}
-%\nocite{*}
-\thispagestyle{empty}
 \bibliography{Thesis}
 
 \newpage
